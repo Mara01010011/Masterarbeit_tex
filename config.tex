@@ -1,0 +1,149 @@
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{subcaption}
+\usepackage{wrapfig,graphicx}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{braket}
+\usepackage{color}
+\usepackage[colorlinks=true, linkcolor=cyan]{hyperref}
+\usepackage[ugly]{units}
+
+\usepackage{marvosym}
+%\usepackage{hyperref}
+%\hypersetup{
+%	colorlinks = true,
+%	linkcolor = cyan,
+%	urlcolor = cyan
+%}
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+\let\oldunit\unit
+\renewcommand{\unit}[1]{\oldunit{\,#1}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\diff}{\text{d}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+%\usepackage[singlelinecheck=off]{caption}
+\setkomafont{captionlabel}{\bfseries}
+\renewcommand*{\captionformat}{.~~}
+\setcapindent{0pt}
+\addto\captionsngerman{\renewcommand\figurename{Abb.}}
+
+
+\usepackage{listings,xcolor}
+\renewcommand{\lstlistingname}{Programmcode}
+% Custom colors
+\definecolor{pl_background}{rgb}{0.95,0.95,0.95}
+\definecolor{pl_comment}{rgb}{0.12, 0.38, 0.18 }
+\definecolor{pl_ifelse}{rgb}{0.74,0.74,.29}
+\definecolor{pl_keyword}{rgb}{0.37, 0.08, 0.25}
+\definecolor{pl_string}{rgb}{0.06, 0.10, 0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+% Vordefiniertes Programmlisting
+\lstset{
+	language = C,
+	basicstyle = \small\sffamily,
+	backgroundcolor = \color{pl_background},
+	stringstyle = \color{pl_string},
+	keywordstyle = \color{pl_keyword}\bfseries,
+	commentstyle = \color{pl_comment}\itshape,
+	frame = lrbt,
+	numbers = left,
+	showstringspaces = false,
+	breaklines = true,
+	xleftmargin = 15pt,
+	emph = [1]{php},
+	emphstyle = [1]\color{black},
+	emph = [2]{if,and,or,else},
+	emphstyle = [2]\color{pl_ifelse}
+}
+
+\lstset{
+	language = Matlab,
+	basicstyle = \small\sffamily,
+	backgroundcolor = \color{pl_background},
+	stringstyle = \color{pl_string},
+	keywordstyle = \color{pl_keyword}\bfseries,
+	commentstyle = \color{pl_comment}\itshape,
+	frame = lrbt,
+	numbers = left,
+	showstringspaces = false,
+	breaklines = true,
+	xleftmargin = 15pt,
+	emph = [1]{php},
+	emphstyle = [1]\color{black},
+	emph = [2]{if,and,or,else},
+	emphstyle = [2]\color{pl_ifelse},
+	tabsize=4
+}
+
+% Python style for highlighting
+\newcommand{\pythonstyle}{\lstset{
+		language=Python,
+		basicstyle=\ttm,
+		numbers = left,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		backgroundcolor = \color{pl_background},
+		breaklines = true,
+		xleftmargin = \parindent,
+		tabsize = 4,					% Aendert tab einzug, muss aber mit gobble abgestimmt werden
+		gobble = 7,
+		showstringspaces=false            % 
+}}
+
+\newcommand{\bashstyle}{\lstset{
+		language = bash,
+		basicstyle=\ttm,
+		numbers = left,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		stringstyle=\color{deepgreen},
+		backgroundcolor = \color{pl_background},
+		breaklines = true,
+		xleftmargin = \parindent,
+		tabsize = 4,					% Aendert tab einzug, muss aber mit gobble abgestimmt werden
+		gobble = 7,
+		showstringspaces=false  					
+}}
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+	\renewcommand{\lstlistingname}{Code}
+	\pythonstyle
+	\lstset{#1}
+}
+{}
+\lstnewenvironment{bash}[1][]
+{
+	\renewcommand{\lstlistingname}{Code}
+	\bashstyle
+	\lstset{#1}
+}{}
+
+\pagestyle{headings}
+\usepackage{lipsum}
+
+%remove all empty pages
+\renewcommand\cleardoublepage{%
+	\clearpage
+	\ifodd\value{page}\else\stepcounter{page}\fi
+}
