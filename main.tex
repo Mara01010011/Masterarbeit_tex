@@ -5,7 +5,7 @@ BCOR=10mm,
 department=FakEI,
 %lucida,
 %KeepRoman,
-twoside,
+oneside,
 parskip=half,
 automark,
 %headsepline,
@@ -30,16 +30,15 @@ automark,
 
 \begin{document}
 	\numberwithin{equation}{section}
-	\maketitle
+\maketitle
 %\cleardoublepage
 \makedeclaration
+
 \thispagestyle{empty}
 \tableofcontents	
 \clearpage	
 \setcounter{page}{1}
-%\section*{Einleitung} 
-%\input{einleitung}
-%
+
 \section{Einleitung}
 * über humanoide Roboter (Vor- und Nachteile) \\
 * über nao und seine beschaffenheit \\
@@ -48,9 +47,9 @@ automark,
 
 * Aufbau des Schuhs
 * 
-%\newpage
-%\section{Theoretischer Hintergrund}
-%\input{theorie}
+\newpage
+\section{Theoretischer Hintergrund}
+\input{theorie}
 %
 %\newpage
 %\section{Versuchsaufbau}
@@ -60,9 +59,9 @@ automark,
 %\section{Versuchsdurchführung}
 %\input{durchfuehrung}
 %
-%\newpage
-%\section{Auswertung und Interpretation}
-%\input{auswertung}
+\newpage
+\section{Auswertung und Interpretation}
+\input{auswertung}
 %
 %\newpage
 %\section{Fazit und Ausblick}
@@ -82,5 +81,5 @@ automark,
 
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "main_Navier-Stokes"
+%%% TeX-master: "main"
 %%% End:

@@ -138,12 +138,3 @@
 	\bashstyle
 	\lstset{#1}
 }{}
-
-\pagestyle{headings}
-\usepackage{lipsum}
-
-%remove all empty pages
-\renewcommand\cleardoublepage{%
-	\clearpage
-	\ifodd\value{page}\else\stepcounter{page}\fi
-}
