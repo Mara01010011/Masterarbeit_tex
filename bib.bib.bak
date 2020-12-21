@@ -1,0 +1,25 @@
+% Encoding: UTF-8
+
+@Book{map2020,
+  title     = {Magneto-Active Polymers - Fabrication, characterisation, modelling and simulation at the micro- and macro-scale},
+  publisher = {De Gruyter},
+  year      = {2020},
+  author    = {Jean-Paul Pelteret und Paul Steinmann},
+  doi       = {https://doi.org/10.1515/9783110418576},
+}
+
+@Manual{nao_dev_guide,
+  title     = {NAOqi - Developer guide},
+  author    = {SoftBank Robotics},
+  timestamp = {2020-12-21},
+  url       = {https://developer.softbankrobotics.com/nao6/naoqi-developer-guide},
+}
+
+@Manual{nao_docu,
+  title     = {NAO - Documentation},
+  author    = {SoftBank Robotics},
+  timestamp = {2020-12-21},
+  url       = {https://developer.softbankrobotics.com/nao6/nao-documentation},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
