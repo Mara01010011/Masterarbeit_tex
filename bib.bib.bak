@@ -104,4 +104,25 @@
   urldate   = {2021-01-04},
 }
 
+@Manual{nao_naoqi_docu,
+  title   = {NAO (NAOqi-2.1) NAO - documentation},
+  url     = {https://developer.softbankrobotics.com/nao-naoqi-2-1/nao-documentation/nao-technical-guide/},
+  urldate = {2021-01-04},
+}
+
+@Misc{schraubmagnet,
+  timestamp = {2021-01-06},
+  url       = {https://www.supermagnete.de/magnete-zum-anschrauben/quadermagnet-40-x-40-x-4mm_CS-Q-40-40-04-N},
+  urldate   = {2021-01-06},
+}
+
+@InProceedings{8466225,
+  author    = {P. {Shahverdi} and M. J. {Ansari} and M. T. {Masouleh}},
+  title     = {Balance Strategy for Human Imitation by a NAO Humanoid Robot},
+  booktitle = {2017 5th RSI International Conference on Robotics and Mechatronics (ICRoM)},
+  year      = {2017},
+  pages     = {138-143},
+  doi       = {10.1109/ICRoM.2017.8466225},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

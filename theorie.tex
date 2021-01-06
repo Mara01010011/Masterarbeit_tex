@@ -1,34 +1,36 @@
-\subsection{Aufbau des Nao}
+\subsection{Aufbau des NAO}
 %* zu softbank robotics
 %* allgemeines zur größe, zu den freiheitsgraden und den Sensoren
 %* Genaueres zu den Sensoren, die gemessen wurden
 %* Grenzen des Naos
-Nao ist ein $574 \unit{mm}$ großer humanoider Roboter ursprünglich entwickelt von dem französischen Unternehmen Aldeberan Robotics, welche 2015 von Softbank Group aufgekauft \cite{aldebaran_to_softbank} und in Softbank Robotics umbenannt wurde. 
 
-\begin{wrapfigure}{r}{0.5\linewidth}
-	\vspace{-0.5cm}
+\begin{wrapfigure}{hr}{0.3\linewidth}
+	\vspace{-1cm}
 	\centering
 	\includegraphics[width=\linewidth]{Bilder/naov6.png}
-	\caption{Nao}
-	%\cite[in /kinematics-data/joints]{nao_docu_dev_guide}}
+	\caption{NAO V6 \cite{nao_docu_dev_guide}}
 	\label{nao_v6}
-	\vspace{-0,5cm}
+	\vspace{-1.8cm}
 \end{wrapfigure}
+NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}) ursprünglich entwickelt von dem französischen Unternehmen Aldeberan Robotics, welche 2015 von Softbank Group aufgekauft \cite{aldebaran_to_softbank} und in Softbank Robotics umbenannt wurde. Während NAO's große Schwester Pepper mit ihren $1,20 \unit{m}$ mit einem Tablet und Rollen statt Beinen ausgestattet ist \cite{about_pepper}, gibt es NAO in verschiedenen Ausführungen, unter anderem nur ab der Hüfte aufwärts oder mit Beinen. Es handelt sich hier um Roboter, die unter anderem Kinder und Jugendlichen die Robotik näher bringen sollen und der Vorführung von Mensch-Roboter Interaktionen dienen. NAO bietet außerdem die Gelegenheit zweibeinige Robotersysteme zu studieren und ist bereits in psychologischen Studien verwendet worden (cite). 
 
-\begin{figure}[htb]
+\begin{figure}[hb]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Bilder/hardware_llegjoint.png}
-	\caption{Position und mögliche Winkel der Aktoren des linken Beins. \cite[in /kinematics-data/joints]{nao_docu_dev_guide}}
-	\label{hardware_llegjoint}
-\end{figure}
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Bilder/hardware_rlegjoint.png}
-	\caption{Position und mögliche Winkel der Aktoren des rechten Beins. \cite[in /kinematics-data/joints]{nao_docu_dev_guide}}
-	\label{hardware_rlegjoint}
-\end{figure}
+	\vspace{2cm}
+	\includegraphics[width=0.7\linewidth]{Bilder/nao_h25_pres.png}
+	\caption{Sensorenüberblick des NAO-H25 Version 6 \cite[in /H25]{nao_naoqi_docu}}
+	\label{nao_v6_h25}
+\end{figure}  
 
-\begin{figure}[htb]
+Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern deren Gelenke positionsbasierenden sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen LEDs, die Vorder- und Rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und Temperaturmessung ausgerüstet und in seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenen genauer eingegangen.
+
+\subsubsection{Druckempfindlicher Widerstand}
+% Drucksensoren an den Füßen
+% Wie sie funktionieren
+% was kann man auslesen und wozu
+% Probleme (cite paper, was die Drucksensoren benutzt hat)
+% Graph zu Gewicht des Naos (es wird weniger verzeichnet für MAP Sohlen)
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Bilder/hardware_semelles.png}
 	\caption{Sensoren am Fuß. %\cite[in /kinematics-data/joints]{nao_docu_dev_guide}
@@ -36,6 +38,35 @@ Nao ist ein $574 \unit{mm}$ großer humanoider Roboter ursprünglich entwickelt 
 	\label{hardware_semelles}
 \end{figure}
 
+\subsubsection{Aktoren und Sensoren der Beinen}
+% Aktoren und Sensoren in den Beinen
+% Ausgabe eines Sensors und technische Details
+% Wichtige Ausgaben für Stabilität
+% fehlerhafter Gang
+
+\subsubsection{Gyroskop}
+% Mit was misst Nao
+% Wie genau ist das Gyroskop
+% technische Details
+
+\begin{figure}[tb]
+	\hfill
+	\begin{subfigure}[c]{\linewidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Bilder/hardware_llegjoint.png}
+	\end{subfigure}
+	\begin{subfigure}[c]{\linewidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Bilder/hardware_rlegjoint.png}
+	\end{subfigure}
+	\hfill
+	\caption{Das obere Bild zeigt Vorder- und Seitenansicht der Positionen und möglichen Winkel des linken Beins. Die untere Abbildung veranschaulicht dieselben Parameter für das rechte Bein. \cite[in /kinematics-data/joints]{nao_docu_dev_guide}}
+	\label{hardware_legjoint}
+	%\vspace{0.1cm}
+\end{figure}
+
+
+\FloatBarrier
 \subsection{Magneto-aktive Polymere}\label{kap_MAP}
 %	 woher kommt der begriff, was ist es
 %	 woher bestand die bisherige Forschung, warum ist es interessant
@@ -56,7 +87,10 @@ Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche
 
 Desweiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer genutzt (cite suchen), ebenso wird der 3D Druck von magneto-aktiven Polymeren (cite von uns) wird bereits erforscht.
 
-\subsection{Verwendete Software}
+%\subsection{Verwendete Software}
+% Autodesk Inventor -> Shape Generator
+% Matlab -> zur Auswertung
+% Naoqi
 	
 %%% Local Variables:
 %%% mode: latex
