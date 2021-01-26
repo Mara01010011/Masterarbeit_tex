@@ -1,4 +1,6 @@
-\subsection{Schuhkonstruktion}
+In diesem Kapitel wird auf alle selbstkonstruierten Komponenten eingegangen, welche für die Messungen benötigt wurden. Zum einen gibt es eine Schuhkonstruktion, die es erlaubt, die in einer Gussform angefertigten MAP Sohlen einzuhängen, zum anderen wurde ein Laufsteg mit Rampenfunktion entworfen, welche es erlaubt, Magnete unter die Lauffläche zu montieren. 
+
+\subsection{Schuhkonstruktion} \label{Schuhkonstruktion}
 \begin{figure}[tb]
 	\hfill
 	%\centering
@@ -11,10 +13,15 @@
 		\includegraphics[width=\linewidth]{Bilder/Schuh_unten.png}
 	\end{subfigure}
 	\hfill
-	\caption{}
+	\caption{Linker Schuh in Autodesk Inventors, Links von Oben, Rechts von Unten.}
 	\label{Schuh_Inventor}
 	%\vspace{0.1cm}
 \end{figure}
+Die Hülle eines Fußes von NAO besteht aus einem zweiteiligen Oberteil, welches das Fußgelenk abschließt und nur mit dem unteren Teil zusammen mit 4 Schrauben fest sitzt. Die in Kapitel \ref{aufbau_NAO} beschriebenen vier Drucksensoren liegen dabei in dem unteren Teil auf Erhöhungen auf. Um die Auswirkungen anderer Sohlen für NAO messen zu können, muss der untere Teil des Fußes ausgetauscht werden. Dieser 	\glqq Schuh\grqq{} welcher die ursprüngliche Fußsohle ersetzt, enthält wiederum einen Steckplatz für die MAP Sohlen in verschiedenen Stärkegraden. 
+
+In Abb. \ref{Schuh_Inventor} sind links die vier flachen Zylinder zu sehen, auf denen die Drucksensoren aufliegen. Durch die vier Zylinder an den Seiten werden Schrauben gelegt, welche an das obere Teil des Fußes von NAO geschraubt werden. Die Außenform umschließt den oberen Teil während eine zweite Erhöhung, welche an den Innenseiten verläuft, auf dem Rand des oberen Teils aufsitzt, sodass die Passform fest ineinander greift. Da das gesamte Gewicht des NAO auf den 4 Drucksensoren lastet, kann Druckmaterial für die restliche Gesamtfläche bis auf stabilitätserhaltende Streben eingespaart werden. Diese Form wurde mit dem Shape Generator von Autodesk Inventor (cite) generiert, sodass sie längs bis zu einem $45^\circ$ Winkel ohne zu brechen gebogen werden kann. Die instabilsten Stellen sind die Zylinder der Schraubvorrichtung, welche mit Sekundenkleber verstärkt werden können. Die Instabilität ist auf den schichteweise Druckvorgang mit einem   
+
+Die Unterseite, zu sehen in Abb. \ref{Schuh_Inventor} rechts, ist ein Hohlraum für die MAP Sohle zusammen mit den viereckigen Steckeinlässen für die Halterung. Die Seiten des Schuhs sind so hoch, dass das MAP, welches in der Gussform gegossen wurde, etwa $1 \unit{mm}$ herausragt. Andernfalls würde NAO auf der Schuhkante laufen und nicht auf dem MAP.  
 % wesentliche Aufgabe des Schuhs
 % Stabiler Ersatz der vorherigen Sohle -> hält nur mit den Schrauben
 % Druckverteilung auf die Sensoren 
@@ -43,13 +50,13 @@
 	\label{Gussform_Inventor}
 	%\vspace{0.1cm}
 \end{figure}
-Das verwendete Polymer als Grundlage für das MAP ist ein additiv vernetzendes Silikon von (Firma und cite einbinden). Während dem Mischverfahren ist es flüssig und muss deshalb in eine Form gegeben werden. Silikon selbst lässt sich nur sehr schlecht durch etwaige Klebstoffe nach der Vernetzung verkleben. Deshalb wird hier wie in Abb. \ref{Gussform_Inventor} zu sehen ist, eine $2\unit{mm}$ dicke Stangenkonstruktion eingehängt, welche bis auf die 6 Enden mit MAP umschlossen wird. Diese, aus PLA gedruckte Konstrukt ist flexibel und kann deshalb durch Verbiegen in die Verankerungen gedrückt werden. Nach der vollständigen Vernetzung kann die Sohle aus der Form entnommen und in den Schuh aus dem vorherigen Kapitel eingesetzt werden. 
+Das verwendete Polymer als Grundlage für das MAP ist ein additiv vernetzendes Silikon von (Firma und cite einbinden). Während dem Mischverfahren ist es flüssig und muss deshalb in eine Form gegeben werden. Silikon selbst lässt sich nur sehr schlecht durch etwaige Klebstoffe nach der Vernetzung verkleben. Deshalb wird hier wie in Abb. \ref{Gussform_Inventor} zu sehen ist, eine $2\unit{mm}$ dicke Stangenkonstruktion eingehängt, welche bis auf die 6 Enden mit MAP umschlossen wird. Diese aus PLA gedruckte Konstrukt ist flexibel und kann deshalb durch Verbiegen in die Verankerungen gedrückt werden. Nach der vollständigen Vernetzung kann die Sohle aus der Form entnommen und in den Schuh aus dem vorherigen Kapitel eingesetzt werden. 
 
-Die vier Zylinder dienen einem Platzhalter um die sechs Ecken in der Halterung des Schuhs für einen besseren Halt festzukleben und dann durch die Löcher des MAPs die Schrauben lockern zu können. 
+Die vier Zylinder dienen als Platzhalter um die sechs Ecken in der Halterung des Schuhs für einen besseren Halt festzukleben und dann durch die Löcher des MAPs die Schrauben lockern zu können. 
 
 \subsection{Laufstegkonstruktion} \FloatBarrier
 Der NAO Roboter ist für den Einsatz auf geraden Bodenflächen im Innenbereich ausgelegt wobei er bei einem Bewegungsablauf ohne Anpassung an die Umwelt wie mit dem Befehl \texttt{moveTo()} durch Rutschen nicht immer die gleiche Strecke zurücklegt. 
-Um wiederholbare Messreihen garantieren zu können ist eine Teststrecke von Nöten. Desweiteren sind verschiedene, flache Untergründe für eine Sohlenentwicklung interessant.
+Um wiederholbare Messreihen garantieren zu können ist eine Teststrecke von Nöten. Des Weiteren sind verschiedene, flache Untergründe für eine Sohlenentwicklung interessant.
 Außerdem kann auf das MAP nur Einfluss genommen werden, wenn ein magnetisches Feld angelegt wird. Deshalb muss wurde ein Laufsteg mit einem Hohlraum angefertigt, um unter der Fläche, auf der NAO läuft, Magneten angebracht werden. 
 
 \begin{figure}[tb]
@@ -79,7 +86,7 @@ Außerdem kann auf das MAP nur Einfluss genommen werden, wenn ein magnetisches F
 % Aufbau der Rampe
 Der Laufsteg besteht aus einer $120\times66,4 \unit{cm}$ großen Pressholzplatte, die auf der Oberseite mit einem Aluminiumkonstrukt erweitert ist, welches die Einschubplatten von beiden Längsseiten und nach oben hin abschließt, Abb. \ref{Rampe_Inventor} links. Auf den kurzen Seiten verriegeln jeweils Zwei drehbare Keile den Einschub, sodass die Platten eingeschlossen werden, Abb. \ref{Rampe_Seite_Inventor}.
 
-Auf der Unterseite sind an den Längsseiten zwei mit T-Nut versehene Aluminumstangen angebracht, sowie eine zweiteilige Stangenkonstruktion, die eine Winkelverstellung mit Raste erlaubt, zu sehen in Abb. \ref{Rampe_Inventor} rechts. Die einstellbaren Winkel betragen ca. $5^\circ$ bis $17^\circ$, oder es wird für $0^\circ$ vollständig eingeklappt.
+Auf der Unterseite sind an den Längsseiten zwei mit T-Nut versehene Aluminiumstangen angebracht, sowie eine zweiteilige Stangenkonstruktion, die eine Winkelverstellung mit Raste erlaubt, zu sehen in Abb. \ref{Rampe_Inventor} rechts. Die einstellbaren Winkel betragen ca. $5^\circ$ bis $17^\circ$, oder es wird für $0^\circ$ vollständig eingeklappt.
   
 
 Man hat bereits NAO schräge Flächen gehen lassen wie in (cite). Dies erfordert einen komplett anderen Gang und hätte den Rahmen dieser Arbeit gesprengt. Die Neodymmagnete, die verwendet wurden, haben eine Haftkraft von ca. $16 \unit{kg}$, eine Maße von $40\times40\times4 \unit{mm}$ \cite{schraubmagnet} und wurden an die Unterseite der Rampe geschraubt. Die ersten Versuche ergaben schließlich, dass das MAP nur bei einem Abstand unter den Einlageplatten reagierte. Deshalb wurde in den hiesigen Messungen nur ohne Platten gemessen.

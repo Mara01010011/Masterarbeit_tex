@@ -1,0 +1,202 @@
+	\begin{python} [caption={Pythonprogramm für Messaufnahmen}, label=Messungscode]
+		# ! /usr/bin/env python
+		# -*- encoding: UTF-8 -*-
+		
+		"""Example: Use getData Method to Use FSR Sensors"""
+		
+		import qi
+		import argparse
+		import sys
+		import time
+		import csv
+		import re
+		import shutil
+		from tempfile import mkstemp
+		import os
+		
+		def sed(pattern, replace, source, dest=None, count=0):
+			"""Reads a source file and writes the destination file.
+			
+			In each line, replaces pattern with replace.
+			
+			Args:
+			pattern (str): pattern to match (can be re.pattern)
+			replace (str): replacement str
+			source  (str): input filename
+			count (int): number of occurrences to replace
+			dest (str):   destination filename, if not given, source will be over written.
+			"""
+			
+			fin = open(source, 'r')
+			num_replaced = count
+			
+			if dest:
+				fout = open(dest, 'w')
+			else:
+				fd, name = mkstemp()
+				fout = open(name, 'w')
+			
+			for line in fin:
+				out = re.sub(pattern, replace, line)
+				fout.write(out)
+				
+				if out != line:
+				num_replaced += 1
+				if count and num_replaced > count:
+				break
+			try:
+				fout.writelines(fin.readlines())
+			except Exception as E:
+				raise E
+			
+			fin.close()
+			fout.close()
+			
+			if not dest:
+				shutil.move(name, source)
+		
+		
+		def zeilen_aufteilen(file):
+			sed(',platzhalter,', '\n', file)
+			sed(',platzhalter', '', file)
+		
+		
+		def recordData(memory_service):
+			""" Get pressure sensor data from ALMemory
+			Returns a matrix of values
+			
+			"""
+			print "Recording data..."
+			data = list()
+			for range_counter in range(1, 230):
+				#Gyroscope
+				GyrX = memory_service.getData("Device/SubDeviceList/InertialSensor/GyroscopeX/Sensor/Value")
+				GyrY = memory_service.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value")
+				data.append(GyrX)
+				data.append(GyrY)
+				
+				# Adding the summary of the FSR
+				LFsrTw = memory_service.getData("Device/SubDeviceList/LFoot/FSR/TotalWeight/Sensor/Value")
+				RFsrTw = memory_service.getData("Device/SubDeviceList/RFoot/FSR/TotalWeight/Sensor/Value")
+				
+				LFcopX = memory_service.getData("Device/SubDeviceList/LFoot/FSR/CenterOfPressure/X/Sensor/Value")
+				LFcopY = memory_service.getData("Device/SubDeviceList/LFoot/FSR/CenterOfPressure/Y/Sensor/Value")
+				RFcopX = memory_service.getData("Device/SubDeviceList/RFoot/FSR/CenterOfPressure/X/Sensor/Value")
+				RFcopY = memory_service.getData("Device/SubDeviceList/RFoot/FSR/CenterOfPressure/Y/Sensor/Value")
+				data.append(LFsrTw)
+				data.append(RFsrTw)
+				data.append(LFcopX)
+				data.append(LFcopY)
+				data.append(RFcopX)
+				data.append(RFcopY)
+				
+				# LeftAnkleRoll
+				PosAct = memory_service.getData("Device/SubDeviceList/LAnkleRoll/Position/Actuator/Value")
+				PosSens = memory_service.getData("Device/SubDeviceList/LAnkleRoll/Position/Sensor/Value")
+				ElectrSens = memory_service.getData("Device/SubDeviceList/LAnkleRoll/ElectricCurrent/Sensor/Value")
+				data.append(PosAct)
+				data.append(PosSens)
+				data.append(ElectrSens)
+				
+				# RightAnkleRoll
+				PosAct = memory_service.getData("Device/SubDeviceList/RAnkleRoll/Position/Actuator/Value")
+				PosSens = memory_service.getData("Device/SubDeviceList/RAnkleRoll/Position/Sensor/Value")
+				ElectrSens = memory_service.getData("Device/SubDeviceList/RAnkleRoll/ElectricCurrent/Sensor/Value")
+				data.append(PosAct)
+				data.append(PosSens)
+				data.append(ElectrSens)
+				
+				# LeftAnklePitch
+				PosAct = memory_service.getData("Device/SubDeviceList/LAnklePitch/Position/Actuator/Value")
+				PosSens = memory_service.getData("Device/SubDeviceList/LAnklePitch/Position/Sensor/Value")
+				ElectrSens = memory_service.getData("Device/SubDeviceList/LAnklePitch/ElectricCurrent/Sensor/Value")
+				data.append(PosAct)
+				data.append(PosSens)
+				data.append(ElectrSens)
+				
+				# RightAnklePitch
+				PosAct = memory_service.getData("Device/SubDeviceList/RAnklePitch/Position/Actuator/Value")
+				PosSens = memory_service.getData("Device/SubDeviceList/RAnklePitch/Position/Sensor/Value")
+				ElectrSens = memory_service.getData("Device/SubDeviceList/RAnklePitch/ElectricCurrent/Sensor/Value")
+				data.append(PosAct)
+				data.append(PosSens)
+				data.append(ElectrSens)
+				
+				data.append('platzhalter')
+				time.sleep(0.05)
+			return data
+		
+		
+		def count_files():
+			counter = 1
+			# str.zfill schreibt vor, wie lang die Zahl mit Nullen davor sein soll. also zfill(3) ist 3 Zahlen lang.
+			filename = 'measurement' + str(counter).zfill(3) + '.csv'
+			
+			# Wenn das file nicht exisiert, erstelle measurement001.csv
+			while os.path.exists(filename):
+				counter = counter + 1
+				filename = 'measurement' + str(counter).zfill(3) + '.csv'
+			create_file(filename)
+			return filename
+		
+		
+		def create_file(filename):
+			with open(filename, "w") as f:
+				pass
+		
+		
+		def main(session):
+			"""
+			This example uses the getData method to use FSR sensors.
+			"""
+			# Get the ALProxy ALMemory and ALMotion
+			from naoqi import ALProxy
+			memory_service = session.service("ALMemory")
+			motion = ALProxy("ALMotion", "nao.local", 9559)
+			
+			# wake up nao
+			motion.wakeUp()
+			
+			motion.moveInit()
+			motion.post.moveTo(0.85, -0.10, -0.25, [["MaxStepFrequency", 0.0]])
+			
+			data = recordData(memory_service)
+			filename = count_files()
+			
+			output = os.path.abspath(filename)
+			with open(output, "wb") as file:
+				writer = csv.writer(file, delimiter=',')
+				writer.writerow(data)
+			zeilen_aufteilen(output)
+			print "Results written to", output
+			# go back to crouch position and sleep
+			motion.rest()
+			
+		
+		if __name__ == "__main__":
+			parser = argparse.ArgumentParser()
+			parser.add_argument("--ip", type=str, default="127.0.0.1",
+			help="Robot IP address. On robot or Local Naoqi: use '127.0.0.1'.")
+			parser.add_argument("--port", type=int, default=9559,
+			help="Naoqi port number")
+			
+			args = parser.parse_args()
+			session = qi.Session()
+			try:
+				session.connect("tcp://" + args.ip + ":" + str(args.port))
+			except RuntimeError:
+				print ("Can't connect to Naoqi at ip \"" + args.ip + "\" on port " + str(args.port) + ".\n"
+				"Please check your script arguments. Run with -h option for help.")
+			sys.exit(1)
+			main(session)	
+	\end{python}
+Der Programmcode \ref{Messungscode} kann in mehrere Funktionen aufgeteilt betrachtet werden. Die Funktion \texttt{sed} ist aus (cite) entnommen und funktioniert wie die gleichnamige Funktion unter der Linux-Bash. Sie wird benötigt, um nach jedem Durchgang der Messschleife in \texttt{recordData} eine neue Zeile in die CSV Datei zu schreiben. Dies geschieht durch die Funktion \texttt{zeilen\_aufteilen}. \texttt{recordData} wurde aus den Beispielen der NAO Dokumentation (cite) entnommen und angepasst, sodass am Ende jeder Zeile von \texttt{data} ein Platzhalter eingefügt wird und alle gewünschten Sensoren abgegriffen werden. Die Funktion \texttt{count\_files} sorgt dafür, dass keine vorhandenen Messungen überschrieben werden und jede Messdatei eine fortlaufende Nummerierung erhält. 
+
+In der \texttt{main} Funktion werden ALMemory und ALMotion geladen, und der Gang einschließlich des Abgreifens der Sensorwerte ausgeführt. Die Ausgabe der Messwerte während dem Gang ist nur möglich durch den Präfix \texttt{post} vor \texttt{moveTo}.
+
+Abschließend dient die letzte \texttt{if}-Abfrage zur Verbindung mit NAO, allerdings nur, wenn dieses Pythonprogramm selbst auf dem NAO liegt. Die Methode \texttt{post} sowie die Aufnahme der Sensoren während dem Lauf der Methode \texttt{moveTo} funktionieren nur lokal, deshalb ist es in diesem Fall nicht möglich, das Programm von dem eigenen Rechner aus zu starten. Mit anderen Methoden wäre eine Programmaufrufung über eine Wlan Verbindung durchaus möglich. Um Programme direkt auf dem NAO zu starten, wird eine \texttt{ssh}-Verbindung hergestellt und darüber dann \texttt{python} ausgeführt.
+		
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

@@ -1,4 +1,4 @@
-\subsection{Aufbau des NAO}
+\subsection{Aufbau des NAO} \label{aufbau_NAO}
 %* zu softbank robotics
 %* allgemeines zur größe, zu den freiheitsgraden und den Sensoren
 %* Genaueres zu den Sensoren, die gemessen wurden
@@ -24,27 +24,36 @@ NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}
 
 Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern deren Gelenke positionsbasierenden sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen LEDs, die Vorder- und Rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und Temperaturmessung ausgerüstet und in seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenen genauer eingegangen.
 
-\subsubsection{Druckempfindlicher Widerstand}
-% Drucksensoren an den Füßen
-% Wie sie funktionieren
-% was kann man auslesen und wozu
-% Probleme (cite paper, was die Drucksensoren benutzt hat)
+\subsubsection*{Druckempfindlicher Widerstand}
+
+An den Fußssohlen des NAO befinden sich pro Fuß vier sogenannte \textit{Force Sensitive Resistors} (FSR) zu sehen in Abb. \ref{hardware_semelles}. Diese ändern ihren Widerstand sobald Druck ausgeübt wird und messen im Bereich von 0 bis $25 \unit{N}$.
+
+Jeder dieser Sensoren kann einzeln ausgelesen werden, so zum Beispiel LFsrFL unter \texttt{Device/SubDeviceList/LFoot/FSR/FrontLeft/Sensor/Value}. Des weiteren können der berechnete zweidimensionale Massenschwerpunkt und das Gesamtgewicht ausgegeben werden. Diese Werte sind allerdings unzuverlässig, sobald wenig oder kein Gewicht auf den Sensoren lastet. In \cite{pressure_shoe} haben Shayan et al. die eingebauten FSR mit barometrischen Drucksensoren verglichen und sind zu dem Schluss gekommen, dass die Sensoren, welche in NAO verbaut sind, unzuverlässig arbeiten. Deshalb werden hier die Ausgaben kritisch betrachtet, sowie die Balance des Roboters zusätzlich mit dem Gyroskop erfasst.
 % Graph zu Gewicht des Naos (es wird weniger verzeichnet für MAP Sohlen)
-\begin{figure}[b]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Bilder/hardware_semelles.png}
-	\caption{Sensoren am Fuß. %\cite[in /kinematics-data/joints]{nao_docu_dev_guide}
+	\caption{Drucksensoren in den Füßen von NAO \cite[ in /Technical overview/FSRs]{nao_docu_dev_guide}
 	}
 	\label{hardware_semelles}
 \end{figure}
 
-\subsubsection{Aktoren und Sensoren der Beinen}
+Eine weitere Einschränkung der Messungen ist die Kraftverteilung auf die FSRs. Denn in dem ursprünglichen unteren Teil des Schuhs liegt der obere Teil ausschließlich auf den Sensoren und auf den Verbindungszylindern für die Schrauben auf. Dies ist für die Einlegesohlen aus Silikon bzw. MAP nicht der Fall, zu sehen in den Kapiteln \ref{Schuhkonstruktion} und folgende. Dies führt dazu, dass das Gewicht nicht mehr akkurat aufgenommen wird, wie in Abb. \ref{total_weight} zu sehen ist. Hier ist zu sehen, dass sich die Messung des Gewichtes etwa um $0,5 \unit{kg}$ von den NAO Schuhen abweicht. 
+% Graph zu Gewicht des Naos (es wird weniger verzeichnet für MAP Sohlen)
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Bilder/TotalWeight_Grund_20_40_mean.pdf}
+	\caption{Berechnetes Gesamtgewicht der Messungen für die normalen Sohlen von NAO in blau und dem Silikon versetzt mit Eisenpartikeln in 20\% und 40\% Anteilen. Das Gewicht wird in $\unit{kg}$ ausgegeben.}
+	\label{total_weight}
+\end{figure}
+
+\subsubsection*{Aktoren und Sensoren der Beinen}
 % Aktoren und Sensoren in den Beinen
 % Ausgabe eines Sensors und technische Details
 % Wichtige Ausgaben für Stabilität
 % fehlerhafter Gang
 
-\subsubsection{Gyroskop}
+\subsubsection*{Gyroskop}
 % Mit was misst Nao
 % Wie genau ist das Gyroskop
 % technische Details
@@ -70,22 +79,22 @@ Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{n
 \subsection{Magneto-aktive Polymere}\label{kap_MAP}
 %	 woher kommt der begriff, was ist es
 %	 woher bestand die bisherige Forschung, warum ist es interessant
-\subsubsection{Begriffserklärung und Eigenschaften}
+\subsubsection*{Begriffserklärung und Eigenschaften}
 Der Begriff magneto-aktive Polymere (MAP) schließt eine Gruppe von intelligenten, auf Felder ansprechende Materialien ein, welche typischerweise Kombinationen aus einer weichen, polymetrischen Grundlage und magnetisch aktiven Partikeln sind. Diese Partikel werden während dem Vernetzungsprozess des Polymers in dieses eingebettet. 
 
-Die wesentlichen Verhaltensweisen, die MAP in der heutigen Zeit attraktiv für seine Verwendung gemacht hat, wurde bereits in den 80ger Jahren von Rigbi und Jilken \cite{Rigbi1} sowie Rigbi und Mark \cite{Rigbi2} beschrieben. Ein Jahrzehnt später wurde eine genauere Analyse zum ersten Mal von Ginder und Jolly et al. \cite{ginder} veröffentlich. 
-Diese kombinierten, aus mehreren Kompontenten bestehenden Materialen stechen durch zwei Schlüsseleigenschaften heraus. 
+Die wesentlichen Verhaltensweisen, die MAP in der heutigen Zeit attraktiv für seine Verwendung gemacht hat, wurde bereits in den 80ger Jahren von Rigbi und Jilken \cite{Rigbi1} sowie Rigbi und Mark \cite{Rigbi2} beschrieben. Ein Jahrzehnt später wurde eine genauere Analyse zum ersten Mal von Ginder und Jolly et al. \cite{ginder} veröffentlicht. 
+Diese kombinierten, aus mehreren Komponenten bestehenden Materialien stechen durch zwei Schlüsseleigenschaften heraus. 
 Zum einen ist es das magnetostriktive Verhalten, bei dem es sich um das Phänomen der Verformung eines Materials handelt, welches durch ein Magnetfeld hervorgerufen wird. \cite{gulley}
-Zum anderen sind es die leicht veränderbaren Materialeigenschaften wie Elasizität und Dämpfungsfaktor, welche hauptsächlich mit der Mikrostruktur des Grundlagenmaterials zusammenhängt. \cite{Varga1} \cite{Varga2}
+Zum anderen sind es die leicht veränderbaren Materialeigenschaften wie Elastizität und Dämpfungsfaktor, welche hauptsächlich mit der Mikrostruktur des Grundlagenmaterials zusammenhängt. \cite{Varga1} \cite{Varga2}
 
 Außerdem ist entscheidend, wie die magnetischen Partikel in das Polymer eingebettet werden. Je nachdem ob während des Vernetzungsprozesses ein Magnetfeld wirkt, können sich die Partikel kettenförmig ausrichten und dadurch dem MAP eine anisotropisches Verhalten zuführen. Isotropisches MAP hingegen enthält keine gerichteten Partikel. Diese verschiedenen Ausrichtungsarten können sowohl die Steifigkeit verändern als auch bestimmen, ob das MAP in einem Magnetfeld ausgedehnt oder zusammengedrückt wird. 
 
 %\subsubsection{Herstellung}
 
-\subsubsection{Anwendungsbereiche}
-Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche in akademischen und industierellen Bereichen. Angefangen von anpassungsfähiger Vibrationsabsortion in der Luftfahrt und Automobilindustrie durch das Einsetzen durch Scherung (cite 175,114) Windung(202) und Kompression bzw. Elongation(246) und vibrationsisolatoren (cite 174) sowie Sensoren (174,334), Ventile und Aktoren (55,254) und anpassungsfähige Sandwichartige Strukturen (575,576,560) bis hin zur Anwendung in der Bionik wie zum beispiel durch Mikro- und Nanoroboter und Schwimmroboter (438,561.329.219), Schlauchradpumpen (152) und Erschütterungsisolatoren (308).
+\subsubsection*{Anwendungsbereiche}
+Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche in akademischen und industriellen Bereichen. Angefangen von anpassungsfähiger Vibrationsabsorption in der Luftfahrt und Automobilindustrie durch das Einsetzen durch Scherung (cite 175,114) Windung(202) und Kompression bzw. Elongation(246) und Vibrationsisolatoren (cite 174) sowie Sensoren (174,334), Ventile und Aktoren (55,254) und anpassungsfähige Sandwichartige Strukturen (575,576,560) bis hin zur Anwendung in der Bionik wie zum Beispiel durch Mikro- und Nanoroboter und Schwimmroboter (438,561.329.219), Schlauchradpumpen (152) und Erschütterungsisolatoren (308).
 
-Desweiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer genutzt (cite suchen), ebenso wird der 3D Druck von magneto-aktiven Polymeren (cite von uns) wird bereits erforscht.
+Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer genutzt (cite suchen), ebenso wird der 3D Druck von magneto-aktiven Polymeren (cite von uns) wird bereits erforscht.
 
 %\subsection{Verwendete Software}
 % Autodesk Inventor -> Shape Generator
