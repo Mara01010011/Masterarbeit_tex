@@ -125,13 +125,34 @@
   doi       = {10.1109/ICRoM.2017.8466225},
 }
 
-@InProceedings{9071802,
+@InProceedings{pressure_shoe,
   author    = {A. M. {Shayan} and A. {Khazaei} and A. {Hamed} and M. T. {Masouleh}},
   title     = {Design and Development of a Pressure-Sensitive Shoe Platform for Nao H25},
   booktitle = {2019 7th International Conference on Robotics and Mechatronics (ICRoM)},
   year      = {2019},
   pages     = {223-228},
   doi       = {10.1109/ICRoM48714.2019.9071802},
+}
+
+@Misc{inventor,
+  url     = {https://www.autodesk.de/products/inventor/overview?plc=INVPROSA&term=1-YEAR&support=ADVANCED&quantity=1#internal-link-what-is-inventor},
+  urldate = {2021-01-31},
+}
+
+@Misc{shape_generator,
+  url     = {https://knowledge.autodesk.com/support/inventor/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Inventor-Help/files/GUID-D74F47F3-FE22-44EF-85BE-7C6B1F56DCF9-htm.html},
+  urldate = {2021-01-31},
+}
+
+@Misc{cura,
+  url     = {https://ultimaker.com/de/software/ultimaker-cura},
+  urldate = {2021-01-31},
+}
+
+@Misc{matlab,
+  note    = {Version R2020 Update 3},
+  url     = {https://de.mathworks.com/discovery/what-is-matlab.html},
+  urldate = {2021-01-31},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

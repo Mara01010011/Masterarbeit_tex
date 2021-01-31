@@ -22,7 +22,7 @@ NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}
 	\label{nao_v6_h25}
 \end{figure}  
 
-Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern deren Gelenke positionsbasierenden sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen LEDs, die Vorder- und Rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und Temperaturmessung ausgerüstet und in seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenen genauer eingegangen.
+Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern deren Gelenke positionsbasierenden sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen LEDs, die Vorder- und Rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und Temperaturmessung ausgerüstet und in seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenden genauer eingegangen.
 
 \subsubsection*{Druckempfindlicher Widerstand}
 
@@ -48,15 +48,28 @@ Eine weitere Einschränkung der Messungen ist die Kraftverteilung auf die FSRs. 
 \end{figure}
 
 \subsubsection*{Aktoren und Sensoren der Beinen}
+Neben dem für diese Arbeit uninteressanten Bumper Sensoren und den bereits beschrieben Drucksensoren hat NAO eine Ausgabe für jeden eingebauten Aktor mit den Werten:
+\begin{itemize}
+	\item ...\texttt{/Position/Actuator/Value} (\texttt{Pos/Act})
+	\item ...\texttt{/Position/Sensor/Value} (\texttt{Pos/Sens})
+	\item ...\texttt{/ElectricCurrent/Sensor/Value} (\texttt{Current})
+	\item ...\texttt{/Temperature/Sensor/Value}
+	\item ...\texttt{/Hardness/Actuator/Value} 
+	\item ...\texttt{/Temperature/Sensor/Status} 
+\end{itemize}
+Hierbei unterscheiden sich die Pfade bei \glqq ...\grqq{} je nach Aktor. Die Bezeichnungen in Klammern dahinter dienen der abkürzenden Benennung für spätere Kapitel. 
+
+Die Temperaturausgaben sowie die Starrheit der Motoren liefern keine verwertbaren Messausgaben, da sich beide während einer Messung nicht oder kaum ändern. \texttt{Pos/Act} und \texttt{Pos/Sens} geben ähnliche Werte in $\unit{rad}$ aus, da ersteres die Ausgabe des Programms vorgibt und zweiteres den tatsächlich gemessenen Wert an dem Gelenk ausgibt. Der \texttt{Current} Wert wird in Ampère gemessen und gibt an, wie viel Strom für das Erreichen der entsprechenden Aktorposition und Starrheit aufgewendet werden muss. Dies bedeutet, dass dieser Wert unter anderem eine Aussage über den Zustand des Aktors geben kann. 
+
+Bei den Probegängen des NAO stellte sich heraus, dass er in einer Kurve nach links läuft bei einem Befehl für geradeaus. Softbank Robotics betonte, dass es nicht möglich ist, dass NAO komplett gerade läuft. Grund dafür ist zum einen, dass die Motoren nicht immer komplett identisch hergestellt sind. Zum anderen ist der Gehbefehl, welcher hier ausgeführt wird, ohne Rückkopplungsschleife für Einwirkungen der Umgebung. Näheres zur Software wird in Kapitel \ref{software} beschrieben.
+
+% Jetzt kommt der Testgang und alle Graphen, die damit zusammenhängen.
+
 % Aktoren und Sensoren in den Beinen
 % Ausgabe eines Sensors und technische Details
 % Wichtige Ausgaben für Stabilität
 % fehlerhafter Gang
 
-\subsubsection*{Gyroskop}
-% Mit was misst Nao
-% Wie genau ist das Gyroskop
-% technische Details
 
 \begin{figure}[tb]
 	\hfill
@@ -74,6 +87,26 @@ Eine weitere Einschränkung der Messungen ist die Kraftverteilung auf die FSRs. 
 	%\vspace{0.1cm}
 \end{figure}
 
+\subsubsection*{Gyroskop}
+Der NAO Roboter verfügt über eine Inertialeinheit, welche sich zusammensetzt aus den 3 Achsen des Gyrometers, im einer Achsengeschwindigkeit von bis zu $500^\circ\unit{/s}$, sowie den 3 Achsen des Beschleunigungssensors, mit einer Beschleunigung bis zu $2\unit{g}$, zusammensetzt \cite[/Technical overview/Inertial unit]{nao_docu_dev_guide}. Die Z-Achse des Gyroskops ist allerdings noch nicht verfügbar. Außerdem wird durch diese beiden Sensoren der Winkel des Torsos bestimmt. 
+\FloatBarrier
+
+\subsection{Verwendete Software} \label{software}
+\subsubsection*{Die Rahmenumgebung NAOqi}
+NAOqi wird die Hauptsoftware genannt, welche auf diesem Roboter sowie auf Pepper läuft, das Betriebssystem NAOqi OS basiert auf Linux. Der NAOqi Rahmen ist eine plattformübergreifende und sprachenübergreifende Umgebung, mithilfe derer Anwendungen für den NAO erstellt werden können. Sie kann über Windows, MacOS und Linux verwendet werden und es werden die Sprachen Python und \texttt{C++} unterstützt, wobei ersteres direkt auf dem NAO kompiliert werden kann, während \texttt{C++} komplizierter benutzt wird, aber mehr eingriffe erlaubt. \cite[/Former NAOqi Framework/Key concepts]{naoqi_dev_guide}
+
+Außerdem gibt es eine Desktop Anwendung namens Choregraphe, in der Dialoge und Verhaltensmuster erstellt werden können, ohne Code schreiben zu müssen. Außerdem ist hierüber der Akkustand und aktuelle Position in Form eines virtuellen Bildes des tatsächlichen NAO einsehbar, sowie der autonome Zustand ein- und ausschaltbar. \cite[/Choregraphe Suite/What is Choregraphe]{naoqi_dev_guide}
+
+Für die in dieser Masterarbeit benötigten Anwendungen war Python am besten geeignet. Erforderlich waren eine sich wiederholende Schrittabfolge sowie die Aufzeichnung diverser bereits in NAO verbauten Sensoren. Text verarbeitende Funktionen sind in dieser Sprache leicht zu erhalten und anzupassen. Es wurde sich für den \texttt{moveTo()} Befehl als Fortbewegung entschieden, denn dieser ist durch das Objekt \texttt{post} einem sogenannten \textit{non-blocking call}. Dies ermöglicht das Aufrufen von weiteren Befehlen parallel zur Bewegung. Der Nachteil ist, dass der Gang dadurch unbeaufsichtigt vonstatten geht, d.h. NAO kann seine Schritte nicht seiner Umgebung anpassen. Die aufgezeichneten Daten werden in eine csv Datei übertragen und mit Matlab ausgewertet. Im Anhang ist der gesamte Programmcode \ref{Messungscode} abgebildet, welcher auf dem NAO ausgeführt wird. 
+
+\subsubsection*{Konstruktionssoftware}	
+Das CAD-Programm Inventor von Autodesk ist für 3D Konstruktionen ausgelegt und bietet einige nützliche Simulationserweiterungen, welche unter anderem einen Shape Generator enthält \cite{inventor}. Dieser kann Flächen minimieren während die Stabilität erhalten bleibt, sodass ein minimaler Anteil an Material verwendet werdet wird \cite{shape_generator}. 
+
+Für die Herstellung der Prototypen und Gussformen wurde das FFF (Fused Filament Fabrication) 3D Druckverfahren mit PLA oder PETG Filamenten verwendet und für die Vorbereitung auf den Druck der Slicer Cura von Ultimaker \cite{cura}.
+
+\subsubsection*{Datenauswertung mit Matlab}
+Für die Auswertung wurden neben der gewöhnlichen \texttt{plot} Funktion von Matlab \cite{matlab} auch die \textit{Statistics and Maschine Learning} Toolbox mit deskriptiver Statistik und Visualisierung verwendet \cite{toolbox}. 
+Eine Messreihe ergibt sich aus 20-40 Messungswiederholungen, in denen NAO etwa einen Meter zurücklegt. Jede Auswertung enthält das arithmetische Mittel eines Sensors von allen Messungen der Messreihe. Diese Mittel wurden mit dem Befehl \texttt{mean()} berechnet und mit Werten aus weiteren Messreihen, mit anderem Schuh oder anderen Untergrundvoraussetzungen aber gleicher Schrittlänge und Sensorenmessung verglichen. Dieser Vergleich wurde mit den Funktionen \texttt{hist} und \texttt{scatterhist} der genannten Toolbox angestellt. Ersteres erstellt ein Histogramm und ist damit optimal für eine Häufigkeitsverteilung. Zweiteres erstellt zwei Histogramme von jeweils zwei Vektoren und deinen aus diesen Vektoren resultierenden Scatterplot. Dies ermöglicht eine umfangreiche Verteilungsanalyse für Sensorausgaben, die sich aus zwei Achsen zusammensetzen, wie z.B. der 2 dimensionalen Gyroskop Ausgabe.
 
 \FloatBarrier
 \subsection{Magneto-aktive Polymere}\label{kap_MAP}
@@ -96,10 +129,6 @@ Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche
 
 Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer genutzt (cite suchen), ebenso wird der 3D Druck von magneto-aktiven Polymeren (cite von uns) wird bereits erforscht.
 
-%\subsection{Verwendete Software}
-% Autodesk Inventor -> Shape Generator
-% Matlab -> zur Auswertung
-% Naoqi
 	
 %%% Local Variables:
 %%% mode: latex
