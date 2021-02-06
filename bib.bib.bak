@@ -372,4 +372,41 @@ Magnetic helical micro- and nanorobots can perform 3D navigation in various liqu
   publisher = {{IOP} Publishing},
 }
 
+@Article{Sindersberger_2018,
+  author   = {Dirk Sindersberger and Andreas Diermeier and Nina Prem and Gareth J. Monkman},
+  title    = {Printing of hybrid magneto active polymers with 6 degrees of freedom},
+  journal  = {Materials Today Communications},
+  year     = {2018},
+  volume   = {15},
+  pages    = {269-274},
+  issn     = {2352-4928},
+  abstract = {3D printing techniques offer a versatile method for the fabrication and structuring of magnetoactive polymer (MAP) components and devices for research prototype development. MAP materials enjoy an advantage in that the particulate content may be manipulated by external magnetic fields during the forming and curing processes. Controlled particle diffusion within the polymer matrix, by means of external fields applied during the printing process, influences a further three spatial dimensions. This permits control of the spatial particle concentration and makes free displacement of particle accumulations possible during the crosslinking phase. Particles which are susceptible to electric or magnetic fields can thereby be shifted into regions previously free of particles. The additional 3 graded dispersion axes effectively results in what can be described as 6 degrees of freedom (6DOF) printing. Electrically conductive polymers combined with non-conductive areas, provide an additional benefit for the production of complex hybrid structures. This may be augmented by the combination of magnetically active thermoplastics as inelastic structural components together with mechanically deformable elastomers. The combination of all fabrication methods in one hybrid printing process makes the production of complex sensor and actuator systems in one manufacturing sequence possible. This far exceeds the capabilities of conventional casting and machining operations and opens new possibilities for the fabrication of soft material elements.},
+  doi      = {https://doi.org/10.1016/j.mtcomm.2018.02.032},
+  keywords = {Magnetoactive, 3D printing, Polymer, Hybrid, Conductive polymer},
+}
+
+@Article{Qi_2020,
+  author   = {Song Qi and Hengyu Guo and Jie Fu and Yuanpeng Xie and Mi Zhu and Miao Yu},
+  title    = {3D printed shape-programmable magneto-active soft matter for biomimetic applications},
+  journal  = {Composites Science and Technology},
+  year     = {2020},
+  volume   = {188},
+  pages    = {107973},
+  issn     = {0266-3538},
+  abstract = {Imitating from natural biology, shape-programmable materials play a significant role in biomimetic applications. Magneto-active soft materials (MASMs) with programmable shapes, which can assume desired shapes under external magnetic actuation as well as potential for applications in actuators, soft robotics, medical care, and bionics. Here, we propose a shape-programming strategy that can quickly design the desired magnetic moment and actuating magnetic fields for MASMs with fast, reversible, programmable, and stable shape transformation properties. This method allows us to program the magnetic moment in the soft matrix by printing diverse magnetic structural elements. The flexible matrix and soft-magnetic 3D printing filament enable the high-performance deformation of MASMs. With these capabilities, various biomimetic structures (inchworm, manta ray, and soft gripper) can be easily fabricated with walking, swimming and snatching functions. The proposed shape-programming strategy would provide an efficient way to fully capitalize the potential of MASMs, allowing researchers to develop a wide range of soft actuators that are critical in soft robotics, medical care, and bionics applications.},
+  doi      = {https://doi.org/10.1016/j.compscitech.2019.107973},
+  keywords = {Shape-programmable, 3D printing, Magneto-active soft materials, Biomimetic materials, Soft robots},
+}
+
+@Article{Monkman_2019,
+  author  = {Gareth J Monkman and Dirk Sindersberger and Nina Prem and Tamara Szecsey},
+  title   = {Smart Stiction},
+  journal = {Robot Autom Eng J},
+  year    = {2019},
+  volume  = {4},
+  number  = {4},
+  issn    = {555641},
+  doi     = {DOI: 10.19080/RAEJ.2019.04.555641},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

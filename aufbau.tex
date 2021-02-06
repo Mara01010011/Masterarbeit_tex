@@ -34,6 +34,31 @@ Die Unterseite, zu sehen in Abb. \ref{Schuh_Inventor} rechts, ist ein Hohlraum f
 % Shape generater tragende Oberfläche.
 
 \subsection{Herstellung des MAP} \FloatBarrier
+Der Herstellungsprozess allein dauert nicht mehr als eine halbe Stunde. Zunächst muss das Verhältnis für den Anteil des CIPs bestimmt werden. Die Masse ergibt sich aus
+\begin{equation}
+\text{m}_{\text{CIP}} = \frac{Ratio_{\text{CIP}} [\%]}{100}\cdot\text{m}_{ges},
+\end{equation}
+Die beiden additiven Komponenten A und B, welche auch als Basis und Katalysator bezeichnet werden, sind im Verhältnis 1:1 zu mischen. Das Volumen in \unit{ml} ergibt sich aus:
+\begin{align}
+\text{V}_\text{A} &= \frac{\text{m}_\text{A}}{\rho_\text{A}} ,& 
+\text{V}_\text{B} &= \frac{\text{m}_\text{B}}{\rho_\text{B}}
+\end{align}
+mit $\rho_\text{A} = 1.071$ sowie $\rho_\text{B} = 1.046$ sowie
+\begin{align}	
+\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{\alpha + \beta}\times\alpha ,&
+\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{\alpha + \beta}\times\beta,
+\end{align}
+Die Platzhalter $\alpha$ und $\beta$ stehen für das Mischverhältnis der jeweiligen Komponenten und sind hier Beide gleich 1, sodass die Formeln vereinfacht werden können in:
+\begin{align}	
+\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{2} ,&
+\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{2}.
+\end{align}
+Mit der Laborwaage ABT 120-5DM von Kern wird $\text{m}_\text{CIP}$ in einem Becher abgemessen. Mit den Spritzen lassen sich $\text{V}_\text{A}$ und $\text{V}_\text{B}$ auf die ersten Nachkommastelle genau beifügen. Es handelt sich um SF13 2k-Silikon vom Hersteller Silikon Fabrik. Der Becherinhalt wird dann mit einem kleinen Mixstab gemischt, um eine gleichmäßige Verteilung der beiden Komponenten zu erreichen und somit eine optimale Vernetzung zu gewährleisten. Anschließend wird die Probe in einen Exikator gestellt welcher mit einer Vakuumpumpe entleert wird, sodass das Silikon entgast ist. Schließlich kann das bis dahin noch flüssige MAP in die Gussform gegossen werden, nach spätestens einem Tag ist die Sohle dann komplett vernetzt. 
+
 \begin{figure}[tb]
 	\hfill
 	%\centering
@@ -50,9 +75,12 @@ Die Unterseite, zu sehen in Abb. \ref{Schuh_Inventor} rechts, ist ein Hohlraum f
 	\label{Gussform_Inventor}
 	%\vspace{0.1cm}
 \end{figure}
-Das verwendete Polymer als Grundlage für das MAP ist ein additiv vernetzendes Silikon von (Firma und cite einbinden). Während dem Mischverfahren ist es flüssig und muss deshalb in eine Form gegeben werden. Silikon selbst lässt sich nur sehr schlecht durch etwaige Klebstoffe nach der Vernetzung verkleben. Deshalb wird hier wie in Abb. \ref{Gussform_Inventor} zu sehen ist, eine $2\unit{mm}$ dicke Stangenkonstruktion eingehängt, welche bis auf die 6 Enden mit MAP umschlossen wird. Diese aus PLA gedruckte Konstrukt ist flexibel und kann deshalb durch Verbiegen in die Verankerungen gedrückt werden. Nach der vollständigen Vernetzung kann die Sohle aus der Form entnommen und in den Schuh aus dem vorherigen Kapitel eingesetzt werden. 
+
+Da Silikon selbst sich nur sehr schlecht durch etwaige Klebstoffe nach der Vernetzung verkleben lässt wird hier wie in Abb. \ref{Gussform_Inventor} zu sehen ist, eine $2\unit{mm}$ dicke Stangenkonstruktion eingehängt, welche bis auf die 6 Enden mit MAP umschlossen wird. Dieses aus PLA gedruckte Konstrukt ist flexibel und kann deshalb durch Verbiegen in die Verankerungen gedrückt werden. Nach der vollständigen Vernetzung kann die Sohle aus der Form entnommen und in den Schuh aus dem vorherigen Kapitel eingesetzt werden. 
 
 Die vier Zylinder dienen als Platzhalter um die sechs Ecken in der Halterung des Schuhs für einen besseren Halt festzukleben und dann durch die Löcher des MAPs die Schrauben lockern zu können. 
+
+Das Silikon selbst hat eine zu große Haftung, v.a. durch die Fläche des Schuhs. Deshalb wird es vor der Messung mit Speisestärke eingedeckt, was eine Bodenhaftung ähnlich der Plastiksohle des Originalschuhs von NAO zur Folge hat. 
 
 \subsection{Laufstegkonstruktion} \FloatBarrier
 Der NAO Roboter ist für den Einsatz auf geraden Bodenflächen im Innenbereich ausgelegt wobei er bei einem Bewegungsablauf ohne Anpassung an die Umwelt wie mit dem Befehl \texttt{moveTo()} durch Rutschen nicht immer die gleiche Strecke zurücklegt. 
