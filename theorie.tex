@@ -102,7 +102,7 @@ Für die in dieser Masterarbeit benötigten Anwendungen war Python am besten gee
 \subsubsection*{Konstruktionssoftware}	
 Das CAD-Programm Inventor von Autodesk ist für 3D Konstruktionen ausgelegt und bietet einige nützliche Simulationserweiterungen, welche unter anderem einen Shape Generator enthält \cite{inventor}. Dieser kann Flächen minimieren während die Stabilität erhalten bleibt, sodass ein minimaler Anteil an Material verwendet werdet wird \cite{shape_generator}. 
 
-Für die Herstellung der Prototypen und Gussformen wurde das FFF (Fused Filament Fabrication) 3D Druckverfahren mit PLA oder PETG Filamenten verwendet und für die Vorbereitung auf den Druck der Slicer Cura von Ultimaker \cite{cura}.
+Für die Herstellung der Prototypen und Gussformen wurde das FDM (fused deposition modeling) 3D Druckverfahren mit PLA oder PETG Filamenten verwendet und für die Vorbereitung auf den Druck der Slicer Cura von Ultimaker \cite{cura}.
 
 \subsubsection*{Datenauswertung mit Matlab}
 Für die Auswertung wurden neben der gewöhnlichen \texttt{plot} Funktion von Matlab \cite{matlab} auch die \textit{Statistics and Maschine Learning} Toolbox mit deskriptiver Statistik und Visualisierung verwendet \cite{toolbox}. 
@@ -117,18 +117,42 @@ Der Begriff magneto-aktive Polymere (MAP) schließt eine Gruppe von intelligente
 
 Die wesentlichen Verhaltensweisen, die MAP in der heutigen Zeit attraktiv für seine Verwendung gemacht hat, wurde bereits in den 80ger Jahren von Rigbi und Jilken \cite{Rigbi1} sowie Rigbi und Mark \cite{Rigbi2} beschrieben. Ein Jahrzehnt später wurde eine genauere Analyse zum ersten Mal von Ginder und Jolly et al. \cite{ginder} veröffentlicht. 
 Diese kombinierten, aus mehreren Komponenten bestehenden Materialien stechen durch zwei Schlüsseleigenschaften heraus. 
-Zum einen ist es das magnetostriktive Verhalten, bei dem es sich um das Phänomen der Verformung eines Materials handelt, welches durch ein Magnetfeld hervorgerufen wird. \cite{gulley}
+Zum einen ist es das magnetostriktive Verhalten, bei dem es sich um das Phänomen der Verformung eines Materials handelt, welches durch ein Magnetfeld hervorgerufen wird \cite{Martin_2006}.
 Zum anderen sind es die leicht veränderbaren Materialeigenschaften wie Elastizität und Dämpfungsfaktor, welche hauptsächlich mit der Mikrostruktur des Grundlagenmaterials zusammenhängt. \cite{Varga1} \cite{Varga2}
 
 Außerdem ist entscheidend, wie die magnetischen Partikel in das Polymer eingebettet werden. Je nachdem ob während des Vernetzungsprozesses ein Magnetfeld wirkt, können sich die Partikel kettenförmig ausrichten und dadurch dem MAP eine anisotropisches Verhalten zuführen. Isotropisches MAP hingegen enthält keine gerichteten Partikel. Diese verschiedenen Ausrichtungsarten können sowohl die Steifigkeit verändern als auch bestimmen, ob das MAP in einem Magnetfeld ausgedehnt oder zusammengedrückt wird. 
-
-%\subsubsection{Herstellung}
-
 \subsubsection*{Anwendungsbereiche}
-Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche in akademischen und industriellen Bereichen. Angefangen von anpassungsfähiger Vibrationsabsorption in der Luftfahrt und Automobilindustrie durch das Einsetzen durch Scherung (cite 175,114) Windung(202) und Kompression bzw. Elongation(246) und Vibrationsisolatoren (cite 174) sowie Sensoren (174,334), Ventile und Aktoren (55,254) und anpassungsfähige Sandwichartige Strukturen (575,576,560) bis hin zur Anwendung in der Bionik wie zum Beispiel durch Mikro- und Nanoroboter und Schwimmroboter (438,561.329.219), Schlauchradpumpen (152) und Erschütterungsisolatoren (308).
+Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche in akademischen und industriellen Bereichen. Angefangen von anpassungsfähiger Vibrationsabsorption in der Luftfahrt und Automobilindustrie durch das Einsetzen durch Scherung \cite{Ginder_Schlotter_Nichols} \cite{Deng_Gong}, Windung \cite{Hoang_Zhang_Li_Du} und Kompression bzw. Elongation \cite{Kallio_2007} und Vibrationsisolatoren \cite{Ginder_2000} sowie Sensoren \cite{Ginder_2000} \cite{Martin_2006}, Ventile und Aktoren \cite{Boese_2012} \cite{Keip_2014} und anpassungsfähige Sandwichartige Strukturen \cite{Zhou_2005} \cite{Zhou_2006} \cite{Wei_2008} bis hin zur Anwendung in der Bionik wie zum Beispiel durch Mikro- und Nanoroboter und Schwimmroboter \cite{Qiu_2015} \cite{Xu_2015} \cite{Lum_2016} \cite{Hu_2018}, Schlauchradpumpen \cite{Fuhrer_2013} und Erschütterungsdämpfer \cite{Li_2013}.
 
 Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer genutzt (cite suchen), ebenso wird der 3D Druck von magneto-aktiven Polymeren (cite von uns) wird bereits erforscht.
 
+\subsubsection*{Herstellung der Proben}
+Der Herstellungsprozess allein dauert nicht mehr als eine halbe Stunde. Zunächst muss das Verhältnis für den Anteil des CIPs bestimmt werden. Die Masse ergibt sich aus
+\begin{equation}
+\text{m}_{\text{CIP}} = \frac{Ratio_{\text{CIP}} [\%]}{100}\cdot\text{m}_{ges},
+\end{equation}
+Die beiden additiven Komponenten A und B, welche auch als Basis und Katalysator bezeichnet werden, sind im Verhältnis 1:1 zu mischen. Das Volumen in \unit{ml} ergibt sich aus:
+\begin{align}
+\text{V}_\text{A} &= \frac{\text{m}_\text{A}}{\rho_\text{A}} ,& 
+\text{V}_\text{B} &= \frac{\text{m}_\text{B}}{\rho_\text{B}}
+\end{align}
+mit $\rho_\text{A} = 1.071$ sowie $\rho_\text{B} = 1.046$ sowie
+\begin{align}	
+\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{\alpha + \beta}\times\alpha ,&
+\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{\alpha + \beta}\times\beta,
+\end{align}
+Die Platzhalter $\alpha$ und $\beta$ stehen für das Mischverhältnis der jeweiligen Komponenten und sind hier Beide gleich 1, sodass die Formeln vereinfacht werden können in:
+\begin{align}	
+\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{2} ,&
+\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100}\right)\times
+\frac{\text{m}_{ges}}{2}.
+\end{align}
+Mit der Laborwaage ABT 120-5DM von Kern wird $\text{m}_\text{CIP}$ in einem Becher abgemessen. Mit den Spritzen lassen sich $\text{V}_\text{A}$ und $\text{V}_\text{B}$ auf die ersten Nachkommastelle genau beifügen. Es handelt sich um SF13 2k-Silikon vom Hersteller Silikon Fabrik. Der Becherinhalt wird dann mit einem kleinen Mixstab gemischt, um eine gleichmäßige Verteilung der beiden Komponenten zu erreichen und somit eine optimale Vernetzung zu gewährleisten. Anschließend wird die Probe in einen Exikator gestellt welcher mit einer Vakuumpumpe entleert wird, sodass das Silikon entgast ist. Schließlich kann das MAP in die Gussform gegossen werden, nach spätestens einem Tag ist die Sohle dann komplett vernetzt. Das Silikon selbst hat eine zu große Haftung, v.a. durch die Fläche des Schuhs. Deshalb wird es vor der Messung mit Speisestärke eingedeckt, was eine Bodenhaftung ähnlich der Plastikschuhsohle des Originalschuhs von NAO zur Folge hat. 
+
+\subsection{Magnetostiction}
 	
 %%% Local Variables:
 %%% mode: latex

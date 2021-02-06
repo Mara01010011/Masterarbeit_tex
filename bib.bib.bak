@@ -37,17 +37,6 @@
   journal   = {Encyclopedia of Applied Physics},
 }
 
-@Article{gulley,
-  author  = {J. E. Martin, R. A. Anderson, D. Read, and G. Gulley},
-  title   = {Magnetostriction of field-structured magnetoelastomers},
-  journal = {Phys. Rev. E},
-  year    = {2006},
-  volume  = {74(5)},
-  number  = {051507},
-  month   = {11},
-  doi     = {10.1103/physreve.74.051507},
-}
-
 @Article{Rigbi1,
   author  = {Z. Rigbi and L. Jilken},
   title   = {The response of an elastomer filled with soft ferrite to mechanical and magnetic influences},
@@ -135,6 +124,7 @@
 }
 
 @Misc{inventor,
+  note    = {Version 2020.3},
   url     = {https://www.autodesk.de/products/inventor/overview?plc=INVPROSA&term=1-YEAR&support=ADVANCED&quantity=1#internal-link-what-is-inventor},
   urldate = {2021-01-31},
 }
@@ -145,6 +135,7 @@
 }
 
 @Misc{cura,
+  note    = {Version 4.8.0},
   url     = {https://ultimaker.com/de/software/ultimaker-cura},
   urldate = {2021-01-31},
 }
@@ -153,6 +144,232 @@
   note    = {Version R2020 Update 3},
   url     = {https://de.mathworks.com/discovery/what-is-matlab.html},
   urldate = {2021-01-31},
+}
+
+@Misc{toolbox,
+  url     = {https://de.mathworks.com/help/stats/exploratory-data-analysis.html},
+  urldate = {2021-01-31},
+}
+
+@InProceedings{Ginder_Schlotter_Nichols,
+  author       = {John M. Ginder and William F. Schlotter and Mark E. Nichols},
+  title        = {{Magnetorheological elastomers in tunable vibration absorbers}},
+  booktitle    = {Smart Structures and Materials 2001: Damping and Isolation},
+  year         = {2001},
+  editor       = {Daniel J. Inman},
+  volume       = {4331},
+  pages        = {103 -- 110},
+  organization = {International Society for Optics and Photonics},
+  publisher    = {SPIE},
+  doi          = {10.1117/12.432694},
+  keywords     = {Elastomers, magnetic composites, magnetorheology, magneto-viscoelasticity, tuned vibration absorber},
+}
+
+@Article{Deng_Gong,
+  author   = {H.X. Deng and X.L. Gong},
+  title    = {Adaptive Tuned Vibration Absorber based on Magnetorheological Elastomer},
+  journal  = {Journal of Intelligent Material Systems and Structures},
+  year     = {2007},
+  volume   = {18},
+  number   = {12},
+  pages    = {1205-1210},
+  abstract = {This study presents an adaptive tuned vibration absorber (ATVA) which is based on magnetorheological elastomer (MRE). Traditional dynamic absorber has limited its application and vibration absorption capacity for its narrow working frequency bandwidth. MRE is a kind of smart material whose modulus can be controlled by applied magnetic field. Based on MREs, an ATVA which works on shear mode is proposed in this study. After the vibration mode shapes of the ATVA are analyzed, the mechanical structure of the ATVA is brought forward. Then the magnetic circuit of the ATVA is identified by ANSYS software. By using a modified dipole model, the shift-frequency properties of the ATVA versus magnetic field and strains are theoretically analyzed and simulated. Furthermore, by employing a beam with two ends supported, its shift-frequency property and vibration absorption capacity are experimentally justified. The experimental results demonstrate that the designed ATVA has better performance than traditional passive absorber in terms of frequency-shift property and vibration absorption capacity.},
+  doi      = {10.1177/1045389X07083128},
+}
+
+@Article{Hoang_Zhang_Li_Du,
+  author   = {N Hoang and N Zhang and W H Li and H Du},
+  title    = {Development of a torsional dynamic absorber using a magnetorheological elastomer for vibration reduction of a powertrain test rig},
+  journal  = {Journal of Intelligent Material Systems and Structures},
+  year     = {2013},
+  volume   = {24},
+  number   = {16},
+  pages    = {2036-2044},
+  abstract = { This article presents the development of a torsional adaptive tunable vibration absorber using a magnetorheological elastomer for vibration reduction of a powertrain test rig. The magnetorheological elastomer used to develop the adaptive tunable vibration absorber consists of silicone polymer, silicone oil and magnetic particles with the weight percentages of 60\%, 20\% and 20\%, respectively. Experimental testing is conducted to obtain the magnetorheological elastomer’s properties, such as Young’s modulus and the damping ratio, and effective formulas are derived to facilitate the design of the adaptive tunable vibration absorber. With the derived formulas, a magnetorheological elastomer–based adaptive tunable vibration absorber is designed and manufactured, and experimental testing is also conducted to validate the design. The results of experiments show that the magnetorheological elastomer–based adaptive tunable vibration absorber can work in a frequency range from 10.75 to 16.5 Hz (53\% relative change). Both the designed and experimental results of the adaptive tunable vibration absorber’s frequencies are in good agreement. A powertrain model is used to validate the magnetorheological elastomer–based adaptive tunable vibration absorber’s effectiveness, and the numerical simulations show that the powertrain frequencies are shifted away from the resonant frequency; thus, the powertrain’s steady-state vibration can be significantly reduced. This magnetorheological elastomer–based adaptive tunable vibration absorber will be a promising new device for vibration reduction of vehicle powertrains. },
+  doi      = {10.1177/1045389X13489361},
+}
+
+@Article{Kallio_2007,
+  author    = {M Kallio and T Lindroos and S Aalto and E Järvinen and T Kärnä and T Meinander},
+  title     = {Dynamic compression testing of a tunable spring element consisting of a magnetorheological elastomer},
+  journal   = {Smart Materials and Structures},
+  year      = {2007},
+  volume    = {16},
+  number    = {2},
+  pages     = {506--514},
+  month     = {mar},
+  abstract  = {Magnetorheological elastomers (MRE) are interesting candidates for active vibration control of structural systems. In this study, spring elements consisting of magnetorheological elastomer were prepared and tested in dynamic compression to study the changes in their stiffness and vibration damping characteristics under the influence of a magnetic field. Aligned and isotropic magnetorheological elastomer composites were prepared using room temperature vulcanizing silicone elastomer as the matrix material and carbonyl iron as the magnetizable filler. Aligned MREs were prepared by curing the material under an external magnetic field. Aligned MREs were tested and the results were compared with isotropic composites with no preferred orientation.
+
+The mechanical properties of the MREs were tested in cyclic compression passively and with increasing magnetic flux density. The influence of the testing frequency and strain amplitude on the dynamic stiffness and damping properties was studied. It was noted that when measured in a magnetic field both the dynamic spring constants and the loss factor values of aligned MREs were increased compared to the zero-field values. The dynamic stiffness of aligned MREs increased with increasing testing frequency and it was tunable with magnetic flux density in the studied frequency range. The loss factor of aligned MREs was also tunable with the magnetic flux density but the absolute values also depend on the testing frequency. The dynamic stiffness of the aligned MREs measured in compression decreased with increasing strain amplitude, but the damping properties were not affected similarly. On the basis of these results, MREs are applicable as tunable spring elements for active vibration control.},
+  doi       = {10.1088/0964-1726/16/2/032},
+  publisher = {{IOP} Publishing},
+}
+
+@InProceedings{Ginder_2000,
+  author       = {John M. Ginder and Mark E. Nichols and Larry D. Elie and Seamus M. Clark},
+  title        = {{Controllable-stiffness components based on magnetorheological elastomers}},
+  booktitle    = {Smart Structures and Materials 2000: Smart Structures and Integrated Systems},
+  year         = {2000},
+  editor       = {Norman M. Wereley},
+  volume       = {3985},
+  pages        = {418 -- 425},
+  organization = {International Society for Optics and Photonics},
+  publisher    = {SPIE},
+  doi          = {10.1117/12.388844},
+}
+
+@Article{Martin_2006,
+  author   = {Martin, James E and Anderson, Robert A and Read, Douglas and Gulley, Gerald},
+  title    = {Magnetostriction of field-structured magnetoelastomers},
+  journal  = {Physical review. E, Statistical, nonlinear, and soft matter physics},
+  year     = {2006},
+  volume   = {74},
+  number   = {5 Pt 1},
+  pages    = {051507},
+  month    = {November},
+  issn     = {1539-3755},
+  abstract = {We investigate the magnetostriction of field-structured magnetoelastomers, which are an important class of materials that have great potential as both sensors and actuators. Field-structured magnetoelastomers are synthesized by suspending magnetic particles in a polymeric resin and subjecting these to magnetic structuring fields during polymerization. These structuring fields can consist of as many as three orthogonal ac components, allowing a wide variety of particles structures--chains, sheets, or networks--to be formed. A principal issue is how particle structure and loading affects the magnetostriction of these materials. To investigate magnetostriction in these field-structured composites we have constructed a constant stress, optical cantilever apparatus capable of 1 ppm strain resolution. Magnetoelastomers having a wide range of particle loadings and structures are investigated, and it is shown that the observed deformation depends strongly on composite structure. The best magnetoelastomers exhibit a contractive strain of 10,000 ppm, the worst materials exhibit a negative, tensile response, which we show is due to the dominance of demagnetizing field effects over magnetostriction. Finally, some discussion is given to the surprising finding that magnetostriction is proportional to the sample prestrain. Simulations of a chain of particles in an elastomer show that particle clumping transitions can occur, but this does not account for the dependence of magnetostriction on prestrain.},
+  doi      = {10.1103/physreve.74.051507},
+}
+
+@Article{Boese_2012,
+  author   = {Holger Böse and Raman Rabindranath and Johannes Ehrlich},
+  title    = {Soft magnetorheological elastomers as new actuators for valves},
+  journal  = {Journal of Intelligent Material Systems and Structures},
+  year     = {2012},
+  volume   = {23},
+  number   = {9},
+  pages    = {989-994},
+  abstract = { The actuation behavior of soft silicone-based magnetorheological elastomers in magnetic fields of variable strength was investigated. An inhomogeneous magnetic field gives rise to a reversible actuation effect, which is the result of the competition between magnetic and elastic forces in the material. Magnetorheological elastomers are capable of performing more pronounced deformations than known rigid actuator materials. In this article, the actuation behavior of magnetorheological elastomer ring-shaped bodies in a valve-type device for the control of an air flow is demonstrated. For this purpose, magnetorheological elastomer rings with different Shore hardness were prepared and used in the valve. In addition to the common isotropic magnetorheological elastomer samples, rings with an anisotropic arrangement of the magnetic particles were also prepared. The actuation of these anisotropic magnetorheological elastomers was compared with that of the isotropic samples. Based on simulations, the inhomogeneity of the magnetic field at the magnetorheological elastomer material which is required for the actuation could be strongly affected by the shape in the design of the magnetic yoke. In this study, the closing characteristics of the valve with different yoke shapes and magnetorheological elastomer materials were evaluated by measuring the dependence of the air flow rate on the magnetic field strength. It is demonstrated that the air flow through the valve can be controlled by the current in the field-generating coil, which yields the base for a new type of magnetic valve. },
+  doi      = {10.1177/1045389X11433498},
+}
+
+@Article{Keip_2014,
+  author   = {Marc-André Keip and Paul Steinmann and Jörg Schröder},
+  title    = {Two-scale computational homogenization of electro-elasticity at finite strains},
+  journal  = {Computer Methods in Applied Mechanics and Engineering},
+  year     = {2014},
+  volume   = {278},
+  pages    = {62-79},
+  issn     = {0045-7825},
+  abstract = {This contribution addresses a two-scale computational homogenization framework for the simulation of electro-active solids at finite strains. A generalized form of the Hill–Mandel condition is employed for the derivation of energetically consistent transition conditions between the scales. The continuum mechanical formulation is implemented into a two-scale finite element environment, in which we attach a microscopic representative volume element at each integration point of the macroscopic domain. In order to allow for an efficient solution of the macroscopic boundary value problem an algorithmically consistent tangent of the macroscopic problem is derived. The method will be applied to the analysis of dielectric polymer–ceramic composites, where we determine the effective actuation of composites with different microstructures. Furthermore, we show the applicability of the proposed method to the computation of two-scale electro-mechanically coupled boundary value problems in consideration of large deformations.},
+  doi      = {https://doi.org/10.1016/j.cma.2014.04.020},
+  keywords = {Computational homogenization, -method, Electro-mechanical coupling, Finite deformations, Electro-active polymers, Dielectric composites},
+}
+
+@Article{Zhou_2005,
+  author    = {G Y Zhou and Q Wang},
+  title     = {Design of a smart piezoelectric actuator based on a magnetorheological elastomer},
+  journal   = {Smart Materials and Structures},
+  year      = {2005},
+  volume    = {14},
+  number    = {4},
+  pages     = {504--510},
+  month     = {may},
+  abstract  = {In this paper, design of a novel smart actuator with controllable characteristics based on a magnetorheological elastomer (MRE) is introduced. The actuator is composed of a piezoelectric layer bonded cantilever, whose free end is attached by an MRE layer. By adjusting the magnetic field applied to the MRE, the dynamic characteristics of the beam can be controlled due to the MRE’s characteristics of field-dependent shear modulus. Thus, the characteristics of the actuator can be improved by adjusting the load curve and the resonant frequency of the actuator. Simulations on such field-controllable behavior of the actuator through introducing mass as the mechanical load are conducted. The variable load curves indicate that the driving force increases with the applied magnetic field under the same output velocity. The relative change of the resonant frequency of the actuator is found to be adjusted up to 30% by the applied magnetic field. This field-controlled resonant frequency opens the way to keep the actuator at high energy conversion rate through adjusting the applied magnetic field since the resonant state relates to the maximum energy conversion rate. This approach may lead to a novel design of a smart actuator which can work adaptively with the working condition.},
+  doi       = {10.1088/0964-1726/14/4/007},
+  publisher = {{IOP} Publishing},
+}
+
+@Article{Zhou_2006,
+  author    = {G Y Zhou and K C Lin and Q Wang},
+  title     = {Finite element studies on field-dependent rigidities of sandwich beams with magnetorheological elastomer cores},
+  journal   = {Smart Materials and Structures},
+  year      = {2006},
+  volume    = {15},
+  number    = {3},
+  pages     = {787--791},
+  month     = {apr},
+  abstract  = {Sandwich beams with magnetorheological elastomer (MRE) cores exhibit field-dependent dynamic rigidities due to the field-dependent shear modulus of the MRE cores. Such structures have great potential as regards developing stiffness-controllable devices which respond to control signals within milliseconds. The purpose of this paper is to investigate the effect of structural parameters on the field-dependent rigidities of single-layer sandwich beams with MRE cores through finite element analysis. Furthermore, a multilayer sandwich configuration is introduced to provide structures with higher bulk field-dependent rigidities. The structural design rules for multilayer sandwich beams for achieving the desired zero-field rigidities and desired relative change ranges of the field-dependent rigidities are presented. The results will provide basic guidelines for designing stiffness-controllable devices utilizing such MRE based sandwich structures.},
+  doi       = {10.1088/0964-1726/15/3/014},
+  publisher = {{IOP} Publishing},
+}
+
+@Article{Wei_2008,
+  author  = {Wei, Kx., Meng, G., Zhang, Wm. et al},
+  title   = {Experimental investigation on vibration characteristics of sandwich beams with magnetorheological elastomers cores},
+  journal = {J. Cent. South Univ. Technol.},
+  year    = {2008},
+  volume  = {15},
+  pages   = {239–242},
+  doi     = {10.1007/s11771-008-0354-7},
+}
+
+@Article{Qiu_2015,
+  author   = {Famin Qiu and Bradley J. Nelson},
+  title    = {Magnetic Helical Micro- and Nanorobots: Toward Their Biomedical Applications},
+  journal  = {Engineering},
+  year     = {2015},
+  volume   = {1},
+  number   = {1},
+  pages    = {021-026},
+  issn     = {2095-8099},
+  abstract = {ABSTRACT
+Magnetic helical micro- and nanorobots can perform 3D navigation in various liquids with a sub-micrometer precision under low-strength rotating magnetic fields (<10 mT). Since magnetic fields with low strengths are harmless to cells and tissues, magnetic helical micro/nanorobots are promising tools for biomedical applications, such as minimally invasive surgery, cell manipulation and analysis, and targeted therapy. This review provides general information on magnetic helical micro/nanorobots, including their fabrication, motion control, and further functionalization for biomedical applications.},
+  doi      = {https://doi.org/10.15302/J-ENG-2015005},
+  keywords = {magnetic helical micro/nanorobots, mobile micro/nanorobots, artificial bacterial flagella (ABFs), functionalization, biomedical applications},
+}
+
+@Article{Xu_2015,
+  author  = {Xu, Tiantian and Yu, Jiangfan and Yan, Xiao-Hui and Choi, Hongsoo and Zhang, li},
+  title   = {Magnetic Actuation Based Motion Control for Microrobots: An Overview},
+  journal = {Micromachines},
+  year    = {2015},
+  volume  = {6},
+  pages   = {1346-1364},
+  month   = {09},
+  doi     = {10.3390/mi6091346},
+}
+
+@Article{Lum_2016,
+  author       = {Lum, Guo Zhan and Ye, Zhou and Dong, Xiaoguang and Marvi, Hamid and Erin, Onder and Hu, Wenqi and Sitti, Metin},
+  title        = {Shape-programmable magnetic soft matter},
+  journal      = {Proceedings of the National Academy of Sciences},
+  year         = {2016},
+  issn         = {0027-8424},
+  abstract     = {At small scales, shape-programmable magnetic materials have significant potential to achieve mechanical functionalities that are unattainable by traditional miniature machines. Unfortunately, these materials have only been programmed for a small number of specific applications, as previous work can only rely on human intuition to approximate the required magnetization profile and actuating magnetic fields for such materials. Here, we propose a universal programming methodology that can automatically generate the desired magnetization profile and actuating fields for soft materials to achieve new time-varying shapes. The proposed method can enable other researchers to fully capitalize the potential of shape-programming technologies, allowing them to create a wide range of novel soft active surfaces and devices that are critical in robotics, material science, and medicine.Shape-programmable matter is a class of active materials whose geometry can be controlled to potentially achieve mechanical functionalities beyond those of traditional machines. Among these materials, magnetically actuated matter is particularly promising for achieving complex time-varying shapes at small scale (overall dimensions smaller than 1 cm). However, previous work can only program these materials for limited applications, as they rely solely on human intuition to approximate the required magnetization profile and actuating magnetic fields for their materials. Here, we propose a universal programming methodology that can automatically generate the required magnetization profile and actuating fields for soft matter to achieve new time-varying shapes. The universality of the proposed method can therefore inspire a vast number of miniature soft devices that are critical in robotics, smart engineering surfaces and materials, and biomedical devices. Our proposed method includes theoretical formulations, computational strategies, and fabrication procedures for programming magnetic soft matter. The presented theory and computational method are universal for programming 2D or 3D time-varying shapes, whereas the fabrication technique is generic only for creating planar beams. Based on the proposed programming method, we created a jellyfish-like robot, a spermatozoid-like undulating swimmer, and an artificial cilium that could mimic the complex beating patterns of its biological counterpart.},
+  doi          = {10.1073/pnas.1608193113},
+  elocation-id = {201608193},
+  publisher    = {National Academy of Sciences},
+}
+
+@Article{Hu_2018,
+  author  = {Hu, Wenqi and Lum, Guo Zhan and Mastrangeli, Massimo and Sitti, Metin},
+  title   = {Small-scale soft-bodied robot with multimodal locomotion},
+  journal = {Nature},
+  year    = {2018},
+  volume  = {554},
+  number  = {7690},
+  pages   = {81-85},
+  month   = {feb},
+  doi     = {10.1038/nature25443},
+}
+
+@Article{Fuhrer_2013,
+  author   = {Fuhrer, Roland and Schumacher, Christoph M. and Zeltner, Martin and Stark, Wendelin J.},
+  title    = {Soft Iron/Silicon Composite Tubes for Magnetic Peristaltic Pumping: Frequency-Dependent Pressure and Volume Flow},
+  journal  = {Advanced Functional Materials},
+  year     = {2013},
+  volume   = {23},
+  number   = {31},
+  pages    = {3845-3849},
+  abstract = {Abstract The combination of force and flexibility enables controlled and soft movements. In sharp contrast, presently used machines are solid and mostly based on stiff driveshafts or cog wheels. Magnetic elastomers are realized through dispersion of small particles in polymer matrices and have attracted significant interest as soft actuators for controlled movement or conveying and are particularly attractive candidates for magnetic pump applications. At present, low magnetic particle loading and thus limited actuator strength have restricted the application of such materials. Here, the direct incorporation of metal microparticles into a very soft and flexible silicone and its application as an ultra-flexible, yet strong magnetic tube, is described. Because metals have a far higher saturation magnetization and higher density than oxides, the resulting increased force/volume ratio afforded significantly stronger magnetic actuators with high mechanical stability, flexibility, and shape memory. Elliptical inner diameter shape of the tubing allowed a very efficient contraction of the tube by applying an external magnetic field. The combination of magnetic silicone tubes and a magnetic field generating device results in a magnetic peristaltic pump.},
+  doi      = {https://doi.org/10.1002/adfm.201203572},
+  keywords = {actuators, magnetic composite materials, medical applications},
+}
+
+@Article{Li_2013,
+  author    = {Yancheng Li and Jianchun Li and Tongfei Tian and Weihua Li},
+  title     = {A highly adjustable magnetorheological elastomer base isolator for applications of real-time adaptive control},
+  journal   = {Smart Materials and Structures},
+  year      = {2013},
+  volume    = {22},
+  number    = {9},
+  pages     = {095020},
+  month     = {aug},
+  abstract  = {Inspired by its controllable and field-dependent stiffness/damping properties, there has been increasing research and development of magnetorheological elastomer (MRE) for mitigation of unwanted structural or machinery vibrations using MRE isolators or absorbers. Recently, a breakthrough pilot research on the development of a highly innovative prototype adaptive MRE base isolator, with the ability for real-time adaptive control of base isolated structures against various types of earthquakes including near- or far-fault earthquakes, has been reported by the authors. As a further effort to improve the proposed MRE adaptive base isolator and to address some of the shortcomings and challenges, this paper presents systematic investigations on the development of a new highly adjustable MRE base isolator, including experimental testing and characterization of the new isolator. A soft MR elastomer has been designed, fabricated and incorporated in the laminated structure of the new MRE base isolator, which aims to obtain a highly adjustable shear modulus under a medium level of magnetic field. Comprehensive static and dynamic testing was conducted on this new adaptive MRE base isolator to examine its characteristics and evaluate its performance. The experimental results show that this new MRE base isolator can remarkably change the lateral stiffness of the isolator up to 1630% under a medium level of magnetic field. Such highly adjustable MRE base isolator makes the design and implementation of truly real-time adaptive (e.g. semi-active or smart passive) seismic isolation systems become feasible.},
+  doi       = {10.1088/0964-1726/22/9/095020},
+  publisher = {{IOP} Publishing},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
