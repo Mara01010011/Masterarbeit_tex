@@ -12,7 +12,7 @@
 	\label{nao_v6}
 	\vspace{-1.8cm}
 \end{wrapfigure}
-NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}) ursprünglich entwickelt von dem französischen Unternehmen Aldeberan Robotics, welche 2015 von Softbank Group aufgekauft \cite{aldebaran_to_softbank} und in Softbank Robotics umbenannt wurde. Während NAO's große Schwester Pepper mit ihren $1,20 \unit{m}$ mit einem Tablet und Rollen statt Beinen ausgestattet ist \cite{about_pepper}, gibt es NAO in verschiedenen Ausführungen, unter anderem nur ab der Hüfte aufwärts oder mit Beinen. Es handelt sich hier um Roboter, die unter anderem Kinder und Jugendlichen die Robotik näher bringen sollen und der Vorführung von Mensch-Roboter Interaktionen dienen. NAO bietet außerdem die Gelegenheit zweibeinige Robotersysteme zu studieren und ist bereits in psychologischen Studien verwendet worden (cite). 
+NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}) ursprünglich entwickelt von dem französischen Unternehmen Aldeberan Robotics, welche 2015 von Softbank Group aufgekauft \cite{aldebaran_to_softbank} und in Softbank Robotics umbenannt wurde. Während NAO's große Schwester Pepper mit ihren $1,20 \unit{m}$ mit einem Tablet und Rollen statt Beinen ausgestattet ist \cite{about_pepper}, gibt es NAO in verschiedenen Ausführungen, unter anderem nur ab der Hüfte aufwärts oder mit Beinen. Es handelt sich hier um Roboter, die unter anderem Kindern und Jugendlichen die Robotik näher bringen sollen und der Vorführung von Mensch-Roboter Interaktionen dienen. NAO bietet außerdem die Gelegenheit zweibeinige Robotersysteme zu studieren und ist bereits in psychologischen Studien verwendet worden \cite{SHAMSUDDIN20121533}. 
 
 \begin{figure}[hb]
 	\centering
@@ -22,7 +22,7 @@ NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}
 	\label{nao_v6_h25}
 \end{figure}  
 
-Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern deren Gelenke positionsbasierenden sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen LEDs, die Vorder- und Rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und Temperaturmessung ausgerüstet und in seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenden genauer eingegangen.
+Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern deren Gelenke positionsbasierenden sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen LEDs, die vorder- und rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und Temperaturmessung ausgerüstet, in seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenden genauer eingegangen.
 
 \subsubsection*{Druckempfindlicher Widerstand}
 
@@ -128,9 +128,9 @@ Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer ge
 
 \subsection{Magnetostiction}
 
-Der Begriff Stiction ist eine englische Wortneuschöpfung aus dem Wort \textit{friction}, also Reibungskraft und \textit{sticking}, also kleben.  
+Der Begriff Stiction ist in erster Linie eine englische Wortneuschöpfung aus dem Wort \textit{friction}, also Reibungskraft und \textit{sticking}, also kleben. Ersteres wird unterschieden in Haftreibung, welche den Schwellenwert einer äußeren Kraft darstellt, der überwunden werden muss um ein Objekt in Bewegung zu versetzen, sowie in Gleitreibung, welche den Widerstand, der entgegen der Bewegungsrichtung wirkt, beschreibt. Stiction entsteht wenn die Haftreibung die Gleitreibung übersteigt. Dies sorgt für einen plötzlichen Stillstand, bis dann die auf das Objekt wirkende Kraft ausreicht, damit es sich wieder bewegt. Dies kann zu ruckartigen Bewegungen führen und deshalb in vielen Fällen eine unerwünschte Eigenschaft \cite{Ruel2014STICTIONT}. Es gilt dies nicht zu verwechseln mit Adhäsion, welche entsteht, wenn z.B. Silikon auf dem Boden flach aufliegt und sich an den Boden auf die Art anpasst, dass bei dem Versuch, es zu schieben, sich an den Boden anklebt. Wenn die Adhäsion fehlt, aber die Reibung noch kontrollierbar ist, dann handelt es sich um Stiction. \cite{Monkman_2019}
 
-\cite{Monkman_2019}
+
 	
 %%% Local Variables:
 %%% mode: latex

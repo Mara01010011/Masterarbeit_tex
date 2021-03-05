@@ -406,7 +406,13 @@ Magnetic helical micro- and nanorobots can perform 3D navigation in various liqu
   volume  = {4},
   number  = {4},
   issn    = {555641},
-  doi     = {DOI: 10.19080/RAEJ.2019.04.555641},
+  doi     = {10.19080/RAEJ.2019.04.555641},
+}
+
+@InProceedings{Ruel2014STICTIONT,
+  author = {M. Ruel},
+  title  = {STICTION : THE HIDDEN MENACE How to Recognize This Most Difficult Cause of Loop Cycling},
+  year   = {2014},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
