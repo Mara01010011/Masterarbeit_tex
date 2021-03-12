@@ -434,7 +434,7 @@ Magnetic helical micro- and nanorobots can perform 3D navigation in various liqu
   title  = {NAO Walking Down a Ramp Autonomously},
 }
 
-@Misc{,
+@Misc{sed_python,
   url     = {https://stackoverflow.com/questions/12714415/python-equivalent-to-sed},
   urldate = {2020-03-08},
 }
