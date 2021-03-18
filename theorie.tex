@@ -107,7 +107,22 @@ Für die Herstellung der Prototypen und Gussformen wurde das FDM (fused depositi
 
 \subsubsection*{Datenauswertung mit Matlab}
 Für die Auswertung wurden neben der gewöhnlichen \texttt{plot} Funktion von Matlab \cite{matlab} auch die \textit{Statistics and Maschine Learning} Toolbox mit deskriptiver Statistik und Visualisierung verwendet \cite{toolbox}. 
-Eine Messreihe ergibt sich aus 20-40 Messungswiederholungen, in denen NAO etwa einen Meter zurücklegt. Jede Auswertung enthält das arithmetische Mittel eines Sensors von allen Messungen der Messreihe. Diese Mittel wurden mit dem Befehl \texttt{mean()} berechnet und mit Werten aus weiteren Messreihen, mit anderem Schuh oder anderen Untergrundvoraussetzungen aber gleicher Schrittlänge und Sensorenmessung verglichen. Dieser Vergleich wurde mit den Funktionen \texttt{hist} und \texttt{scatterhist} der genannten Toolbox angestellt. Ersteres erstellt ein Histogramm und ist damit optimal für eine Häufigkeitsverteilung. Zweiteres erstellt einen aus zwei Vektoren resultierenden Scatterplot sowie zwei Histogramme, welche die Häufigkeitsverteilung der jeweiligen Vektoren darstellen. Dies ermöglicht eine umfangreiche Verteilungsanalyse für Sensorausgaben, die sich aus zwei Achsen zusammensetzen, wie z.B. der 2 dimensionalen Gyroskop Ausgabe.
+Eine Messreihe ergibt sich aus 40 Messungswiederholungen, in denen NAO etwa einen Meter zurücklegt. Jede Auswertung enthält das arithmetische Mittel eines Sensors von allen Messungen der Messreihe. Diese Mittel wurden mit dem Befehl \texttt{mean()} berechnet und mit Werten aus weiteren Messreihen, mit anderem Schuh oder anderen Untergrundvoraussetzungen aber gleicher Schrittlänge und Sensorenmessung verglichen. Dieser Vergleich wurde mit den Funktionen \texttt{hist} und \texttt{scatterhist} der genannten Toolbox angestellt. Ersteres erstellt ein Histogramm und ist damit optimal für eine Häufigkeitsverteilung. Zweiteres erstellt einen aus zwei Vektoren resultierenden Scatterplot sowie zwei Histogramme, welche die Häufigkeitsverteilung der jeweiligen Vektoren darstellen. Dies ermöglicht eine umfangreiche Verteilungsanalyse für Sensorausgaben, die sich aus zwei Achsen zusammensetzen, wie z.B. der 2 dimensionalen Gyroskop Ausgabe.
+
+Das arithmetische Mittel berechnet Matlab durch \cite[S.50]{statistik_Ludwig}
+\begin{equation}
+	\bar{x} = \frac{1}{n} (x_1 + x_2 + \dots + x_n) = \frac{1}{n}\sum_{i=1}^{n}x_i
+\end{equation}
+und wurde auf eine Messreihe angewendet. Die Darstellung der Verteilungen per Histogramm wurde ergänzt durch ein gleitendes Histogramm, errechnet durch den Kern-Dichteschätzer \cite[S.93]{statistik_Ludwig}
+\begin{align}
+	\hat{f}(x)=\frac{1}{nh} \sum_{i=1}^{n}K\left(\frac{x - x_i}{h}\right),\, x \in \mathds{R}
+\end{align}
+mit dem Gauss-Kern \cite[S.93]{statistik_Ludwig}, 
+\begin{align}
+	K(u) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}u^2\right),\, u \in \mathds{R}
+\end{align}
+welcher in Matlab mit \texttt{'Kernel'} und dann standardmäßig mit \texttt{'normal'} in der \texttt{fitdist()} Funktion aufgerufen wird \cite{kernel-distribution} \cite{fitdist}. Das Scatterhistogramm ermöglicht dieselbe Verwendung dieser Distribution. 
+
 
 \FloatBarrier
 \subsection{Magneto-aktive Polymere}\label{kap_MAP}

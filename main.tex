@@ -13,7 +13,8 @@ automark,
 \input{config}
 \usepackage[backend=bibtex, style=numeric-comp, sorting=none]{biblatex}
 \bibliography{bib}
-\title{Intelligentes Schuhwerk für den humanoiden NAO Roboter basierend auf Magnetostiction zur Verbesserung der Bodenhaftung}
+%\title{Intelligentes Schuhwerk für den humanoiden NAO Roboter basierend auf Magnetostiction zur Verbesserung der Bodenhaftung}
+\title{Entwicklung eines magneto-aktiven Schuhwerks für den humanoiden NAO Roboter zur Verbesserung der Gangstabilität}
 \author{Tamara Szecsey}
 \documenttype{Masterarbeit}
 
@@ -29,7 +30,7 @@ automark,
 \externallogo[height=1.6cm]{Bilder/mru.png}
 
 \begin{document}
-	\numberwithin{equation}{section}
+%	\numberwithin{equation}{section}
 \maketitle
 %\cleardoublepage
 \makedeclaration
@@ -63,16 +64,14 @@ Kapitel \ref{kap_MAP} erklärt die Definition und Eigenschaften von Magneto-akti
 % MAP Herstellung und Anbringung
 % Rampe
 %
-%\newpage
-%\section{Versuchsdurchführung}
-%\input{durchfuehrung}
-% Naoqi
-% Messabstände und Link zum Anhang mit python Programm
-%
+\newpage
+\section{Versuchsdurchführung}
+\input{durchfuehrung}
 
-%\newpage
-%\section{Auswertung und Interpretation}
-%\input{auswertung}
+
+\newpage
+\section{Auswertung und Interpretation}
+\input{auswertung}
 
 % Allgemeines zu diesem Nao (Vormessungen), Probleme der Messungenauigkeit
 % Vergleichen der Messungen mit und ohne Magneten
@@ -81,6 +80,7 @@ Kapitel \ref{kap_MAP} erklärt die Definition und Eigenschaften von Magneto-akti
 %\section{Fazit und Ausblick}
 %\input{fazit}
 %
+\FloatBarrier
 \newpage
 \section{Anhang} \label{Anhang}
 \input{anhang}
