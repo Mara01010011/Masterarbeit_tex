@@ -13,13 +13,15 @@ In diesem Kapitel wird auf alle selbstkonstruierten Komponenten eingegangen, wel
 		\includegraphics[width=\linewidth]{Bilder/Schuh_unten.png}
 	\end{subfigure}
 	\hfill
-	\caption{Linker Schuh in Autodesk Inventors, Links von Oben, Rechts von Unten.}
+	\caption{Linker Schuh in Autodesk Inventor, \textit{Links} von Oben, \textit{Rechts} von Unten.}
 	\label{Schuh_Inventor}
 	%\vspace{0.1cm}
 \end{figure}
-Die Hülle eines Fußes von NAO besteht aus einem zweiteiligen Oberteil, welches das Fußgelenk abschließt und einem unteren Teil, welcher mit 4 Schrauben angebracht wird. Ohne Schraubenbefestigung liegt der Fuß nicht fest an. Die in Kapitel \ref{aufbau_NAO} beschriebenen vier Drucksensoren liegen dabei in dem unteren Teil auf Erhöhungen auf. Um die Auswirkungen anderer Sohlen für NAO messen zu können, muss der untere Teil des Fußes ausgetauscht werden. Dieser 	\glqq Schuh\grqq{} welcher die ursprüngliche Fußsohle ersetzt, enthält wiederum einen Steckplatz für die MAP Sohlen in verschiedenen Stärkegraden. 
+Die Hülle eines Fußes von NAO besteht aus einem zweiteiligen Oberteil, welches das Fußgelenk abschließt und einem unteren Teil, welcher mit 4 Schrauben angebracht wird. Ohne Schraubenbefestigung liegt der Fuß nicht fest an. Die in Kapitel \ref{aufbau_NAO} beschriebenen vier Drucksensoren liegen dabei in dem unteren Teil auf Erhöhungen auf. Um die Auswirkungen anderer Sohlen für NAO messen zu können, muss der untere Teil des Fußes ausgetauscht werden. Dieser \glqq Schuh\grqq{} welcher die ursprüngliche Fußsohle ersetzt, enthält wiederum einen Steckplatz für die MAP Sohlen in verschiedenen Stärkegraden. 
 
-In Abb. \ref{Schuh_Inventor} sind links die vier flachen Zylinder zu sehen, auf denen die Drucksensoren aufliegen. Die vier Zylinder an den Seiten sind die Führung der Schrauben, welche an das obere Teil des Fußes von NAO geschraubt werden. Die Außenform umschließt den oberen Teil während eine zweite Erhöhung, welche an den Innenseiten verläuft, auf dem Rand des oberen Teils aufsitzt, sodass die Passform fest ineinander greift. Da das gesamte Gewicht des NAO auf den 4 Drucksensoren lastet, kann Druckmaterial für die restliche Gesamtfläche bis auf stabilitätserhaltende Streben eingespaart werden. Diese Form wurde mit dem Shape Generator von Autodesk Inventor generiert, sodass sie längs bis zu einem $45^\circ$ Winkel ohne zu brechen gebogen werden kann. Die instabilsten Stellen sind die Zylinder der Schraubvorrichtung, welche durch Fillets verstärkt wurden. Diese Instabilität ist auf den schichtweise Druckvorgang durch das FDM Verfahren geschuldet und kann durch kleinere Schichthöhen ausgeglichen werden.
+Zur Formabnahme wurden sowohl die obere als auch die untere Hülle des Fußes von NAO 3D gescannt und in Polygonnetzformat (engl. \textit{mesh}) bei Autodesk Inventor eingespeist. Somit konnten alle Maße direkt abgenommen und eingehalten werden. 
+
+In Abb. \ref{Schuh_Inventor} sind links die vier flachen Zylinder zu sehen, auf denen die Drucksensoren aufliegen. Die vier Zylinder an den Seiten sind die Führung der Schrauben, welche an das obere Teil des Fußes von NAO geschraubt werden. Die Außenform umschließt den oberen Teil während eine zweite Erhöhung, welche an den Innenseiten verläuft, auf dem Rand des oberen Teils aufsitzt, sodass die Passform fest ineinander greift. Da das gesamte Gewicht des NAO auf den 4 Drucksensoren lastet, kann Druckmaterial für die restliche Gesamtfläche bis auf stabilitätserhaltende Streben eingespart werden. Diese Form wurde mit dem Shape Generator von Autodesk Inventor generiert, sodass sie längs bis zu einem $45^\circ$ Winkel ohne zu brechen gebogen werden kann. Die instabilsten Stellen sind die Zylinder der Schraubvorrichtung, welche durch Fillets verstärkt wurden. Diese Instabilität ist auf den schichtweise Druckvorgang durch das FDM Verfahren geschuldet und kann durch kleinere Schichthöhen ausgeglichen werden.
 
 Die Unterseite, zu sehen in Abb. \ref{Schuh_Inventor} rechts, ist ein Hohlraum für die MAP Sohle zusammen mit den viereckigen Steckeinlässen für die Halterung. Die Seiten des Schuhs sind so hoch, dass das MAP etwa $1 \unit{mm}$ herausragt. Andernfalls würde NAO auf der Schuhkante laufen und nicht auf dem MAP.  
 % wesentliche Aufgabe des Schuhs
@@ -33,7 +35,7 @@ Die Unterseite, zu sehen in Abb. \ref{Schuh_Inventor} rechts, ist ein Hohlraum f
 % Das Gewicht des Roboters lastet hauptsächlich auf den 4 Drucksensoren, welche in Kap (Theorie) bereits erklärt wurden. Die 4 kreisförmigen Flächen liegen deshalb genau da an, wo diese Sensoren auch in dem ursprünglichen Teil anlagen. 
 % Shape generater tragende Oberfläche.
 
-\subsection{Herstellung des MAP} \FloatBarrier
+\subsection{Herstellung des MAP} \label{Herstellung_MAP} \FloatBarrier
 Der Herstellungsprozess allein dauert nicht mehr als eine halbe Stunde. Zunächst muss das Verhältnis für den Anteil des CIPs bestimmt werden. Die Masse ergibt sich aus
 \begin{equation}
 \text{m}_{\text{CIP}} = \frac{Ratio_{\text{CIP}} [\%]}{100\%}\cdot\text{m}_{ges},
@@ -45,20 +47,20 @@ Die beiden additiven Komponenten A und B, welche auch als Basis und Katalysator 
 \end{align}
 mit $\rho_\text{A} = 1.071$ sowie $\rho_\text{B} = 1.046$ sowie
 \begin{align}	
-\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\times
-\frac{\text{m}_{ges}}{\alpha + \beta}\times\alpha ,&
-\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\times
-\frac{\text{m}_{ges}}{\alpha + \beta}\times\beta,
+\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\cdot
+\frac{\text{m}_{ges}}{\alpha + \beta}\cdot\alpha ,&
+\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\cdot
+\frac{\text{m}_{ges}}{\alpha + \beta}\cdot\beta,
 \end{align}
 Die Platzhalter $\alpha$ und $\beta$ stehen für das Mischverhältnis der jeweiligen Komponenten und sind hier Beide gleich 1, sodass die Formeln vereinfacht werden können in:
 \begin{align}	
-\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\times
+\text{m}_\text{A} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\cdot
 \frac{\text{m}_{ges}}{2} ,&
-\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\times
+\text{m}_\text{B} &= \left( 1- \frac{Ratio_{\text{CIP}} [\%]}{100\%}\right)\cdot
 \frac{\text{m}_{ges}}{2}.
 \end{align}
 
-\begin{figure}[b]
+\begin{figure}[tb]
 	\hfill
 	%\centering
 	\begin{subfigure}[c]{.49\linewidth}
@@ -70,7 +72,7 @@ Die Platzhalter $\alpha$ und $\beta$ stehen für das Mischverhältnis der jeweil
 		\includegraphics[width=\linewidth]{Bilder/Gussform.png}		
 	\end{subfigure}
 	\hfill
-	\caption{Gussform der MAP Sohlen. Links ist die Innenhalterung herausgenommen, rechts ist sie eingespannt in den sechs Eckhalterungen.}
+	\caption{Gussform der MAP Sohlen. \textit{Links} ist die Innenhalterung herausgenommen. \textit{Rechts} ist sie eingespannt in den sechs Eckhalterungen.}
 	\label{Gussform_Inventor}
 	%\vspace{0.1cm}
 \end{figure}
@@ -99,7 +101,7 @@ Um wiederholbare Messreihen garantieren zu können ist eine Teststrecke von Nöt
 		\includegraphics[width=\linewidth]{Bilder/Rampe_unten.png}
 	\end{subfigure}
 	\hfill
-	\caption{Laufstegrampenkonstruktion mit zwei austauschbaren Platten und einer Winkelverstellung mit Raste. Links: Sicht von schräg oben mit eingeklappter Winkelverstellung. Rechts: Sicht von schräg unten mit niedigster Winkeleinstellung.}
+	\caption{Laufstegrampenkonstruktion mit zwei austauschbaren Platten und einer Winkelverstellung mit Raste. \textit{Links:} Sicht von schräg oben mit eingeklappter Winkelverstellung. \textit{Rechts:} Sicht von schräg unten mit niedrigster Winkeleinstellung.}
 	\label{Rampe_Inventor}
 	%\vspace{0.1cm}
 \end{figure}

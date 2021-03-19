@@ -10,14 +10,14 @@
 	\includegraphics[width=\linewidth]{Bilder/naov6.png}
 	\caption{NAO V6 \cite{nao_docu_dev_guide}}
 	\label{nao_v6}
-	\vspace{-1.8cm}
+	\vspace{-2cm}
 \end{wrapfigure}
 NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}) ursprünglich entwickelt von dem französischen Unternehmen Aldeberan Robotics, welche 2015 von Softbank Group aufgekauft \cite{aldebaran_to_softbank} und in Softbank Robotics umbenannt wurde. Während NAO's große Schwester Pepper mit ihren $1,20 \unit{m}$ mit einem Tablet und Rollen statt Beinen ausgestattet ist \cite{about_pepper}, gibt es NAO in verschiedenen Ausführungen, sowohl ab der Hüfte aufwärts als auch mit Beinen. Es handelt sich hier um Roboter, die unter anderem Kindern und Jugendlichen die Robotik näher bringen sollen und der Vorführung von Mensch-Roboter Interaktionen dienen. NAO bietet außerdem die Gelegenheit zweibeinige Robotersysteme zu studieren und ist bereits in psychologischen Studien verwendet worden \cite{SHAMSUDDIN20121533}. 
 
 \begin{figure}[hb]
 	\centering
 	\vspace{2cm}
-	\includegraphics[width=0.7\linewidth]{Bilder/nao_h25_pres.png}
+	\includegraphics[width=0.75\linewidth]{Bilder/nao_h25_pres.png}
 	\caption{Sensorenüberblick des NAO-H25 Version 6 \cite[in /H25]{nao_naoqi_docu}}
 	\label{nao_v6_h25}
 \end{figure}  
@@ -34,7 +34,7 @@ Des weiteren können der berechnete zweidimensionale Massenschwerpunkt und das G
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Bilder/hardware_semelles.png}
-	\caption{Drucksensoren in den Füßen von NAO \cite[ in /Technical overview/FSRs]{nao_docu_dev_guide}
+	\caption{Drucksensoren und deren Bezeichnung in den Füßen von NAO \cite[ in /Technical overview/FSRs]{nao_docu_dev_guide}
 	}
 	\label{hardware_semelles}
 \end{figure}
@@ -43,7 +43,7 @@ Eine weitere Einschränkung der Messungen ist die Kraftverteilung auf die FSRs. 
 % Graph zu Gewicht des Naos (es wird weniger verzeichnet für MAP Sohlen)
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.9\linewidth]{Bilder/TotalWeight_Grund_20_40_60_mean.pdf}
+	\includegraphics[width=0.8\linewidth]{Bilder/TotalWeight_Grund_20_40_60_mean.pdf}
 	\caption{Berechnetes Gesamtgewicht der Messungen für die normalen Sohlen von NAO in blau und dem Silikon versetzt mit Eisenpartikeln in 20\%, 40\% und 60\% Anteilen. Das Gewicht wird in $\unit{kg}$ ausgegeben.}
 	\label{total_weight}
 \end{figure}
@@ -60,19 +60,7 @@ Neben dem für diese Arbeit uninteressanten Bumper Sensoren und den bereits besc
 \end{itemize}
 Hierbei unterscheiden sich die Pfade bei \glqq ...\grqq{} je nach Aktor. Die Bezeichnungen in Klammern dahinter dienen der abkürzenden Benennung für spätere Kapitel. Der Effekt der Sohlen auf die Aktoren wurde mit \texttt{AnkleRoll} und \texttt{AnklePitch} zu sehen in Abb. \ref{hardware_legjoint} aufgenommen.
 
-Die Temperaturausgaben sowie die Starrheit der Motoren liefern keine verwertbaren Messausgaben, da sich beide während einer Messung nicht oder kaum ändern. \texttt{Pos/Act} und \texttt{Pos/Sens} geben ähnliche Werte in $\unit{rad}$ aus, da ersteres die Ausgabe des Programms vorgibt und zweiteres den tatsächlich gemessenen Wert an dem Gelenk ausgibt. Der \texttt{Current} Wert wird in Ampère gemessen und gibt an, wie viel Strom für das Erreichen der entsprechenden Aktorposition und Starrheit aufgewendet werden muss. Dies bedeutet, dass dieser Wert unter anderem eine Aussage über den Zustand des Aktors geben kann. 
-
-Bei den Probegängen des NAO stellte sich heraus, dass er in einer Kurve nach links läuft bei einem Befehl, der ihn hätte gerade aus laufen lassen sollen. Softbank Robotics betonte, dass es nicht möglich ist, dass NAO komplett gerade läuft. Grund dafür ist zum einen, dass die Motoren nicht immer komplett identisch hergestellt sind. Zum anderen ist der Gehbefehl, welcher hier ausgeführt wird, ohne Rückkopplungsschleife für Einwirkungen der Umgebung ausgestattet. Näheres zur Software wird in Kapitel \ref{software} beschrieben.
-
-% Jetzt kommt der Testgang und alle Graphen, die damit zusammenhängen.
-
-% Aktoren und Sensoren in den Beinen
-% Ausgabe eines Sensors und technische Details
-% Wichtige Ausgaben für Stabilität
-% fehlerhafter Gang
-
-
-\begin{figure}[tb]
+\begin{figure}[b!]
 	\hfill
 	\begin{subfigure}[c]{\linewidth}
 		\centering
@@ -87,6 +75,17 @@ Bei den Probegängen des NAO stellte sich heraus, dass er in einer Kurve nach li
 	\label{hardware_legjoint}
 	%\vspace{0.1cm}
 \end{figure}
+
+Die Temperaturausgaben sowie die Starrheit der Motoren liefern keine verwertbaren Messausgaben, da sich beide während einer Messung nicht oder kaum ändern. \texttt{Pos/Act} und \texttt{Pos/Sens} geben ähnliche Werte in $\unit{rad}$ aus, da ersteres die Ausgabe des Programms vorgibt und zweiteres den tatsächlich gemessenen Wert an dem Gelenk ausgibt. Der \texttt{Current} Wert wird in Ampère gemessen und gibt an, wie viel Strom für das Erreichen der entsprechenden Aktorposition und Starrheit aufgewendet werden muss. Dies bedeutet, dass dieser Wert unter anderem eine Aussage über den Zustand des Aktors geben kann. 
+
+Bei den Probegängen des NAO stellte sich heraus, dass er in einer Kurve nach links läuft bei einem Befehl, der ihn hätte gerade aus laufen lassen sollen. Softbank Robotics betonte, dass es nicht möglich ist, dass NAO komplett gerade läuft. Grund dafür ist zum einen, dass die Motoren nicht immer komplett identisch hergestellt sind. Zum anderen ist der Gehbefehl, welcher hier ausgeführt wird, ohne Rückkopplungsschleife für Einwirkungen der Umgebung ausgestattet. Näheres zur Software wird in Kapitel \ref{software} beschrieben.
+
+% Jetzt kommt der Testgang und alle Graphen, die damit zusammenhängen.
+
+% Aktoren und Sensoren in den Beinen
+% Ausgabe eines Sensors und technische Details
+% Wichtige Ausgaben für Stabilität
+% fehlerhafter Gang
 
 \subsubsection*{Gyroskop}
 Der NAO Roboter verfügt über eine Inertialeinheit, welche sich zusammensetzt aus den 3 Achsen des Gyrometers, im einer Achsengeschwindigkeit von bis zu $500^\circ\unit{/s}$, sowie den 3 Achsen des Beschleunigungssensors, mit einer Beschleunigung bis zu $2\unit{g}$ \cite[/Technical overview/Inertial unit]{nao_docu_dev_guide}. Die Z-Achse des Gyroskops, welche die Höhenorientierung des Roboters ausgeben würde, ist allerdings noch nicht verfügbar. Außerdem wird durch diese beiden Sensoren der Winkel des Torsos bestimmt. 
