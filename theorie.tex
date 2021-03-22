@@ -124,10 +124,10 @@ welcher in Matlab mit \texttt{'Kernel'} und dann standardmäßig mit \texttt{'no
 
 
 \FloatBarrier
+
 \subsection{Magneto-aktive Polymere}\label{kap_MAP}
 %	 woher kommt der begriff, was ist es
 %	 woher bestand die bisherige Forschung, warum ist es interessant
-\subsubsection*{Begriffserklärung und Eigenschaften}
 Der Begriff Magneto-Aktive Polymere (MAP) gehört zur Gruppe der intelligenten, auf magnetische Felder ansprechende Materialien, welche typischerweise Kombinationen aus einer weichen Polymermatrix und darin eingebetteten, magnetischen Partikeln sind. Diese Partikel werden während dem Vernetzungsprozess des Polymers in dieses eingebettet. 
 
 Die wesentlichen Verhaltensweisen, die MAP in der heutigen Zeit attraktiv für seine Verwendung macht, wurde bereits in den 80ger Jahren von Rigbi und Jilken \cite{Rigbi1} sowie Rigbi und Mark \cite{Rigbi2} beschrieben. Ein Jahrzehnt später wurde eine genauere Analyse zum ersten Mal von Ginder und Jolly et al. \cite{ginder} veröffentlicht. 
@@ -141,12 +141,39 @@ Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche
 
 Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer genutzt \cite{Qi_2020}, ebenso wird der 3D Druck von magneto-aktiven Polymeren \cite{Sindersberger_2018} bereits erforscht.
 
-\subsection{Magnetostiction}
+%\subsection{Magnetostiction}
+%
+%Der Begriff Stiction ist in erster Linie eine englische Wortneuschöpfung aus dem Wort \textit{friction}, also Reibungskraft und \textit{sticking}, also kleben. Ersteres wird unterschieden in Haftreibung, welche den Schwellenwert einer äußeren Kraft darstellt, der überwunden werden muss um ein Objekt in Bewegung zu versetzen, sowie in Gleitreibung, welche den Widerstand, der entgegen der Bewegungsrichtung wirkt, beschreibt. Stiction entsteht wenn die Haftreibung die Gleitreibung übersteigt. Dies sorgt für einen plötzlichen Stillstand, bis dann die auf das Objekt wirkende Kraft ausreicht, um eine erneute Bewegung zu erlauben. Dies kann zu ruckartigen Bewegungen führen und ist deshalb in vielen Fällen eine unerwünschte Eigenschaft \cite{Ruel2014STICTIONT}. Es gilt dies nicht zu verwechseln mit Adhäsion, welche entsteht, wenn z.B. Silikon auf dem Boden flach aufliegt und sich an den Boden auf die Art anpasst, dass bei dem Versuch, es zu schieben, sich an den Boden anklebt. Wenn die Adhäsion fehlt, aber die Reibung noch kontrollierbar ist, dann handelt es sich um Stiction. \cite{Monkman_2019}
 
-Der Begriff Stiction ist in erster Linie eine englische Wortneuschöpfung aus dem Wort \textit{friction}, also Reibungskraft und \textit{sticking}, also kleben. Ersteres wird unterschieden in Haftreibung, welche den Schwellenwert einer äußeren Kraft darstellt, der überwunden werden muss um ein Objekt in Bewegung zu versetzen, sowie in Gleitreibung, welche den Widerstand, der entgegen der Bewegungsrichtung wirkt, beschreibt. Stiction entsteht wenn die Haftreibung die Gleitreibung übersteigt. Dies sorgt für einen plötzlichen Stillstand, bis dann die auf das Objekt wirkende Kraft ausreicht, um eine erneute Bewegung zu erlauben. Dies kann zu ruckartigen Bewegungen führen und ist deshalb in vielen Fällen eine unerwünschte Eigenschaft \cite{Ruel2014STICTIONT}. Es gilt dies nicht zu verwechseln mit Adhäsion, welche entsteht, wenn z.B. Silikon auf dem Boden flach aufliegt und sich an den Boden auf die Art anpasst, dass bei dem Versuch, es zu schieben, sich an den Boden anklebt. Wenn die Adhäsion fehlt, aber die Reibung noch kontrollierbar ist, dann handelt es sich um Stiction. \cite{Monkman_2019}
+\subsection{Carbonyleisenpulver}
+
+\begin{wrapfigure}{hr}{0.5\linewidth}
+	%\vspace{-0.5cm}
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/Hysterese.png}
+	\caption{Hysteresekurve von CIP entnommen aus \cite[Abb.4]{Magnetorheological_Elastomers}}
+	\label{Hysterese}
+	\vspace{-0.6cm}
+\end{wrapfigure}
+% magnetische Eigenschaften -> suszeptibiltiät
+% Was sagt suszeptibilität aus? Was bedeutet das für das Carbonyleisenpulver
+Bei den in dieser Arbeit verwendeten magnetischen Partikel für die Herstellung des MAP handelt es sich um das von BASF vor über 85 Jahren entdeckte Carbonyleisenpulver (engl. \textit{carbonyl iron powder)}, CIP) \cite{basf_cip_allg}. 
+Es wird durch thermische Zersetzung von Eisenpentacarbonyl hergestellt und besteht aus Teilchen in einer Größenordnung von 5 bis $1 \unit{\mu m}$.
+
+% bin mir nicht sicher, ob hier noch mehr hin muss
+
+Die magnetischen Eigenschaften dieses Materials lassen sich durch die Suszeptibilität \cite[Gleichung (2)]{Gorodkin}
+\begin{equation}
+	\chi = \frac{3 \chi_p}{3 + \chi_p} \,\phi
+\end{equation}
+mit $\chi_p$ als Suszeptibilität der einzelnen Teilchen und einem Partikel Volumen $\phi$ welches sehr viel kleiner als 1 ist, beschreiben. 
+CIP zählt zu den ferromagnetisch weichen Materialien, was sich durch Untersuchungen der Hysteresekurve veranschaulichen lässt, wie zum Beispiel von Liu u.a. \cite{Magnetorheological_Elastomers} zu sehen in Abb. \ref{Hysterese}
 
 
-	
+
+
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"

@@ -68,12 +68,20 @@
 			"""
 			print "Recording data..."
 			data = list()
-			for range_counter in range(1, 230):
-				#Gyroscope
+			for range_counter in range(1, 220):
+		        #Gyroscope
 				GyrX = memory_service.getData("Device/SubDeviceList/InertialSensor/GyroscopeX/Sensor/Value")
 				GyrY = memory_service.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value")
+				AngleX = memory_service.getData("Device/SubDeviceList/InertialSensor/AngleX/Sensor/Value")
+				AngleY = memory_service.getData("Device/SubDeviceList/InertialSensor/AngleY/Sensor/Value")
+				AccX = memory_service.getData("Device/SubDeviceList/InertialSensor/AccelerometerX/Sensor/Value")
+				AccY = memory_service.getData("Device/SubDeviceList/InertialSensor/AccelerometerY/Sensor/Value")
 				data.append(GyrX)
 				data.append(GyrY)
+				data.append(AngleX)
+				data.append(AngleY)
+				data.append(AccX)
+				data.append(AccY)
 				
 				# Adding the summary of the FSR
 				LFsrTw = memory_service.getData("Device/SubDeviceList/LFoot/FSR/TotalWeight/Sensor/Value")
@@ -158,7 +166,7 @@
 			motion.wakeUp()
 			
 			motion.moveInit()
-			motion.post.moveTo(0.85, -0.10, -0.25, [["MaxStepFrequency", 0.0]])
+			motion.post.moveTo(0.90, -0.2, -0.4, [["MaxStepFrequency", 0.0]])
 			
 			data = recordData(memory_service)
 			filename = count_files()

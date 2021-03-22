@@ -429,9 +429,13 @@ Magnetic helical micro- and nanorobots can perform 3D navigation in various liqu
   keywords = {human-robot interaction (HRI), Autism Spectrum Disorder (ASD), humanoid robot NAO, rehabilitation robotics},
 }
 
-@Misc{Lutz_naowalking,
-  author = {Christian Lutz and Felix Atmanspacher and Armin Hornung and Maren Bennewitz},
-  title  = {NAO Walking Down a Ramp Autonomously},
+@InProceedings{Lutz_naowalking,
+  author    = {C. {Lutz} and F. {Atmanspacher} and A. {Hornung} and M. {Bennewitz}},
+  title     = {NAO walking down a ramp autonomously},
+  booktitle = {2012 IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  year      = {2012},
+  pages     = {5169-5170},
+  doi       = {10.1109/IROS.2012.6386268},
 }
 
 @Misc{sed_python,
@@ -461,6 +465,31 @@ Magnetic helical micro- and nanorobots can perform 3D navigation in various liqu
 @Misc{fitdist,
   url     = {https://de.mathworks.com/help/stats/fitdist.html},
   urldate = {2020-03-18},
+}
+
+@InBook{Magnetorheological_Elastomers,
+  title  = {Magnetorheological Elastomers: Materials and Applications},
+  year   = {2019},
+  author = {Liu, Taixiang and Xu, Yangguang},
+  month  = {03},
+  isbn   = {978-1-78984-716-1},
+  doi    = {10.5772/intechopen.85083},
+}
+
+@Misc{basf_cip_allg,
+  url     = {https://electronics-electric.basf.com/global/en/electronics/products/carbonyl_iron_powder.html},
+  urldate = {2020-03-22},
+}
+
+@Article{article,
+  author  = {Gorodkin, Sergei and James, R and Kordonski, William},
+  title   = {Magnetic Properties of Carbonyl Iron Particles in Magnetorheological Fluids},
+  journal = {Journal of Physics: Conference Series},
+  year    = {2009},
+  volume  = {149},
+  pages   = {012051},
+  month   = {03},
+  doi     = {10.1088/1742-6596/149/1/012051},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

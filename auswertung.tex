@@ -1,12 +1,16 @@
-Notizen:
+In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeutung graphisch analysiert. Wie in Kapitel \ref{software} erwähnt, werden zweidimensionale Ausgaben, wie die x- und y-Ausgabe des Gyroskops, in einem Scatterhistogramm dargestellt, welches es ermöglicht, die Dichteverteilung einzusehen. 
 
-Die folgenden Graphen unterscheiden sich in ihrer Darstellung: Zum einen wurden Gyroskop, Beschleunigungssensors, Winkel und Center of Mass in sog. Scatterhistogrammen geplottet, siehe Abb \ref{Gyr},\ref{Acc},\ref{Angle}. Der Hauptplot ist ein scatter-Plot, welcher die Verteilung auf der X verglichen zur Y-Achse zeigt. An den Rändern sind jeweils die Histogramme der Achsen aufgetragen, welche die Wahrscheinlichkeitsverteilung angeben. Dabei ist die Annahme, dass ein stabilierer Gang eine steilere Wahrscheinlichkeitsverteilung hervorbringt, da sich die Aufnahmepunkte in der Mitte häufen müssten. Eine flache Verteilungskurve würde im Gegenzug bedeuten, dass NAO während dem Gang große Schwankungen aufweist und deshalb instabiler läuft.
 
-Es lässt sich eine Tendenz erkennen, dass der Gang mit Magneten stabiler ist, als ohne. Außerdem zeichnet sich das 20\,\% MAP durch besonders gute Stabilität hab. 
 
-Der Strom wurde in Histogrammen aufgetragen, welche die relative Häufigkeit des Stroms während der Messung aufzeigt. Die Graphen \ref{AnklePitch_Current_links},\ref{AnklePitch_Current_rechts},\ref{AnkleRoll_Current_links},\ref{AnkleRoll_Current_rechts} sind unterteilt in zwei Arten von Plots. Einerseits ist ein Histogramm mit jeweils 20 Säulen zu sehen. Diese wurde mit der Wahrscheinlichkeitsdichtefunktion von Matlab (pdf) ergänzt, um die Verteilung besser einsehen zu können.
-
-Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bedeuten. Leider ist die Datenlage hier sehr uneindeutig. 
+%Notizen:
+%
+%Die folgenden Graphen unterscheiden sich in ihrer Darstellung: Zum einen wurden Gyroskop, Beschleunigungssensors, Winkel und Center of Mass in sog. Scatterhistogrammen geplottet, siehe Abb \ref{Gyr},\ref{Acc},\ref{Angle}. Der Hauptplot ist ein scatter-Plot, welcher die Verteilung auf der X verglichen zur Y-Achse zeigt. An den Rändern sind jeweils die Histogramme der Achsen aufgetragen, welche die Wahrscheinlichkeitsverteilung angeben. Dabei ist die Annahme, dass ein stabilierer Gang eine steilere Wahrscheinlichkeitsverteilung hervorbringt, da sich die Aufnahmepunkte in der Mitte häufen müssten. Eine flache Verteilungskurve würde im Gegenzug bedeuten, dass NAO während dem Gang große Schwankungen aufweist und deshalb instabiler läuft.
+%
+%Es lässt sich eine Tendenz erkennen, dass der Gang mit Magneten stabiler ist, als ohne. Außerdem zeichnet sich das 20\,\% MAP durch besonders gute Stabilität hab. 
+%
+%Der Strom wurde in Histogrammen aufgetragen, welche die relative Häufigkeit des Stroms während der Messung aufzeigt. Die Graphen \ref{AnklePitch_Current_links},\ref{AnklePitch_Current_rechts},\ref{AnkleRoll_Current_links},\ref{AnkleRoll_Current_rechts} sind unterteilt in zwei Arten von Plots. Einerseits ist ein Histogramm mit jeweils 20 Säulen zu sehen. Diese wurde mit der Wahrscheinlichkeitsdichtefunktion von Matlab (pdf) ergänzt, um die Verteilung besser einsehen zu können.
+%
+%Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bedeuten. Leider ist die Datenlage hier sehr uneindeutig. 
 
 \begin{figure}[tb]
 	\centering
@@ -25,7 +29,7 @@ Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bede
 	\end{adjustwidth}
 	\caption{Ausgabe des Gyroskops, x-Achse auf y-Achse, links ohne Magneten, rechts mit Magneten}\label{Gyr}
 \end{figure}
-\begin{figure}[tb]
+\begin{figure}[htb]
 	\centering
 	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
 	\hspace{5pt}
@@ -44,7 +48,7 @@ Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bede
 	\end{adjustwidth}
 	\caption{Ausgabe des Beschleunigungssensors, x-Achse auf y-Achse aufgetragen, links ohne Magneten, rechts mit Magneten} \label{Acc}
 \end{figure}
-\begin{figure}[tb]
+\begin{figure}[htb]
 	\centering
 	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
 		\hspace{5pt}
@@ -233,6 +237,7 @@ Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bede
 %	\caption{AnkleRoll Aktoren beider Seiten mit dem Current Messwert. Messwert Links ist in Schwarz, Messwert Rechts ist in Blau. Nao macht hier den ersten Schritt mit Rechts.}
 %	\label{AnkleRoll_beide_current_rechts_anfang}
 %\end{figure}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
