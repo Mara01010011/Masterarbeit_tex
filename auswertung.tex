@@ -1,63 +1,73 @@
-In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeutung graphisch analysiert. Wie in Kapitel \ref{software} erwähnt, werden zweidimensionale Ausgaben, wie die x- und y-Ausgabe des Gyroskops, in einem Scatterhistogramm dargestellt, welches es ermöglicht, die Dichteverteilung einzusehen. 
+In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeutung graphisch analysiert. Hierbei werden die Aufnahmen von zwei dimensionalen Ausgaben, welche das Gleichgewicht des Roboters widerspiegeln und die Werte der Aktoren in den Gelenken unterschieden.
 
+\subsection{Gleichgewichtssensoren}
 
+Wie in Kapitel \ref{software} beschrieben, werden zwei dimensionale Ausgaben, wie die x- und y-Ausgabe des Gyroskops, in einem Scatterhistogramm dargestellt, welches es ermöglicht, die Dichteverteilung einzusehen. 
 
-%Notizen:
-%
-%Die folgenden Graphen unterscheiden sich in ihrer Darstellung: Zum einen wurden Gyroskop, Beschleunigungssensors, Winkel und Center of Mass in sog. Scatterhistogrammen geplottet, siehe Abb \ref{Gyr},\ref{Acc},\ref{Angle}. Der Hauptplot ist ein scatter-Plot, welcher die Verteilung auf der X verglichen zur Y-Achse zeigt. An den Rändern sind jeweils die Histogramme der Achsen aufgetragen, welche die Wahrscheinlichkeitsverteilung angeben. Dabei ist die Annahme, dass ein stabilierer Gang eine steilere Wahrscheinlichkeitsverteilung hervorbringt, da sich die Aufnahmepunkte in der Mitte häufen müssten. Eine flache Verteilungskurve würde im Gegenzug bedeuten, dass NAO während dem Gang große Schwankungen aufweist und deshalb instabiler läuft.
-%
-%Es lässt sich eine Tendenz erkennen, dass der Gang mit Magneten stabiler ist, als ohne. Außerdem zeichnet sich das 20\,\% MAP durch besonders gute Stabilität hab. 
-%
-%Der Strom wurde in Histogrammen aufgetragen, welche die relative Häufigkeit des Stroms während der Messung aufzeigt. Die Graphen \ref{AnklePitch_Current_links},\ref{AnklePitch_Current_rechts},\ref{AnkleRoll_Current_links},\ref{AnkleRoll_Current_rechts} sind unterteilt in zwei Arten von Plots. Einerseits ist ein Histogramm mit jeweils 20 Säulen zu sehen. Diese wurde mit der Wahrscheinlichkeitsdichtefunktion von Matlab (pdf) ergänzt, um die Verteilung besser einsehen zu können.
-%
-%Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bedeuten. Leider ist die Datenlage hier sehr uneindeutig. 
+\begin{figure}[b!]
+	\centering
+	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
+		\hspace{+35pt}
+		\begin{subfigure}[c]{.5\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{Bilder/Gyr_Grund_20_40_60_ohneM.pdf}
+			\vspace{5pt}
+		\end{subfigure}
+		\hspace{-35pt}
+		\begin{subfigure}[c]{.5\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{Bilder/Gyr_Grund_20_40_60_mitM.pdf}
+			\vspace{5pt}
+		\end{subfigure}
+	\end{adjustwidth}
+	\caption{Ausgabe des Gyroskops, x-Achse auf y-Achse, links ohne Magneten, rechts mit Magneten}\label{Gyr}
+\end{figure}
+
+In Abb. \ref{Gyr} sind die Aufnahmen des Gyroskops zu erkennen. Jede Ausgabe besteht aus 220 Punkten, da dies die Anzahl der Messdurchläufe pro Lauf sind. Jeder Wert wurde durch das arithmetische Mittel aus Gleichung \eqref{mean} aller Messpunkte zu diesem Zeitpunkt ermittelt. Der Graph auf der linken Seite ist die Ausgabe für die Messungen ohne Magneten an der Rampenunterseite, auf der rechten Seite die für die Messungen mit Magneten. Die jeweils zwei errechneten Dichteverteilung am linken und am unteren Rand des Hauptplots spiegeln die Verteilung des Scatterplots eindimensional wider. Die vereinzelten Punkte unterhalb von $-0,3 \unit{rad/s}$ sind dem Beginn der Messung geschuldet, während derer NAO sich in aufrechtem Stand befindet. Sobald der Roboter die laufende Haltung einnimmt, wird der Torso deshalb relativ schnell bewegt. Dies wird während der restlichen Aufnahmen nur passieren, wenn NAO umfällt. 
+%Sollte ich hierfür das Gyroskop einmal auf die Zeit gesehen zeigen?
+
+% abb 13: wie sind die Graphen aufgeteilt, was haben die Graphen an der seite zu bedeuten. Warum sind da vereinzelnd punkte in der mitte unten
+
+Bei einem stabilen Gang würde man erwarten, dass die Geschwindigkeit, in der sich der Torso bewegt, gering bleibt. Dies bedeutet, je mehr Ausschwankungen zu sehen sind, desto instabiler läuft dieser Roboter und desto eher würde er das Gleichgewicht verlieren. 
+% was würde man erwarten, wenn NAO stabil läuft
+
+In Abb. \ref{Gyr} ist eine Tendenz von stabiler werdendem Gang von ohne Magneten zu mit Magneten zu erkennen. Allerdings fällt dies auch für den Originalschuh auf, welcher kein MAP enthält. Grund hierfür könnte der etwa 1cm breite Magnet sein, welcher den unteren Teil des Schuhs in Stellung hält, bevor die Schrauben zur Befestigung verwendet werden.
+
+Des Weiteren heben sich die Sohlen mit $20\,\%$ CIP Anteil besonders hervor. Durch die Magneten erfahren sie ebenfalls eine minimale Verbesserung. Hierbei sollte erwähnt werden, dass diese Sohle mit der gedruckten Halterung dem Gewicht der Originalsohle am nächsten kommt und dadurch die Stabilität vielleicht besser gewährleistet ist. Die stärkste Auswirkung sowohl für die x- als auch die y-Achse gab es für $60\,\%$ CIP Anteil. Dies ist nicht verwunderlich, da hier die größte magnetische Kraft wirkt. 
+% erst dann: man sieht eine Tendenz, dass es mit Magneten stabiler ist. 20% ist von vorn herein sehr stabil, der Grundschuh sowie 40% zeigen zeigt in y-Achse eine starke verbesserung mit Magneten, 60% zeigt in allen Achsen eine Verbesserung der Stabilität
+
+\begin{figure}[htb]
+	\centering
+	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
+		\hspace{+45pt}
+		\begin{subfigure}[c]{.45\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{Bilder/Beschleunigung_Grund_20_40_60_ohneM.pdf}
+			\vspace{5pt}
+		\end{subfigure}
+		%\hfill
+		\hspace{-25pt}
+		\begin{subfigure}[c]{.45\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{Bilder/Beschleunigung_Grund_20_40_60_mitM.pdf}
+			\vspace{5pt}
+		\end{subfigure}
+	\end{adjustwidth}
+	\caption{Ausgabe des Beschleunigungssensors, x-Achse auf y-Achse aufgetragen, links ohne Magneten, rechts mit Magneten} \label{Acc}
+\end{figure}
+Die Beschleunigungssensoren messen wie bereits erwähnt in $\unit{m/s^2}$ die Beschleunigung des Torsos. Deshalb ist ebenfalls zu erwarten, dass bei einem stabilen Gang diese Werte sich in der Nähe des Nullpunkts zentrieren, sollte NAO stabil laufen. Genau wie in Abb. \ref{Gyr} zeigen die Graphen in Abb. \ref{Acc} eine Tendenz zu einem stabileren Lauf mit Magneten. Auch hier wirken die $20\,\%$igen Proben außergewöhnlich stabil, während die $60\,\%$igen Proben in x-Richtung von den Magneten am meisten Profitieren. Gleichzeitig verhalten sich $40$ zu $60\,\%$ in y-Richtung ähnlich. 
+% abb 14: Gleiche Graphenaufteilung, ähnliches Ergebnis
 
 \begin{figure}[tb]
 	\centering
 	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-	\begin{subfigure}[c]{.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/Gyr_Grund_20_40_60_ohneM.pdf}
-		\vspace{5pt}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[c]{.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/Gyr_Grund_20_40_60_mitM.pdf}
-		\vspace{5pt}
-	\end{subfigure}
-	\end{adjustwidth}
-	\caption{Ausgabe des Gyroskops, x-Achse auf y-Achse, links ohne Magneten, rechts mit Magneten}\label{Gyr}
-\end{figure}
-\begin{figure}[htb]
-	\centering
-	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-	\hspace{5pt}
-	\begin{subfigure}[c]{.45\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/Beschleunigung_Grund_20_40_60_ohneM.pdf}
-		\vspace{5pt}
-	\end{subfigure}
-	%\hfill
-	\hspace{20pt}
-	\begin{subfigure}[c]{.45\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/Beschleunigung_Grund_20_40_60_mitM.pdf}
-		\vspace{5pt}
-	\end{subfigure}
-	\end{adjustwidth}
-	\caption{Ausgabe des Beschleunigungssensors, x-Achse auf y-Achse aufgetragen, links ohne Magneten, rechts mit Magneten} \label{Acc}
-\end{figure}
-\begin{figure}[htb]
-	\centering
-	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{5pt}
+		\hspace{45pt}
 		\begin{subfigure}[c]{.45\linewidth}
 			\centering
 			\includegraphics[width=\linewidth]{Bilder/Winkel_Grund_20_40_60_ohneM.pdf}
 			\vspace{5pt}
 		\end{subfigure}
-		\hspace{20pt}
+		\hspace{-20pt}
 		%\hfill
 		\begin{subfigure}[c]{.45\linewidth}
 			\centering
@@ -67,17 +77,19 @@ In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeu
 	\end{adjustwidth}
 	\caption{Echtzeit errechneter Winkel, x-Achse auf y-Achse aufgetragen, links ohne Magneten, rechts mit Magneten} \label{Angle}
 \end{figure}
+Die Winkelwerte in Abb. \ref{Angle} entstehen aus der Berechnung durch Gyroskop und Beschleunigungssensor. Da beide alle Graphen zuvor eine Tendenz von höherer Stabilität durch Magneten aufwiesen, ist zu erwarten, dass dies bei den Winkelgraphen auch der Fall ist. In der y-Achse ist eine Verbesserung von $40$ und $60\,\%$ erkennbar.In x-Richtung scheint $40\,\%$iges MAP am meisten zu profitieren, allerdings gilt für den Originalschuh eher das Gegenteil. 
+% abb 15: Ist aus den Werten, welche in abb 13 und 14 zu sehen sind errechnet. deshalb auch hier ähnliches Ergebnis
 
 \begin{figure}[tb]
 	\centering
 	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{5pt}
+		\hspace{40pt}
 		\begin{subfigure}[c]{.45\linewidth}
 			\centering
 			\includegraphics[width=\linewidth]{Bilder/links_CoM_ohneM.pdf}
 			\vspace{5pt}
 		\end{subfigure}
-		\hspace{20pt}
+		\hspace{-10pt}
 		%\hfill
 		\begin{subfigure}[c]{.45\linewidth}
 			\centering
@@ -90,13 +102,13 @@ In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeu
 \begin{figure}[tb]
 	\centering
 	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{5pt}
+		\hspace{40pt}
 		\begin{subfigure}[c]{.45\linewidth}
 			\centering
 			\includegraphics[width=\linewidth]{Bilder/rechts_CoM_ohneM.pdf}
 			\vspace{5pt}
 		\end{subfigure}
-		\hspace{20pt}
+		\hspace{-10pt}
 		%\hfill
 		\begin{subfigure}[c]{.45\linewidth}
 			\centering
@@ -106,6 +118,26 @@ In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeu
 	\end{adjustwidth}
 	\caption{Rechter errechneter Massenschwerpunkt aufgenommen durch die FSR, x-Achse auf y-Achse aufgetragen, links ohne Magneten, rechts mit Magneten} \label{CoM_rechts}
 \end{figure}
+Das hier verwendete Modell von NAO bietet noch die Möglichkeit die Stabilität des Gangs über die Drucksensoren in den Fußsohlen, auf die in Kapitel \ref{aufbau_NAO} bereits eingegangen wurde, zu messen. Die errechneten Werte der zweidimensionalen Massenschwerpunkte durch die 8 FSR Sensoren sind in Abb \ref{CoM_links} und \ref{CoM_rechts} zu sehen.
+% abb 16 und 17 sind aus den FSR Daten entstanden und weißen eine ebenfalls weisen nur für die MAP sohlen unterschiede auf, aber kaum für den Grundschuh. 
+
+% Warum diese Auswertung mit Vorsicht zu genießen ist: frühere Auswertung
+% Ungenauigkeiten der FSR
+% Dennoch wird bei allen Graphen eine verbesserung mit Magneten festgestellt, warum könnte das so sein?
+
+
+%Notizen:
+%
+%Die folgenden Graphen unterscheiden sich in ihrer Darstellung: Zum einen wurden Gyroskop, Beschleunigungssensors, Winkel und Center of Mass in sog. Scatterhistogrammen geplottet, siehe Abb \ref{Gyr},\ref{Acc},\ref{Angle}. Der Hauptplot ist ein scatter-Plot, welcher die Verteilung auf der X verglichen zur Y-Achse zeigt. An den Rändern sind jeweils die Histogramme der Achsen aufgetragen, welche die Wahrscheinlichkeitsverteilung angeben. Dabei ist die Annahme, dass ein stabilierer Gang eine steilere Wahrscheinlichkeitsverteilung hervorbringt, da sich die Aufnahmepunkte in der Mitte häufen müssten. Eine flache Verteilungskurve würde im Gegenzug bedeuten, dass NAO während dem Gang große Schwankungen aufweist und deshalb instabiler läuft.
+%
+%Es lässt sich eine Tendenz erkennen, dass der Gang mit Magneten stabiler ist, als ohne. Außerdem zeichnet sich das 20\,\% MAP durch besonders gute Stabilität hab. 
+%
+%Der Strom wurde in Histogrammen aufgetragen, welche die relative Häufigkeit des Stroms während der Messung aufzeigt. Die Graphen \ref{AnklePitch_Current_links},\ref{AnklePitch_Current_rechts},\ref{AnkleRoll_Current_links},\ref{AnkleRoll_Current_rechts} sind unterteilt in zwei Arten von Plots. Einerseits ist ein Histogramm mit jeweils 20 Säulen zu sehen. Diese wurde mit der Wahrscheinlichkeitsdichtefunktion von Matlab (pdf) ergänzt, um die Verteilung besser einsehen zu können.
+%
+%Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bedeuten. Leider ist die Datenlage hier sehr uneindeutig. 
+
+\FloatBarrier
+\subsection{Sensoren der Aktoren}
 
 \begin{figure}[tb]
 	\centering

@@ -29,7 +29,7 @@ Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{n
 An den Fußssohlen des NAO befinden sich pro Fuß vier sogenannte \textit{Force Sensitive Resistors} (FSR), zu sehen in Abb. \ref{hardware_semelles}. Diese ändern ihren Widerstand sobald Druck ausgeübt wird und messen im Bereich von 0 bis $25 \unit{N}$.
 
 Die Ausgaben der Sensoren sind im Dateiverzeichnis des NAO hinterlegt und können jederzeit ausgelesen werden. Dies geschieht hier über dasselbe Pythonprogramm, welches ebenfalls die Bewegung steuert, näheres dazu in Kap. \ref{software} und im Anhang \ref{Anhang}.
-Des weiteren können der berechnete zweidimensionale Massenschwerpunkt und das Gesamtgewicht ausgegeben werden. Diese Werte sind allerdings unzuverlässig, sobald wenig oder kein Gewicht auf den Sensoren lastet. In \cite{pressure_shoe} haben Shayan et al. die eingebauten FSR mit barometrischen Drucksensoren verglichen und sind zu dem Schluss gekommen, dass die Sensoren, welche im NAO verbaut wurden, nicht sehr aussagekräftig sind. Deshalb werden hier die Ausgaben kritisch betrachtet, sowie die Balance des Roboters zusätzlich mit dem Gyroskop erfasst.
+Des Weiteren können der berechnete zweidimensionale Massenschwerpunkt und das Gesamtgewicht ausgegeben werden. Diese Werte sind allerdings unzuverlässig, sobald wenig oder kein Gewicht auf den Sensoren lastet. In \cite{pressure_shoe} haben Shayan et al. die eingebauten FSR mit barometrischen Drucksensoren verglichen und sind zu dem Schluss gekommen, dass die Sensoren, welche im NAO verbaut wurden, nicht sehr aussagekräftig sind. Deshalb werden hier die Ausgaben kritisch betrachtet, sowie die Balance des Roboters zusätzlich mit dem Gyroskop erfasst.
 % Graph zu Gewicht des Naos (es wird weniger verzeichnet für MAP Sohlen)
 \begin{figure}[tb]
 	\centering
@@ -109,7 +109,7 @@ Für die Auswertung wurden neben der gewöhnlichen \texttt{plot} Funktion von Ma
 Eine Messreihe ergibt sich aus 40 Messungswiederholungen, in denen NAO etwa einen Meter zurücklegt. Jede Auswertung enthält das arithmetische Mittel eines Sensors von allen Messungen der Messreihe. Diese Mittel wurden mit dem Befehl \texttt{mean()} berechnet und mit Werten aus weiteren Messreihen, mit anderem Schuh oder anderen Untergrundvoraussetzungen aber gleicher Schrittlänge und Sensorenmessung verglichen. Dieser Vergleich wurde mit den Funktionen \texttt{hist} und \texttt{scatterhist} der genannten Toolbox angestellt. Ersteres erstellt ein Histogramm und ist damit optimal für eine Häufigkeitsverteilung. Zweiteres erstellt einen aus zwei Vektoren resultierenden Scatterplot sowie zwei Histogramme, welche die Häufigkeitsverteilung der jeweiligen Vektoren darstellen. Dies ermöglicht eine umfangreiche Verteilungsanalyse für Sensorausgaben, die sich aus zwei Achsen zusammensetzen, wie z.B. der 2 dimensionalen Gyroskop Ausgabe.
 
 Das arithmetische Mittel berechnet Matlab durch \cite[S.50]{statistik_Ludwig}
-\begin{equation}
+\begin{equation} \label{mean}
 	\bar{x} = \frac{1}{n} (x_1 + x_2 + \dots + x_n) = \frac{1}{n}\sum_{i=1}^{n}x_i
 \end{equation}
 und wurde auf eine Messreihe angewendet. Die Darstellung der Verteilungen per Histogramm wurde ergänzt durch ein gleitendes Histogramm, errechnet durch den Kern-Dichteschätzer \cite[S.93]{statistik_Ludwig}

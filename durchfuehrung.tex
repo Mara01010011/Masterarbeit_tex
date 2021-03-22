@@ -48,8 +48,22 @@ Für jede Messabfrage benötigt der Roboter eine Verarbeitungszeit, das bedeutet
 
 Anfangs war die Stabilität mit MAP Sohlen nicht gewährleistet. Dies lag zum einen daran, dass das Silikon am Boden durch Adhäsion festklebte. Dadurch wurde entweder die Sohle aus der Verankerung gerissen, NAO verlor das Gleichgewicht oder die Schuhe brachen. Dies wurde durch die bereits genannte Speisestärke verbessert. Ein weiteres Problem waren die Zylinder, welche den Schuh durch Schrauben an der Oberseite befestigen. Diese brachen meist auf Höhe der Querstreben, wodurch NAO sehr instabil wurde. Durch eine Verstärkung dieser Stellen in Autodesk konnte auch diese Schwachstelle eliminiert werden. 
 
-Die Schräglagefunktion der Rampe wurde nicht genutzt. Grund hierfür ist eine sehr differenzierte Herangehensweise des Gangs, die erforderlich wäre, damit NAO laufen kann, siehe auch \cite{Lutz_naowalking}.
-% Keine Messung der Schräglage
+\begin{wraptable}{r}{0.4\linewidth}
+	\vspace{-0.8cm}
+	\caption{Gemessenes Gewicht des Originalschuhs und des Ersatzes zur Verwendung von MAP als Laufuntergrund.}\label{gewicht}
+	\begin{tabular}{ll}\\\toprule  
+		Gewogenenes Bauteil & Gewicht \\\midrule
+		Originalschuhteil & $61 \unit{g}$ \\  \midrule
+		PETG Schuhgerüst &$16 \unit{g}$ \\  \midrule
+		MAP mit 20\% CIP &$88 \unit{g}$ \\  \midrule
+		MAP mit 40\% CIP &$107,5 \unit{g}$ \\  \midrule
+		Sohle mit 60\% MAP &$182 \unit{g}$ \\  \bottomrule
+	\end{tabular}
+    \vspace{-2cm}
+\end{wraptable} 
 
+Die Schräglagefunktion der Rampe wurde nicht genutzt. Grund hierfür ist eine sehr differenzierte Herangehensweise des Gangs, die erforderlich wäre, damit NAO laufen kann, siehe auch \cite{Lutz_naowalking}.
+
+Zur besseren Vergleichbarkeit wurden schließlich die Sohle von NAO und alle angebrachten Teile gewogen. Hierbei ergab sich, dass die Originalsohle um über $30\unit{g}$ leichter ist, als der leichteste Schuh, zu sehen in Tabelle \ref{gewicht}. Ein höherer CIP Anteil hat nicht nur zur Folge, dass das MAP an Festigkeit zunimmt, sondern trägt auch erheblich zu dem Gesamtgewicht bei. 
 
 
