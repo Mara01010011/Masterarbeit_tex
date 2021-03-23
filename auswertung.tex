@@ -118,8 +118,12 @@ Die Winkelwerte in Abb. \ref{Angle} entstehen aus der Berechnung durch Gyroskop 
 	\end{adjustwidth}
 	\caption{Rechter errechneter Massenschwerpunkt aufgenommen durch die FSR, x-Achse auf y-Achse aufgetragen, links ohne Magneten, rechts mit Magneten} \label{CoM_rechts}
 \end{figure}
-Das hier verwendete Modell von NAO bietet noch die Möglichkeit die Stabilität des Gangs über die Drucksensoren in den Fußsohlen, auf die in Kapitel \ref{aufbau_NAO} bereits eingegangen wurde, zu messen. Die errechneten Werte der zweidimensionalen Massenschwerpunkte durch die 8 FSR Sensoren sind in Abb \ref{CoM_links} und \ref{CoM_rechts} zu sehen.
+Das hier verwendete Modell von NAO bietet die Möglichkeit die Stabilität des Gangs über die in Kapitel \ref{aufbau_NAO} erwähnten Drucksensoren in den Fußsohlen zu messen. Die errechneten Werte der zweidimensionalen Massenschwerpunkte durch die 8 FSR Sensoren sind in Abb \ref{CoM_links} und \ref{CoM_rechts} zu sehen. Auf einer Zeitskala aufgetragen lässt sich erkennen, dass zu Beginn der Messaufzeichnungen einige y-Werte sich in der Nähe von $-0,02$ bzw. $0,02$ aufhalten. Dies geschieht während des Gangs allerdings nicht, daher entsteht bei allen Aufnahmen ein zu vernachlässigender Sammelbereich im rechten unteren Bereich bei Abb. \ref{CoM_links} und im rechten oberen Bereich von Abb. \ref{CoM_rechts}. 
+
+In beiden Abbildungen ist wie bei den bisherigen Graphen die erhöhte Stabilität mit Magneten sichtbar. Die Werte liegen konzentrierter um einen Punkt. Hier ist der Unterschied zwischen dem Originalschuh größer, denn wie in Abb. \ref{total_weight} gezeigt, vermessen die FSR weniger mit den MAP Sohlen, die größte Differenz ist in Abb. \ref{CoM_rechts} zu sehen, bei der das Maximum der Dichteverteilung der y-Achse deutlich weiter links liegt. Auf der x-Achse ist zu vermerken, dass der Originalschuh durch das Magnetfeld eher an Stabilität verliert, während alle anderen Sohlen der Stabilität zuträglich sind.  
 % abb 16 und 17 sind aus den FSR Daten entstanden und weißen eine ebenfalls weisen nur für die MAP sohlen unterschiede auf, aber kaum für den Grundschuh. 
+
+In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der MAP Sohle ungewöhnlich stabil sind, was auf einen Zufall hindeuten könnte. Denn insgesamt gab es zwei Fehlschläge bei denen NAO das Gleichgewicht verloren hat, einmal mit $20\,\%$ und einmal mit $40\,\%$, beides mit Magneten an der Rampe. Außerdem wurde bei früheren Messungen eine erhöhte Stabilität bei $40\,\%$ im Vergleich zu anderen Proben und dem Grundschuh festgestellt. Dies lässt darauf schließen, dass für eine Sicherstellung der Unterschiede zwischen den einzelnen Proben deutlich mehr Testläufe erforderlich sind. Dennoch lässt sich abschließend sagen, dass ein stabilerer Lauf durch die Magneten erzielen wurde. Die größte Auswirkung hatten die Magneten wie zu erwarten war auf die Proben mit einem höheren CIP Anteil. Gleichzeitig sind diese Sohlen allerdings bis zu doppelt so schwer wie der Originalschuh, siehe Tabelle \ref{gewicht}. 
 
 % Warum diese Auswertung mit Vorsicht zu genießen ist: frühere Auswertung
 % Ungenauigkeiten der FSR
@@ -216,6 +220,19 @@ Das hier verwendete Modell von NAO bietet noch die Möglichkeit die Stabilität 
 	%	\end{adjustwidth}
 	\caption{AnkleRoll gemessener Strom im rechter Fuß, Strom in Ampère aufgetragen auf die Häufigkeit. Das Histogramm wurde ergänzt durch eine Wahrscheinlichkeitsdichtefunktion. Der obere Graph sind die Aufnahmen ohne Magneten, der untere mit Magneten.} \label{AnkleRoll_Current_rechts}
 \end{figure}
+
+% Warum genau diese Aktoren messen? -> Anziehung der Schuhe
+% Warum nicht mehr aufnehmen?
+
+% Wiederholung was der Unterschied zwischen AnklePitch und AnkleRoll ist
+
+% Was man sieht -> keine erkennbaren Unterschiede
+
+% Warum sieht man nichts?
+
+% Was bedeutet das? 
+
+% 2 Fehlschläge nicht vergessen!!!
 
 %\subsection{Messungen von AnkleRoll zum Test}
 %Die Messungen von LAnkleRoll und RAnkleRoll, zu sehen in Abb. \ref{hardware_llegjoint} und \ref{hardware_rlegjoint} wurden 20 mal wiederholt und mit den normalen Schuhen von Nao vollzogen. Dabei legte er in etwa eine Strecke von $0,8 \unit{m}$ auf der Rampe im flachen Zustand zurück. Insgesamt wurden alle verfügbaren Messwerte von AnkleRoll aufgezeichnet, das sind pro Aktor 6 Messwerte. Temperatur, Stiffness und Temperatur Status erwiesen sich als Konstant und daher nicht entscheidend, um einen Unterschied der Bodenbeschaffenheit oder Sohlen erkennen zu können. Stiffness ist immer auf $100\%$ während dem Gang. 
