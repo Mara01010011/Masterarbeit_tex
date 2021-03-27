@@ -113,14 +113,19 @@ Das arithmetische Mittel berechnet Matlab durch \cite[S.50]{statistik_Ludwig}
 	\bar{x} = \frac{1}{n} (x_1 + x_2 + \dots + x_n) = \frac{1}{n}\sum_{i=1}^{n}x_i
 \end{equation}
 und wurde auf eine Messreihe angewendet. Die Darstellung der Verteilungen per Histogramm wurde ergänzt durch ein gleitendes Histogramm, errechnet durch den Kern-Dichteschätzer \cite[S.93]{statistik_Ludwig}
-\begin{align}
+\begin{align} \label{pdf}
 	\hat{f}(x)=\frac{1}{nh} \sum_{i=1}^{n}K\left(\frac{x - x_i}{h}\right),\, x \in \mathds{R}
 \end{align}
 mit dem Gauss-Kern \cite[S.93]{statistik_Ludwig}, 
 \begin{align}
 	K(u) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}u^2\right),\, u \in \mathds{R}
 \end{align}
-welcher in Matlab mit \texttt{'Kernel'} und dann standardmäßig mit \texttt{'normal'} in der \texttt{fitdist()} Funktion aufgerufen wird \cite{kernel-distribution} \cite{fitdist}. Das Scatterhistogramm ermöglicht dieselbe Verwendung dieser Distribution. 
+welcher in Matlab mit \texttt{'Kernel'} und dann standardmäßig mit \texttt{'normal'} in der \texttt{fitdist()} Funktion aufgerufen wird \cite{kernel-distribution} \cite{fitdist}. Das Scatterhistogramm ermöglicht dieselbe Verwendung dieser Distribution. Bei den in dieser Arbeit verwendeten Graphen ist zu beachten, dass die jeweilige x bzw. y Kompontente mit einer Häufigkeitsskala ausgestattet ist, welche sich auf das Histogramm bezieht. Das bedeutet, die Häufigkeit, welche auf der jeweiligen y-Achse der Wahrscheinlichkeitsdichten neben den Scatterplots angezeigt wird, hängt von den Histrogrammbalkenbreite, d.h. von der Breite der x-Achse ab, die wiederum von der Breite des Scatterplots abhängt.  
+
+Schließlich wurde für eine Veranschaulichung der Verteilung der Dichtefunktionen die Halbwertsbreiten für das Gyroskop, den Beschleunigungssensor und die Winkelangabe berechnet mit:
+\begin{align}
+	|x_1 - x_2|&, & \text{für } f(x_1)&=f(x_2)=\frac{1}{2}f(x_\text{max}).
+\end{align}
 
 
 \FloatBarrier
@@ -145,7 +150,7 @@ Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer ge
 %
 %Der Begriff Stiction ist in erster Linie eine englische Wortneuschöpfung aus dem Wort \textit{friction}, also Reibungskraft und \textit{sticking}, also kleben. Ersteres wird unterschieden in Haftreibung, welche den Schwellenwert einer äußeren Kraft darstellt, der überwunden werden muss um ein Objekt in Bewegung zu versetzen, sowie in Gleitreibung, welche den Widerstand, der entgegen der Bewegungsrichtung wirkt, beschreibt. Stiction entsteht wenn die Haftreibung die Gleitreibung übersteigt. Dies sorgt für einen plötzlichen Stillstand, bis dann die auf das Objekt wirkende Kraft ausreicht, um eine erneute Bewegung zu erlauben. Dies kann zu ruckartigen Bewegungen führen und ist deshalb in vielen Fällen eine unerwünschte Eigenschaft \cite{Ruel2014STICTIONT}. Es gilt dies nicht zu verwechseln mit Adhäsion, welche entsteht, wenn z.B. Silikon auf dem Boden flach aufliegt und sich an den Boden auf die Art anpasst, dass bei dem Versuch, es zu schieben, sich an den Boden anklebt. Wenn die Adhäsion fehlt, aber die Reibung noch kontrollierbar ist, dann handelt es sich um Stiction. \cite{Monkman_2019}
 
-\subsection{Carbonyleisenpulver}
+\subsection{Carbonyleisenpulver} \label{cip}
 
 \begin{wrapfigure}{hr}{0.5\linewidth}
 	%\vspace{-0.5cm}
