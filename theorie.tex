@@ -22,7 +22,7 @@ NAO ist ein $574 \unit{mm}$ großer, humanoider Roboter (siehe Abb. \ref{nao_v6}
 	\label{nao_v6_h25}
 \end{figure}  
 
-Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern deren Gelenke positionsbasierenden sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen LEDs, die vorder- und rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und die Temperaturmessung ausgerüstet. In seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenden genauer eingegangen.
+Das hier verwendete Modell ist NAO-H25 Version 6, dessen Sensoren in Abb. \ref{nao_v6_h25} zu sehen sind. Im Unterschied zu anderen Ausführungen besitzt NAO-H25 Drucksensoren an Händen und Fußsohlen. Er gehört zu den kommerziellen Robotern, deren Gelenke positionsbasierenden\hyphenation{posi-tions-basierenden} sind \cite{balance_strategy}, hat 25 Freiheitsgrade und wiegt $5,4\unit{kg}$. Über die an der Brust angebrachten Sonar Sensoren, die Kameras oberhalb und unterhalb der Augen Leuchtdioden, die vorder- und rückseitigen Mikrofone, den Stoßfängern an den Füßen sowie den Kontaktsensoren an Händen und Kopf kann der NAO mit seiner Umwelt vielseitig interagieren. Jedes Gelenk ist mit Sensoren für die Winkelmessung, den Stromverbrauch und die Temperaturmessung ausgerüstet. In seiner Brust befindet sich außerdem ein Gyroskop. Auf die in dieser Arbeit verwendeten Messausgaben wird im Folgenden genauer eingegangen.
 
 \subsubsection*{Druckempfindlicher Widerstand}
 
@@ -39,7 +39,7 @@ Des Weiteren können der berechnete zweidimensionale Massenschwerpunkt und das G
 	\label{hardware_semelles}
 \end{figure}
 
-Eine weitere Einschränkung der Messungen ist die Kraftverteilung auf die FSRs. Denn in dem ursprünglichen unteren Teil des Schuhs liegt der obere Teil ausschließlich auf den Sensoren und auf den Verbindungszylindern für die Schrauben auf. Dies ist für die Einlegesohlen aus Silikon bzw. MAP nicht der Fall, zu sehen in den Kapiteln \ref{Schuhkonstruktion} und folgende. Dies führt dazu, dass das Gewicht nicht mehr akkurat aufgenommen wird, siehe Abb. \ref{total_weight}. Hier wird deutlich, dass sich die Messung des Gewichtes etwa um $0,5 \unit{kg}$ von den NAO Schuhsohlen abweicht. 
+Eine weitere Einschränkung der Messungen ist die Kraftverteilung auf die FSRs. Dies hängt damit zusammen, dass ausschließlich Drucksensoren und die Zylinder für die Schrauben auf der Originalsohle anliegen. Dies ist für die Einlegesohlen aus Silikon bzw. MAP nicht der Fall, zu sehen in den Kapiteln \ref{Schuhkonstruktion} und folgende. Dies führt dazu, dass das Gewicht nicht mehr akkurat aufgenommen wird, siehe Abb. \ref{total_weight}. Hier wird deutlich, dass sich die Messung des Gewichtes etwa um $0,5 \unit{kg}$ von den NAO Schuhsohlen abweicht. 
 % Graph zu Gewicht des Naos (es wird weniger verzeichnet für MAP Sohlen)
 \begin{figure}[tb]
 	\centering
@@ -49,7 +49,7 @@ Eine weitere Einschränkung der Messungen ist die Kraftverteilung auf die FSRs. 
 \end{figure}
 
 \subsubsection*{Aktoren und Sensoren der Beinen}
-Neben dem für diese Arbeit uninteressanten Bumper Sensoren und den bereits beschrieben Drucksensoren hat NAO eine Ausgabe für jeden eingebauten Aktor mit den Werten:
+Neben den bereits beschrieben Drucksensoren hat NAO eine Ausgabe für jeden eingebauten Aktor mit den Werten:
 \begin{itemize}
 	\item ...\texttt{/Position/Actuator/Value} (\texttt{Pos/Act})
 	\item ...\texttt{/Position/Sensor/Value} (\texttt{Pos/Sens})
