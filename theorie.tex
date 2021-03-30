@@ -58,7 +58,7 @@ Neben den bereits beschrieben Drucksensoren hat NAO eine Ausgabe für jeden eing
 	\item ...\texttt{/Hardness/Actuator/Value} 
 	\item ...\texttt{/Temperature/Sensor/Status} 
 \end{itemize}
-Hierbei unterscheiden sich die Pfade bei \glqq ...\grqq{} je nach Aktor. Die Bezeichnungen in Klammern dahinter dienen der abkürzenden Benennung für spätere Kapitel. Der Effekt der Sohlen auf die Aktoren wurde mit \texttt{AnkleRoll} und \texttt{AnklePitch} zu sehen in Abb. \ref{hardware_legjoint} aufgenommen.
+Hierbei unterscheiden sich die Pfade bei \glqq ...\grqq{}, da jeder Aktor in einem eigenen Ordnerverzeichnis angelegt ist. Die Bezeichnungen in Klammern dahinter dienen der abkürzenden Benennung für spätere Kapitel. Der Effekt der Sohlen auf die Aktoren wurde mit \texttt{AnkleRoll} und \texttt{AnklePitch} zu sehen in Abb. \ref{hardware_legjoint} aufgenommen.
 
 \begin{figure}[b!]
 	\hfill
@@ -88,25 +88,25 @@ Bei den Probegängen des NAO stellte sich heraus, dass er in einer Kurve nach li
 % fehlerhafter Gang
 
 \subsubsection*{Gyroskop}
-Der NAO Roboter verfügt über eine Inertialeinheit, welche sich zusammensetzt aus den 3 Achsen des Gyrometers, im einer Achsengeschwindigkeit von bis zu $500^\circ\unit{/s}$, sowie den 3 Achsen des Beschleunigungssensors, mit einer Beschleunigung bis zu $2\unit{g}$ \cite[/Technical overview/Inertial unit]{nao_docu_dev_guide}. Die Z-Achse des Gyroskops, welche die Höhenorientierung des Roboters ausgeben würde, ist allerdings noch nicht verfügbar. Außerdem wird durch diese beiden Sensoren der Winkel des Torsos bestimmt. 
+Der NAO Roboter verfügt über eine Inertialeinheit, welche sich zusammensetzt aus den 3 Achsen des Gyroskops, mit einer Achsengeschwindigkeit von bis zu $500^\circ\unit{/s}$, sowie den 3 Achsen des Beschleunigungssensors, mit einer Beschleunigung bis zu $2\unit{g}$, vgl. hierzu \cite[/Technical overview/Inertial unit]{nao_docu_dev_guide}. Die z-Achse des Gyroskops, welche die Höhenorientierung des Roboters ausgeben würde, ist laut dem Hersteller allerdings noch nicht verfügbar. Außerdem wird durch diese beiden Sensoren der Winkel des Torsos bestimmt. 
 \FloatBarrier
 
 \subsection{Verwendete Software} \label{software}
 \subsubsection*{Die Rahmenumgebung NAOqi}
-NAOqi wird die Hauptsoftware genannt, welche auf diesem Roboter sowie auf Pepper läuft, das Betriebssystem NAOqi OS basiert auf Linux. Der NAOqi Rahmen ist eine plattformübergreifende und sprachenübergreifende Umgebung, mithilfe derer Anwendungen für den NAO erstellt werden können. Sie kann über Windows, MacOS und Linux verwendet werden und es werden die Sprachen Python und \texttt{C++} unterstützt, wobei ersteres direkt auf dem NAO kompiliert werden kann, während \texttt{C++} komplizierter benutzt wird, aber mehr Eingriffe erlaubt. \cite[/Former NAOqi Framework/Key concepts]{naoqi_dev_guide}
+Die Hauptsoftware wird NAOqi genannt, welche auf diesem Roboter läuft. Das Betriebssystem NAOqi OS basiert auf dem Linux Kernel. Der NAOqi Rahmen ist eine plattformübergreifende und sprachenübergreifende Umgebung, mithilfe derer Anwendungen für den NAO erstellt werden können. Sie kann sowohl unter Windows, MacOS und Linux verwendet werden, da sie die Sprachen Python und \texttt{C++} unterstützt. Python kann direkt auf dem NAO ausgeführt werden, während \texttt{C++} vorher kompiliert werden muss, dafür aber mehr Eingriffe erlaubt. \cite[/Former NAOqi Framework/Key concepts]{naoqi_dev_guide}
 
-Außerdem gibt es eine Desktop Anwendung namens Choregraphe in der Dialoge und Verhaltensmuster erstellt werden können ohne Code schreiben zu müssen. Hierüber ist der Akkustand und aktuelle Position in Form eines virtuellen Bildes des tatsächlichen NAO einsehbar, sowie der autonome Zustand ein- und ausschaltbar. \cite[/Choregraphe Suite/What is Choregraphe]{naoqi_dev_guide}
+Außerdem gibt es eine Desktop Anwendung namens Choregraphe in der Dialoge und Verhaltensmuster mithilfe vorgefertigter Skripte erstellt werden können. Hierüber ist der Akkustand und aktuelle Position in Form eines virtuellen Repräsentation des tatsächlichen NAO einsehbar, sowie der autonome Zustand ein- und ausschaltbar. \cite[/Choregraphe Suite/What is Choregraphe]{naoqi_dev_guide}
 
-Für die in dieser Masterarbeit benötigten Anwendungen war Python am besten geeignet. Erforderlich waren eine sich wiederholende Schrittabfolge sowie die Aufzeichnung diverser bereits im NAO verbauten Sensoren. Text verarbeitende Funktionen sind in dieser Sprache leicht zu erhalten und anzupassen. Es wurde sich für den \texttt{moveTo()} Befehl als Fortbewegungsmethode entschieden, denn dieser wird durch das Objekt \texttt{post} zu einem sogenannten \textit{non-blocking call}. Dies ermöglicht das Aufrufen von weiteren Befehlen zeitgleich zur Bewegung. Der Nachteil ist, dass der Gang dadurch unbeaufsichtigt vonstatten geht, d.h. NAO kann seine Schritte nicht seiner Umgebung anpassen. Die aufgezeichneten Daten werden in eine csv Datei übertragen und mit Matlab ausgewertet. Im Anhang ist der gesamte Programmcode \ref{Messungscode} abgebildet, welcher auf dem NAO ausgeführt wird. 
+Für die in dieser Masterarbeit benötigten Anwendungen war Python die bevorzugte Sprache, da sie die Aufnahme der Daten einfacher gestaltet und im Gegensatz zu \textit{C++} schneller Korrekturen des Gangs von NAO zulässt.. Erforderlich waren eine sich wiederholende Schrittabfolge sowie die Aufzeichnung diverser bereits im NAO verbauten Sensoren. Text verarbeitende Funktionen sind in dieser Sprache leicht zu erhalten und anzupassen. Es wurde sich für den \texttt{moveTo()} Befehl als Fortbewegungsmethode entschieden, denn dieser wird durch das Objekt \texttt{post} zu einem sogenannten \textit{non-blocking call}. Dies ermöglicht das Aufrufen von weiteren Befehlen zeitgleich zur Bewegung. Der Nachteil ist, dass der Gang dadurch unbeaufsichtigt vonstatten geht, d.h. NAO kann seine Schritte nicht seiner Umgebung anpassen. Die aufgezeichneten Daten werden in eine csv Datei übertragen und mit Matlab ausgewertet. Im Anhang ist der gesamte Programmcode \ref{Messungscode} abgebildet, welcher auf dem NAO ausgeführt wird. 
 
 \subsubsection*{Konstruktionssoftware}	
-Das CAD-Programm Inventor von Autodesk ist für 3D Konstruktionen ausgelegt und bietet einige nützliche Simulationserweiterungen, welche unter anderem einen Shape Generator enthält \cite{inventor}. Dieser kann Flächen minimieren während die Stabilität erhalten bleibt, sodass ein minimaler Anteil an Material verwendet wird \cite{shape_generator}. 
+Das CAD-Programm Inventor von Autodesk ist für 3D Konstruktionen ausgelegt und bietet einige nützliche Simulationserweiterungen, welche unter anderem einen Shape Generator enthält \cite{inventor}. Dieses Tool kann Flächen minimieren während die Stabilität erhalten bleibt, sodass ein minimaler Anteil an Material verwendet wird \cite{shape_generator}. 
 
 Für die Herstellung der Prototypen und Gussformen wurde das FDM (fused deposition modeling) 3D Druckverfahren mit PLA oder PETG Filamenten von filamentworld \cite{filament} verwendet und für die Vorbereitung auf den Druck der Slicer Cura von Ultimaker \cite{cura}.
 
 \subsubsection*{Datenauswertung mit Matlab}
-Für die Auswertung wurden neben der gewöhnlichen \texttt{plot} Funktion von Matlab \cite{matlab} auch die \textit{Statistics and Maschine Learning} Toolbox mit deskriptiver Statistik und Visualisierung verwendet \cite{toolbox}. 
-Eine Messreihe ergibt sich aus 40 Messungswiederholungen, in denen NAO etwa einen Meter zurücklegt. Jede Auswertung enthält das arithmetische Mittel eines Sensors von allen Messungen der Messreihe. Diese Mittel wurden mit dem Befehl \texttt{mean()} berechnet und mit Werten aus weiteren Messreihen, mit anderem Schuh oder anderen Untergrundvoraussetzungen aber gleicher Schrittlänge und Sensorenmessung verglichen. Dieser Vergleich wurde mit den Funktionen \texttt{hist} und \texttt{scatterhist} der genannten Toolbox angestellt. Ersteres erstellt ein Histogramm und ist damit optimal für eine Häufigkeitsverteilung. Zweiteres erstellt einen aus zwei Vektoren resultierenden Scatterplot sowie zwei Histogramme, welche die Häufigkeitsverteilung der jeweiligen Vektoren darstellen. Dies ermöglicht eine umfangreiche Verteilungsanalyse für Sensorausgaben, die sich aus zwei Achsen zusammensetzen, wie z.B. der 2 dimensionalen Gyroskop Ausgabe.
+Für die Auswertung wurden neben der Standard-\texttt{plot}-Funktion von Matlab \cite{matlab} auch die \textit{Statistics and Maschine Learning} Toolbox mit deskriptiver Statistik und Visualisierung verwendet \cite{toolbox}. 
+Eine Messreihe ergibt sich aus 40 Messungswiederholungen, in denen NAO etwa einen Meter zurücklegt. Jede Auswertung enthält das arithmetische Mittel eines Sensors von allen Messungen der Messreihe. Diese Mittel wurden mit dem Befehl \texttt{mean()} berechnet und mit Werten aus weiteren Messreihen, in denen Schuhe oder Untergrundvoraussetzungen bei gleichbleibender Schrittlänge und Sensorenmessung variiert wurden, verglichen. Dieser Vergleich wurde mit den Funktionen \texttt{hist} und \texttt{scatterhist} der genannten Toolbox durchgeführt. Ersteres erstellt ein Histogramm und ist damit optimal für eine Häufigkeitsverteilung geeignet. Zweiteres erstellt einen aus zwei Vektoren resultierenden Scatterplot sowie zwei Histogramme, welche die Häufigkeitsverteilung der jeweiligen Vektoren darstellen. Dies ermöglicht eine umfangreiche Verteilungsanalyse für Sensorausgaben, die sich aus zwei Achsen zusammensetzen, wie z.B. der zweidimensionalen Gyroskop Ausgabe zu sehen in Abb. \ref{Gyr}.
 
 Das arithmetische Mittel berechnet Matlab durch \cite[S.50]{statistik_Ludwig}
 \begin{equation} \label{mean}
@@ -114,35 +114,36 @@ Das arithmetische Mittel berechnet Matlab durch \cite[S.50]{statistik_Ludwig}
 \end{equation}
 und wurde auf eine Messreihe angewendet. Die Darstellung der Verteilungen per Histogramm wurde ergänzt durch ein gleitendes Histogramm, errechnet durch den Kern-Dichteschätzer \cite[S.93]{statistik_Ludwig}
 \begin{align} \label{pdf}
-	\hat{f}(x)=\frac{1}{nh} \sum_{i=1}^{n}K\left(\frac{x - x_i}{h}\right),\, x \in \mathds{R}
+	f(x)=\frac{1}{nh} \sum_{i=1}^{n}K\left(\frac{x - x_i}{h}\right),\, x \in \mathds{R}
 \end{align}
-mit dem Gauss-Kern \cite[S.93]{statistik_Ludwig}, 
+mit der Gesamtanzahl aller Punkte $n$ und der Bandbreite $h$,
+wobei der Gauß-Kern gegeben ist durch \cite[S.93]{statistik_Ludwig}, 
 \begin{align}
 	K(u) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}u^2\right),\, u \in \mathds{R}
 \end{align}
-welcher in Matlab mit \texttt{'Kernel'} und dann standardmäßig mit \texttt{'normal'} in der \texttt{fitdist()} Funktion aufgerufen wird \cite{kernel-distribution} \cite{fitdist}. Das Scatterhistogramm ermöglicht dieselbe Verwendung dieser Distribution. Bei den in dieser Arbeit verwendeten Graphen ist zu beachten, dass die jeweilige x bzw. y Kompontente mit einer Häufigkeitsskala ausgestattet ist, welche sich auf das Histogramm bezieht. Das bedeutet, die Häufigkeit, welche auf der jeweiligen y-Achse der Wahrscheinlichkeitsdichten neben den Scatterplots angezeigt wird, hängt von den Histrogrammbalkenbreite, d.h. von der Breite der x-Achse ab, die wiederum von der Breite des Scatterplots abhängt.  
+welcher in Matlab mit \texttt{'Kernel'} und dann standardmäßig mit \texttt{'normal'} in der \texttt{fitdist()} Funktion aufgerufen wird \cite{kernel-distribution,fitdist}. Matlab verwendet bei keiner weiteren Spezifikation die Bandbreite der Normalverteilung. Das Scatterhistogramm ermöglicht dieselbe Verwendung dieser Distribution. Bei den in dieser Arbeit verwendeten Graphen ist zu beachten, dass die jeweilige x- bzw. y-Komponente mit einer Häufigkeitsskala ausgestattet ist, welche sich auf das Histogramm bezieht. Das bedeutet, die Häufigkeit, welche auf der jeweiligen y-Achse der Wahrscheinlichkeitsdichten neben den Scatterplots angezeigt wird, hängt von den Histogrammbalkenbreite ab. Diese ist wiederum abhängig von der x-Achsenbreite, welche von der Breite des Scatterplots abhängt. 
 
 Schließlich wurde für eine Veranschaulichung der Verteilung der Dichtefunktionen die Halbwertsbreiten für das Gyroskop, den Beschleunigungssensor und die Winkelangabe berechnet mit:
 \begin{align}
 	|x_1 - x_2|&, & \text{für } f(x_1)&=f(x_2)=\frac{1}{2}f(x_\text{max}).
 \end{align}
-
+wobei $x_1$ der erste Funktionswert ist, der über den halben Maximalwert geht und $x_2$ der letzte Wert ist, der noch überhalb liegt. $x_\text{max}$ ist derjenige Wert, bei dem die Funktion ihr Maximum hat erreicht. 
 
 \FloatBarrier
 
 \subsection{Magneto-aktive Polymere}\label{kap_MAP}
 %	 woher kommt der begriff, was ist es
 %	 woher bestand die bisherige Forschung, warum ist es interessant
-Der Begriff Magneto-Aktive Polymere (MAP) gehört zur Gruppe der intelligenten, auf magnetische Felder ansprechende Materialien, welche typischerweise Kombinationen aus einer weichen Polymermatrix und darin eingebetteten, magnetischen Partikeln sind. Diese Partikel werden während dem Vernetzungsprozess des Polymers in dieses eingebettet. 
+Der Begriff magneto-aktive Polymere (MAP) gehört zur Gruppe der intelligenten, auf magnetische Felder ansprechende Materialien, welche typischerweise Kombinationen aus einer weichen Polymermatrix und darin eingebetteten, magnetischen Partikeln sind. Diese Partikel werden während dem Vernetzungsprozess des Polymers in dieses eingebettet. 
 
-Die wesentlichen Verhaltensweisen, die MAP in der heutigen Zeit attraktiv für seine Verwendung macht, wurde bereits in den 80ger Jahren von Rigbi und Jilken \cite{Rigbi1} sowie Rigbi und Mark \cite{Rigbi2} beschrieben. Ein Jahrzehnt später wurde eine genauere Analyse zum ersten Mal von Ginder und Jolly et al. \cite{ginder} veröffentlicht. 
+Die wesentlichen Verhaltensweisen, die MAP in der heutigen Zeit attraktiv für seine Verwendung macht, wurde bereits in den 80-ger Jahren von Rigbi und Jilken \cite{Rigbi1} sowie Rigbi und Mark \cite{Rigbi2} beschrieben. Ein Jahrzehnt später wurde eine genauere Analyse, die die wesentlichen Eigenschaften aufgedeckt hat, von Ginder und Jolly u.a. \cite{ginder} veröffentlicht. 
 Diese aus mehreren Komponenten bestehenden Materialien stechen durch zwei Schlüsseleigenschaften heraus. 
 Zum einen das magnetostriktive Verhalten, bei dem es sich um das Phänomen der Verformung eines Materials handelt, welches durch ein Magnetfeld hervorgerufen wird \cite{Martin_2006}.
-Zum anderen die veränderbaren Materialeigenschaften wie Elastizität und Dämpfungsfaktor, welche hauptsächlich mit der Mikrostruktur des Grundlagenmaterials zusammenhängen. \cite{Varga1} \cite{Varga2}
+Zum anderen die veränderbaren Materialeigenschaften, wie Elastizität und Dämpfungsfaktor, welche hauptsächlich mit der Mikrostruktur des Grundlagenmaterials zusammenhängen, vgl. hierzu \cite{Varga1,Varga2}.
 
 Außerdem ist entscheidend, wie die magnetischen Partikel in das Polymer eingebettet werden. Je nachdem ob während des Vernetzungsprozesses ein Magnetfeld wirkt, können sich die Partikel kettenförmig ausrichten und dadurch dem MAP eine anisotropisches Verhalten zuführen. Isotropisches MAP hingegen enthält keine gerichteten Partikel. Diese verschiedenen Ausrichtungsarten und Herstellungsarten können sowohl die Steifigkeit verändern, als auch bestimmen, ob das MAP in einem Magnetfeld ausgedehnt oder zusammengedrückt wird. 
 
-Weiche, mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche in akademischen und industriellen Bereichen. Angefangen von anpassungsfähiger Vibrationsabsorption in der Luftfahrt und Automobilindustrie durch das Einsetzen durch Scherung \cite{Ginder_Schlotter_Nichols} \cite{Deng_Gong}, Windung \cite{Hoang_Zhang_Li_Du} und Kompression bzw. Elongation \cite{Kallio_2007} und Vibrationsisolatoren \cite{Ginder_2000} sowie Sensoren \cite{Ginder_2000} \cite{Martin_2006}, Ventile und Aktoren \cite{Boese_2012} \cite{Keip_2014} und anpassungsfähige, sandwichartige Strukturen \cite{Zhou_2005} \cite{Zhou_2006} \cite{Wei_2008} bis hin zur Anwendung in der Bionik wie zum Beispiel durch Mikro- und Nanoroboter und Schwimmroboter \cite{Qiu_2015} \cite{Xu_2015} \cite{Lum_2016} \cite{Hu_2018}, Schlauchradpumpen \cite{Fuhrer_2013} und Erschütterungsdämpfer \cite{Li_2013}.
+Weiche, d.h. mit einem Feld manipulierbare, Polymere haben diverse Anwendungsbereiche in akademischen und industriellen Bereichen. Angefangen von anpassungsfähiger Vibrationsabsorption in der Luftfahrt und Automobilindustrie durch das Einsetzen durch Scherung \cite{Ginder_Schlotter_Nichols,Deng_Gong}, Windung \cite{Hoang_Zhang_Li_Du} und Kompression bzw. Elongation \cite{Kallio_2007} und Vibrationsisolatoren \cite{Ginder_2000} sowie Sensoren \cite{Ginder_2000,Martin_2006}, Ventile und Aktoren \cite{Boese_2012,Keip_2014} und anpassungsfähige, sandwichartige Strukturen \cite{Zhou_2005,Zhou_2006,Wei_2008} bis hin zur Anwendung in der Bionik wie zum Beispiel durch Mikro- und Nanoroboter und Schwimmroboter \cite{Qiu_2015,Xu_2015,Lum_2016,Hu_2018}, Schlauchradpumpen \cite{Fuhrer_2013} und Erschütterungsdämpfer \cite{Li_2013}.
 
 Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer genutzt \cite{Qi_2020}, ebenso wird der 3D Druck von magneto-aktiven Polymeren \cite{Sindersberger_2018} bereits erforscht.
 
@@ -162,17 +163,17 @@ Des Weiteren wird die Verhärtung bei Anlegen eines Magnetfeldes für Greifer ge
 \end{wrapfigure}
 % magnetische Eigenschaften -> suszeptibiltiät
 % Was sagt suszeptibilität aus? Was bedeutet das für das Carbonyleisenpulver
-Bei den in dieser Arbeit verwendeten magnetischen Partikel für die Herstellung des MAP handelt es sich um das von BASF vor über 85 Jahren entdeckte Carbonyleisenpulver (engl. \textit{carbonyl iron powder)}, CIP) \cite{basf_cip_allg}. 
+Bei den in dieser Arbeit verwendeten magnetischen Partikel für die Herstellung des MAP handelt es sich um das von BASF vor über 85 Jahren entdeckte Carbonyleisenpulver (engl. \textit{carbonyl iron powder}, CIP) \cite{basf_cip_allg}. 
 Es wird durch thermische Zersetzung von Eisenpentacarbonyl hergestellt und besteht aus Teilchen in einer Größenordnung von 5 bis $1 \unit{\mu m}$.
 
 % bin mir nicht sicher, ob hier noch mehr hin muss
-
-Die magnetischen Eigenschaften dieses Materials lassen sich durch die Suszeptibilität \cite[Gleichung (2)]{Gorodkin}
-\begin{equation}
-	\chi = \frac{3 \chi_p}{3 + \chi_p} \,\phi
-\end{equation}
-mit $\chi_p$ als Suszeptibilität der einzelnen Teilchen und einem Partikel Volumen $\phi$ welches sehr viel kleiner als 1 ist, beschreiben. 
-CIP zählt zu den ferromagnetisch weichen Materialien, was sich durch Untersuchungen der Hysteresekurve veranschaulichen lässt, wie zum Beispiel von Liu u.a. \cite{Magnetorheological_Elastomers} zu sehen in Abb. \ref{Hysterese}
+%
+%Die magnetischen Eigenschaften dieses Materials lassen sich durch die Suszeptibilität \cite[Gleichung (2)]{Gorodkin}
+%\begin{equation}
+%	\chi = \frac{3 \chi_p}{3 + \chi_p} \,\phi
+%\end{equation}
+%mit $\chi_p$ als Suszeptibilität der einzelnen Teilchen und einem Partikel Volumen $\phi$ welches sehr viel kleiner als 1 ist, beschreiben. 
+CIP zählt zu den ferromagnetisch weichen Materialien, was sich durch Untersuchungen der Hysteresekurve veranschaulichen lässt, wie zum Beispiel von Liu u.a. \cite{Magnetorheological_Elastomers} zu sehen in Abb.~\ref{Hysterese}.
 
 
 

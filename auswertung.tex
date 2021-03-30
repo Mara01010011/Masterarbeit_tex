@@ -1,29 +1,8 @@
-In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeutung graphisch analysiert. Hierbei werden die Aufnahmen von zwei dimensionalen Ausgaben, welche das Gleichgewicht des Roboters widerspiegeln und die Werte der Aktoren in den Gelenken unterschieden.
+In diesem Kapitel werden die aufgenommenen Messungen ausgewertet und deren Bedeutung graphisch analysiert. Hierbei werden die Aufnahmen von zweidimensionalen Ausgaben, welche das Gleichgewicht des Roboters widerspiegeln und die Werte der Aktoren in den Gelenken unterschieden.
 
 \subsection{Gleichgewichtssensoren} \label{gleichgewicht}
 
-Wie in Kapitel \ref{software} beschrieben, werden zwei dimensionale Ausgaben, wie die x- und y-Ausgabe des Gyroskops, in einem Scatterhistogramm dargestellt, welches es ermöglicht, die Dichteverteilung einzusehen. 
-
-\begin{figure}[b!]
-	\centering
-	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{+20pt}
-		\begin{subfigure}[c]{.5\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/Gyr_Grund_20_40_60_ohneM.pdf}
-			\caption{ohne Magneten} \label{Gyr_ohne}
-			\vspace{5pt}
-		\end{subfigure}
-		\hspace{-35pt}
-		\begin{subfigure}[c]{.5\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/Gyr_Grund_20_40_60_mitM.pdf}
-			\caption{mit Magneten} \label{Gyr_mit}
-			\vspace{5pt}
-		\end{subfigure}
-	\end{adjustwidth}
-	\caption{Ausgabe des Gyroskops, x-Achse auf y-Achse mit jeweiliger Wahrscheinlichkeitsdichtefunktion}\label{Gyr}
-\end{figure}
+Wie in Kapitel \ref{software} beschrieben, werden zweidimensionale Ausgaben, wie die x- und y-Ausgabe des Gyroskops, in einem Scatterhistogramm dargestellt, welches es ermöglicht, die Dichteverteilung zu visualisieren. 
 
 In Abb. \ref{Gyr} sind die Aufnahmen des Gyroskops zu erkennen. Jede Ausgabe besteht aus 220 Punkten, da dies die Anzahl der Messdurchläufe pro Lauf sind. Jeder Wert wurde durch das arithmetische Mittel aus Gleichung \eqref{mean} aller Messpunkte zu diesem Zeitpunkt ermittelt. Der Graph \ref{Gyr_ohne} ist die Ausgabe für die Messungen ohne Magneten an der Rampenunterseite, in \ref{Gyr_mit} ist die für die Messungen mit Magneten. Die jeweils zwei errechneten Dichteverteilung am linken und am unteren Rand des Hauptplots spiegeln die Verteilung des Scatterplots eindimensional wider. Die vereinzelten Punkte unterhalb von $-0,3 \unit{rad/s}$ sind dem Beginn der Messung geschuldet, während derer NAO sich in aufrechtem Stand befindet. Sobald der Roboter die laufende Haltung einnimmt, wird der Torso deshalb relativ schnell bewegt. Dies wird während der restlichen Aufnahmen nur passieren, wenn NAO umfällt. 
 %Sollte ich hierfür das Gyroskop einmal auf die Zeit gesehen zeigen?
@@ -33,60 +12,23 @@ In Abb. \ref{Gyr} sind die Aufnahmen des Gyroskops zu erkennen. Jede Ausgabe bes
 Bei einem stabilen Gang würde man erwarten, dass die Geschwindigkeit, in der sich der Torso bewegt, gering bleibt. Dies bedeutet, je mehr Ausschwankungen zu sehen sind, desto instabiler läuft dieser Roboter und desto eher würde er das Gleichgewicht verlieren. 
 % was würde man erwarten, wenn NAO stabil läuft
 
-In Abb. \ref{Gyr} ist eine Tendenz von stabiler werdendem Gang von ohne Magneten zu mit Magneten zu erkennen. Allerdings fällt dies auch für den Originalschuh auf, welcher kein MAP enthält. Grund hierfür könnte der etwa $1\unit{cm}$ breite Magnet sein, welcher den unteren Teil des Schuhs in Stellung hält, bevor die Schrauben zur Befestigung verwendet werden.
+In Abb. \ref{Gyr} ist eine Tendenz von stabiler werdendem Gang von ohne Magneten zu dem mit Magneten zu erkennen. Allerdings fällt dies auch für den Originalschuh auf, welcher kein MAP enthält. Grund hierfür könnte der etwa $1\unit{cm}$ breite Magnet sein, welcher den unteren Teil des Schuhs in Stellung hält, bevor die Schrauben zur Befestigung verwendet werden.
 
 Des Weiteren heben sich die Sohlen mit $20\,\%$ CIP Anteil besonders hervor. Durch die Magneten erfahren sie ebenfalls eine minimale Verbesserung. Hierbei sollte erwähnt werden, dass diese Sohle mit der gedruckten Halterung dem Gewicht der Originalsohle am nächsten kommt und dadurch die Stabilität vielleicht besser gewährleistet ist. Die stärkste Auswirkung sowohl für die x- als auch die y-Achse gab es für $60\,\%$ CIP Anteil. Dies ist nicht verwunderlich, da hier die größte magnetische Kraft wirkt. 
 % erst dann: man sieht eine Tendenz, dass es mit Magneten stabiler ist. 20% ist von vorn herein sehr stabil, der Grundschuh sowie 40% zeigen zeigt in y-Achse eine starke verbesserung mit Magneten, 60% zeigt in allen Achsen eine Verbesserung der Stabilität
 
-\begin{figure}[htb]
-	\centering
-	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{+45pt}
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/Beschleunigung_Grund_20_40_60_ohneM.pdf}
-			\caption{ohne Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-		%\hfill
-		\hspace{-25pt}
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/Beschleunigung_Grund_20_40_60_mitM.pdf}
-			\caption{mit Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-	\end{adjustwidth}
-	\caption{Ausgabe des Beschleunigungssensors, x-Achse auf y-Achse mit jeweiliger Wahrscheinlichkeitsdichtefunktion} \label{Acc}
-\end{figure}
-Die Beschleunigungssensoren messen wie bereits erwähnt in $\unit{m/s^2}$ die Beschleunigung des Torsos. Deshalb ist ebenfalls zu erwarten, dass bei einem stabilen Gang diese Werte sich in der Nähe des Nullpunkts zentrieren, sollte NAO stabil laufen. Genau wie in Abb. \ref{Gyr} zeigen die Graphen in Abb. \ref{Acc} eine Tendenz zu einem stabileren Lauf mit Magneten. Auch hier wirken die $20\,\%$igen Proben außergewöhnlich stabil, während die $60\,\%$igen Proben in x-Richtung von den Magneten am meisten Profitieren. Gleichzeitig verhalten sich $40$ zu $60\,\%$ in y-Richtung ähnlich. 
+Die Beschleunigungssensoren messen die Beschleunigung des Torsos. Deshalb ist ebenfalls zu erwarten, dass bei einem stabilen Gang diese Werte sich in der Nähe des Nullpunkts zentrieren, sollte NAO stabil laufen. Genau wie in Abb. \ref{Gyr} zeigen die Graphen in Abb. \ref{Acc} eine Tendenz zu einem stabileren Lauf mit Magneten. Auch hier wirken die $20\,\%$igen Proben außergewöhnlich stabil, während die $60\,\%$igen Proben in x-Richtung von den Magneten am meisten Profitieren. Gleichzeitig verhalten sich $40\,\%$ zu $60\,\%$ in y-Richtung ähnlich. 
 % abb 14: Gleiche Graphenaufteilung, ähnliches Ergebnis
 
-\begin{figure}[tb]
-	\centering
-	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{45pt}
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/Winkel_Grund_20_40_60_ohneM.pdf}
-			\caption{ohne Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-		\hspace{-20pt}
-		%\hfill
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/Winkel_Grund_20_40_60_mitM.pdf}
-			\caption{mit Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-	\end{adjustwidth}
-	\caption{Echtzeit errechneter Winkel, x-Achse auf y-Achse mit jeweiliger Wahrscheinlichkeitsdichtefunktion} \label{Angle}
-\end{figure}
-Die Winkelwerte in Abb. \ref{Angle} entstehen aus der Berechnung durch Gyroskop und Beschleunigungssensor. Da beide alle Graphen zuvor eine Tendenz von höherer Stabilität durch Magneten aufwiesen, ist zu erwarten, dass dies bei den Winkelgraphen auch der Fall ist. In der y-Achse ist eine Verbesserung von $40$ und $60\,\%$ erkennbar. In x-Richtung scheint $40\,\%$iges MAP am meisten zu profitieren, allerdings gilt für den Originalschuh eher das Gegenteil. 
+Die Winkelwerte in Abb. \ref{Angle} entstehen aus der Berechnung durch Gyroskop und Beschleunigungssensor. Da alle Graphen zuvor eine Tendenz von höherer Stabilität durch Magneten aufwiesen, ist zu erwarten, dass dies bei den Winkelgraphen auch der Fall ist. In der y-Achse ist eine Verbesserung von $40\,\%$ und $60\,\%$ erkennbar. In x-Richtung scheint $40\,\%$iges MAP am meisten zu profitieren, allerdings gilt für den Originalschuh eher das Gegenteil. 
 % abb 15: Ist aus den Werten, welche in abb 13 und 14 zu sehen sind errechnet. deshalb auch hier ähnliches Ergebnis
 
-In Abb. \ref{fwhm} wurden die Halbwertsbreiten aller Dichtefunktionen von den Graphen aus Abb. \ref{Gyr} bis \ref{Angle} berechnet. Diese Werte sind aufgeteilt in die 4 Schuharten von Originalschuh bis $60\,\%$, ein höherer Wert bedeutet eine größere Instabilität. Es fällt auf, dass alle Originalschuhmessungen und für $20\,\%$ nah beieinander liegen. Hingegen sind die Unterschiede ohne und mit Magneten für höhere Prozente in den meisten Fällen deutlich größer. Dies bestätigt, dass das Magnetfeld den größten Einfluss auf MAP Sohlen mit höherem CIP Anteil hat. 
+\input{gyroskop.tex}
+\input{beschleunigung.tex}
+\input{winkel.tex}
+
+
+In Abb. \ref{fwhm} wurden die Halbwertsbreiten aller Dichtefunktionen von den Graphen aus Abb. \ref{Gyr} bis \ref{Angle} berechnet. Diese Werte sind aufgeteilt in die vier Schuharten von Originalschuh bis $60\,\%$, ein höherer Wert bedeutet eine größere Instabilität. Es fällt auf, dass alle Originalschuhmessungen und die für $20\,\%$ nah beieinander liegen. Hingegen sind die Unterschiede ohne und mit Magneten für höhere Prozente in den meisten Fällen deutlich größer. Dies bestätigt, dass das Magnetfeld den größten Einfluss auf MAP Sohlen mit höherem CIP Anteil hat. 
 \begin{figure}[tb!]
 	\centering
 	\begin{adjustwidth}{-0.1\linewidth}{-0.1\linewidth}
@@ -135,55 +77,16 @@ In Abb. \ref{fwhm} wurden die Halbwertsbreiten aller Dichtefunktionen von den Gr
 	\caption{Halbwertsbreiten der jeweiligen Achsen für Gyroskop, Beschleunigungssensor und Winkelangabe.} \label{fwhm}
 \end{figure}
 
-
-\begin{figure}[tb]
-	\centering
-	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{40pt}
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/links_CoM_ohneM.pdf}
-			\caption{ohne Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-		\hspace{-10pt}
-		%\hfill
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/links_CoM_mitM.pdf}
-			\caption{mit Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-	\end{adjustwidth}
-	\caption{Linker errechneter Massenschwerpunkt aufgenommen durch die FSR, x-Achse auf y-Achse mit jeweiliger Wahrscheinlichkeitsdichtefunktion} \label{CoM_links}
-\end{figure}
-\begin{figure}[tb]
-	\centering
-	\begin{adjustwidth}{-0.2\linewidth}{-0.2\linewidth}
-		\hspace{40pt}
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/rechts_CoM_ohneM.pdf}
-			\caption{ohne Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-		\hspace{-10pt}
-		%\hfill
-		\begin{subfigure}[c]{.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/rechts_CoM_mitM.pdf}
-			\caption{mit Magneten}
-			\vspace{5pt}
-		\end{subfigure}
-	\end{adjustwidth}
-	\caption{Rechter errechneter Massenschwerpunkt aufgenommen durch die FSR, x-Achse auf y-Achse mit jeweiliger Wahrscheinlichkeitsdichtefunktion} \label{CoM_rechts}
-\end{figure}
-Das hier verwendete Modell von NAO bietet die Möglichkeit die Stabilität des Gangs über die in Kapitel \ref{aufbau_NAO} erwähnten Drucksensoren in den Fußsohlen zu messen. Die errechneten Werte der zweidimensionalen Massenschwerpunkte durch die 8 FSR Sensoren sind in Abb \ref{CoM_links} und \ref{CoM_rechts} zu sehen. Auf einer Zeitskala aufgetragen lässt sich erkennen, dass zu Beginn der Messaufzeichnungen einige y-Werte sich in der Nähe von $-0,02$ bzw. $0,02$ aufhalten. Dies geschieht während des Gangs allerdings nicht, daher entsteht bei allen Aufnahmen ein zu vernachlässigender Sammelbereich im rechten unteren Bereich bei Abb. \ref{CoM_links} und im rechten oberen Bereich von Abb. \ref{CoM_rechts}. 
+Das hier verwendete Modell von NAO bietet die Möglichkeit die Stabilität des Gangs über die in Kapitel \ref{aufbau_NAO} erwähnten Drucksensoren in den Fußsohlen zu messen. Die errechneten Werte der zweidimensionalen Massenschwerpunkte durch die 8 FSR Sensoren sind in Abb \ref{CoM_links} und \ref{CoM_rechts} zu sehen. Auf einer Zeitskala aufgetragen lässt sich erkennen, dass zu Beginn der Messaufzeichnungen einige y-Werte sich in der Nähe von $-0,02$ bzw. $0,02$ aufhalten. Dies geschieht während des Gangs allerdings nicht. Daher entsteht bei allen Aufnahmen ein zu vernachlässigender Sammelbereich im rechten unteren Bereich bei Abb. \ref{CoM_links} und im rechten oberen Bereich von Abb. \ref{CoM_rechts}. 
 
 In beiden Abbildungen ist wie bei den bisherigen Graphen die erhöhte Stabilität mit Magneten sichtbar. Die Werte liegen konzentrierter um einen Punkt. Hier ist der Unterschied zwischen dem Originalschuh größer, denn wie in Abb. \ref{total_weight} gezeigt, vermessen die FSR weniger mit den MAP Sohlen, die größte Differenz ist in Abb. \ref{CoM_rechts} zu sehen, bei der das Maximum der Dichteverteilung der y-Achse deutlich weiter links liegt. Auf der x-Achse ist zu vermerken, dass der Originalschuh durch das Magnetfeld eher an Stabilität verliert, während alle anderen Sohlen der Stabilität zuträglich sind.  
 % abb 16 und 17 sind aus den FSR Daten entstanden und weißen eine ebenfalls weisen nur für die MAP sohlen unterschiede auf, aber kaum für den Grundschuh. 
 
-In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der MAP Sohle ungewöhnlich stabil sind, was auf einen Zufall hindeuten könnte. Denn insgesamt gab es zwei Fehlschläge bei denen NAO das Gleichgewicht verloren hat, einmal mit $20\,\%$ und einmal mit $40\,\%$, beides mit Magneten an der Rampe. Außerdem wurde bei früheren Messungen eine erhöhte Stabilität bei $40\,\%$ im Vergleich zu anderen Proben und dem Grundschuh festgestellt, allerdings nicht so deutlich wie diese $20\,\%$ Dies lässt darauf schließen, dass für eine Sicherstellung der Unterschiede zwischen den einzelnen Proben deutlich mehr Testläufe erforderlich sind. Dennoch lässt sich abschließend sagen, dass ein stabilerer Lauf durch die Magneten erzielen wurde. Die größte Auswirkung hatten die Magneten wie zu erwarten war auf die Proben mit einem höheren CIP Anteil. Gleichzeitig sind diese Sohlen allerdings bis zu doppelt so schwer wie der Originalschuh, siehe Tabelle \ref{gewicht}. 
+In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der MAP Sohle ungewöhnlich stabil sind. Allerdings ist ein Zufall nicht auszuschließen, denn insgesamt gab es zwei Fehlschläge bei denen NAO das Gleichgewicht verloren hat, einmal mit $20\,\%$ und einmal mit $40\,\%$, beides mit Magneten an der Rampe. Außerdem wurde bei früheren Messungen eine erhöhte Stabilität bei $40\,\%$ im Vergleich zu anderen Proben und dem Grundschuh festgestellt, allerdings nicht so deutlich wie diese $20\,\%$. Dies lässt darauf schließen, dass für eine Sicherstellung der Unterschiede zwischen den einzelnen Proben deutlich mehr Testläufe erforderlich sind. Dennoch lässt sich abschließend sagen, dass ein stabilerer Lauf durch die Magneten erzielen wurde. Die größte Auswirkung hatten die Magneten wie zu erwarten war auf die Proben mit einem höheren CIP Anteil. Gleichzeitig sind diese Sohlen allerdings bis zu doppelt so schwer wie der Originalschuh, siehe Tabelle \ref{gewicht}. 
+
+
+\input{com_links.tex}
+\input{com_rechts.tex}
 
 % Warum diese Auswertung mit Vorsicht zu genießen ist: frühere Auswertung
 % Ungenauigkeiten der FSR
@@ -201,6 +104,7 @@ In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der M
 %Die Annahme ist, dass ein höherer Strom mehr Reibungs- oder Haftwiderstand bedeuten. Leider ist die Datenlage hier sehr uneindeutig. 
 
 \FloatBarrier
+\newpage
 \subsection{Sensoren der Aktoren}
 
 \begin{figure}[tb]
@@ -222,7 +126,7 @@ In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der M
 %			\vspace{5pt}
 		\end{subfigure}
 %	\end{adjustwidth}
-	\caption{AnklePitch gemessener Strom im linken Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnklePitch_Current_links}
+	\caption{\texttt{AnklePitch} gemessener Strom im linken Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnklePitch_Current_links}
 \end{figure}
 \begin{figure}[tb]
 	\centering
@@ -243,7 +147,7 @@ In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der M
 %			\vspace{5pt}
 		\end{subfigure}
 %	\end{adjustwidth}
-	\caption{AnklePitch gemessener Strom im rechter Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnklePitch_Current_rechts}
+	\caption{\texttt{AnklePitch} gemessener Strom im rechter Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnklePitch_Current_rechts}
 \end{figure}
 
 \begin{figure}[tb]
@@ -265,7 +169,7 @@ In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der M
 		%			\vspace{5pt}
 	\end{subfigure}
 	%	\end{adjustwidth}
-	\caption{AnkleRoll gemessener Strom im linken Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnkleRoll_Current_links}
+	\caption{\texttt{AnkleRoll} gemessener Strom im linken Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnkleRoll_Current_links}
 \end{figure}
 \begin{figure}[tb]
 	\centering
@@ -286,17 +190,17 @@ In allen Graphen ist ersichtlich, dass die Probeläufe mit $20\,\%$ CIP in der M
 %		\vspace{5pt}
 	\end{subfigure}
 	%	\end{adjustwidth}
-	\caption{AnkleRoll gemessener Strom im rechter Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnkleRoll_Current_rechts}
+	\caption{\texttt{AnkleRoll} gemessener Strom im rechter Fuß, Strom in Ampère aufgetragen auf die Häufigkeit.} \label{AnkleRoll_Current_rechts}
 \end{figure}
-Es wird angenommen, dass die Stromausgabe eine Größe ist, die den Aufwand anzeigt, die NAO aufwenden muss, um seine Bewegung so auszuführen, wie es seine Programmierung vorgibt. In Kapitel \ref{aufbau_NAO} wurden diese Aktoren und die messbaren Größen vorgestellt. Bei einem Probelauf wurden alle Sensoren von der Hüfte abwärts gemessen. Hierbei stellte sich heraus, dass der linke AnklePitch im Durchschnitt einen höheren Stromwert ausgab, ebenso das rechte Kniegelenk KneePitch. Außerdem ist für das Hüftgelenk keine Bewegung vorgesehen, aber eine zu vermessen. Dies liegt daran, dass NAO automatisch Fehler der Motoren ausgleicht. Dennoch ist deshalb der Gang, welcher standardmäßig gerade aus führen sollte, leicht gebogen. 
+Es wird angenommen, dass die Stromausgabe eine Größe ist, die den Aufwand anzeigt, die NAO aufwenden muss, um seine Bewegung so auszuführen, wie es seine Programmierung vorgibt. In Kapitel \ref{aufbau_NAO} wurden diese Aktoren und die messbaren Größen vorgestellt. Bei einem Probelauf wurden alle Sensoren von der Hüfte abwärts gemessen. Hierbei stellte sich heraus, dass der linke \texttt{AnklePitch} im Durchschnitt einen höheren Stromwert ausgab, ebenso das rechte Kniegelenk \texttt{KneePitch}. Außerdem ist für das Hüftgelenk keine Bewegung vorgesehen, aber eine zu vermessen. Dies liegt daran, dass NAO automatisch Fehler der Motoren ausgleicht. Dennoch ist deshalb der Gang, welcher standardmäßig gerade aus führen sollte, leicht gebogen. 
 
-Um den Gesamtaufwand einzusehen, müssten alle Aktoren aufgenommen werden. Der Nachteil bei dieser Methode ist, dass dadurch die Messzeiten verlängert würden und damit weniger Messungen pro Gang aufgezeichnet werden können. Deshalb wurde sich auf die Fußgelenke beschränkt, welche einen Hinweis auf verstärkte Haftung der Sohle auf dem Untergrund geben könnte. AnklePitch ist in dem Abb. \ref{hardware_legjoint} auf der linken Seite zu sehen, AnkleRoll auf der rechten Seite. 
+Um den Gesamtaufwand einzusehen, müssten alle Aktoren aufgenommen werden. Der Nachteil bei dieser Methode ist, dass dadurch die Messzeiten verlängert würden und damit weniger Messungen pro Gang aufgezeichnet werden können. Deshalb wurde sich auf die Fußgelenke beschränkt, welche einen Hinweis auf verstärkte Haftung der Sohle auf dem Untergrund geben könnte. \texttt{AnklePitch} ist in dem Abb. \ref{hardware_legjoint} auf der linken Seite zu sehen, \texttt{AnkleRoll} auf der rechten Seite. 
 
 Die Abb. \ref{AnklePitch_Current_links} und \ref{AnklePitch_Current_rechts} sowie Abb. \ref{AnkleRoll_Current_links} und \ref{AnkleRoll_Current_rechts} zeigen im oberen Bereich die Graphen ohne Magneten, im unteren Teil die mit Magneten. Die Grundlage der Wahrscheinlichkeitsdichtefunktionen welche aus Gleichung \eqref{pdf} errechnet wurden, sind Histogramme mit einer Balkenanzahl von 20.
 
-Sowohl für AnklePitch als auch AnkleRoll lässt sich keine eindeutige Veränderung erkennen, wenn ein Magnetfeld anliegt. Bis auf Abb. \ref{AnklePitch_Current_rechts} lässt sich kein höherer Strom für die Grundmessung mit dem Originalschuh feststellen. Des Weiteren ist von dem außergewöhnlich stabilen Gang von $20\,\%$ welcher im vorherigen Kapitel zu sehen war, nichts zu erkennen. Ein erwarteter höherer Stromverbrauch für $60\,\%$ wegen des Gewichts und des hohen CIP Anteils ist ebenfalls ausgeblieben. 
+Sowohl für \texttt{AnklePitch} als auch \texttt{AnkleRoll} lässt sich keine eindeutige Veränderung erkennen, wenn ein Magnetfeld anliegt. Bis auf Abb. \ref{AnklePitch_Current_rechts} lässt sich kein höherer Strom für die Grundmessung mit dem Originalschuh feststellen. Des Weiteren ist von dem außergewöhnlich stabilen Gang von $20\,\%$ welcher im vorherigen Kapitel zu sehen war, nichts zu erkennen. Ein erwarteter höherer Stromverbrauch für $60\,\%$ wegen des Gewichts und des hohen CIP Anteils ist ebenfalls ausgeblieben. 
 
-Es scheint keine erheblichen Auswirkungen auf die beiden Fußgelenke zu geben, was darauf schließen lässt, dass es während der Bewegung trotz höherer Stabilität keinen höheren Aufwand für NAO gibt. Außerdem bleibt eine befürchtete höhere Haftung der Oberflächen durch die magnetische Kraft aus. Für eingehendere Untersuchungen müssten alle Aktoren gemessen werden, was in den Rahmen der Arbeit zeitlich nicht mehr gepasst hat. 
+Es scheint keine erheblichen Auswirkungen auf die beiden Fußgelenke zu geben, was darauf schließen lässt, dass es während der Bewegung trotz höherer Stabilität keinen höheren Aufwand für NAO gibt. Außerdem bleibt eine befürchtete höhere Haftung der Oberflächen durch die magnetische Kraft aus. Für eingehendere Untersuchungen müssten alle Aktoren gemessen werden, was den zeitlichen Rahmen dieser Arbeit überstiegen hätte. 
 
 % Warum genau diese Aktoren messen? -> Anziehung der Schuhe
 % Warum nicht mehr aufnehmen?
